@@ -242,7 +242,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "adapt-agency",
-    companyName: "Adapt agency",
+    companyName: "Adapt Agency",
     companyLogo: "/images/experiences/adapt-agency.png",
     companyWebsite: "https://www.adaptagency.com/",
     positions: [
@@ -256,7 +256,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Full-time",
         icon: "code",
         description:
-          "- Developed and maintained large-scale frontend applications using React.js, TypeScript, HTML5, and CSS3.\n- Built 100+ reusable production-grade UI components, improving scalability and consistency across products.\n- Collaborated with Agile teams to translate product and design requirements into performant frontend implementations, accelerating delivery by ~25%.\n- Resolved 300+ production issues and improved platform stability through debugging, testing, and release support.\n- Implemented responsive, cross-browser compatible interfaces for consistent desktop and mobile experiences.",
+          "- Developed and maintained large-scale web applications using React.js, TypeScript, HTML5, and CSS3, delivering reusable and maintainable UI component architectures.\n- Built over 100+ production-grade UI components following modern frontend patterns, improving development scalability and consistency across applications.\n- Collaborated within Agile teams to translate product and design requirements into performant frontend implementations, accelerating feature delivery timelines by approximately 25%.\n- Led frontend debugging and stabilization efforts, resolving 300+ production issues across application lifecycle stages and improving platform reliability.\n- Implemented responsive layouts and cross-browser compatible interfaces ensuring consistent user experience across desktop and mobile environments.\n- Participated in continuous integration workflows, application testing, and release cycles to maintain production stability.",
         skills: [
           "React",
           "TypeScript",
@@ -280,7 +280,7 @@ export const EXPERIENCES: Experience[] = [
     companyName: "Technical University of Denmark (DTU)",
     positions: [
       {
-        id: "3",
+        id: "1",
         title: "Bachelor of Science (BSc) in Software Technology",
         employmentPeriod: {
           start: "09.2013",
