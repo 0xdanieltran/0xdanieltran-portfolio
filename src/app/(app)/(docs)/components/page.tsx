@@ -71,18 +71,6 @@ export default function Page() {
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {metadata.description}
         </p>
-
-        {/* <div className="flex items-center gap-1.5 *:data-[slot=tag]:gap-1.5">
-          <Tag className="font-sans font-medium">
-            <Icons.react />
-            React 19
-          </Tag>
-
-          <Tag className="font-sans font-medium">
-            <Icons.tailwindcss />
-            Tailwind CSS v4
-          </Tag>
-        </div> */}
       </div>
 
       <div className="screen-line-top screen-line-bottom relative">
