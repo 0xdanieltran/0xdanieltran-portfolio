@@ -5,8 +5,6 @@ import { useHotkeys } from "react-hotkeys-hook"
 
 import { META_THEME_COLORS } from "@/config/site"
 import { useMetaColor } from "@/hooks/use-meta-color"
-import { useSound } from "@/hooks/use-sound"
-import { SOUNDS } from "@/lib/sounds"
 
 import { MoonIcon } from "./animated-icons/moon"
 import { SunMediumIcon } from "./animated-icons/sun-medium"
@@ -19,10 +17,7 @@ export function ThemeToggle() {
 
   const { setMetaColor } = useMetaColor()
 
-  const playClick = useSound(SOUNDS.click)
-
-  const switchTheme = (sound = true) => {
-    if (sound) playClick(0.2)
+  const switchTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
     setMetaColor(
       resolvedTheme === "dark"
@@ -31,7 +26,7 @@ export function ThemeToggle() {
     )
   }
 
-  useHotkeys("d", () => switchTheme(false))
+  useHotkeys("d", () => switchTheme())
 
   return (
     <Tooltip>

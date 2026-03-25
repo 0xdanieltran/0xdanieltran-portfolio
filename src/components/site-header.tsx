@@ -1,23 +1,16 @@
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
-import blocks from "@/__registry__/__blocks__.json"
 import { DesktopNav } from "@/components/desktop-nav"
 import { NavItemGitHub } from "@/components/nav-item-github"
 import { SiteHeaderMark } from "@/components/site-header-mark"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Separator } from "@/components/ui/separator"
 import { MAIN_NAV } from "@/config/site"
-import { getAllDocs } from "@/features/doc/data/documents"
-import type { DocPreview } from "@/features/doc/types/document"
 import { cn } from "@/lib/utils"
 
 const BrandContextMenu = dynamic(() =>
   import("@/components/brand-context-menu").then((mod) => mod.BrandContextMenu)
-)
-
-const CommandMenu = dynamic(() =>
-  import("@/components/command-menu").then((mod) => mod.CommandMenu)
 )
 
 const MobileNav = dynamic(() =>
@@ -25,15 +18,6 @@ const MobileNav = dynamic(() =>
 )
 
 export function SiteHeader() {
-  const posts = getAllDocs()
-
-  // Minimize data serialized to client component - only send necessary fields
-  const postPreviews: DocPreview[] = posts.map((post) => ({
-    slug: post.slug,
-    title: post.metadata.title,
-    category: post.metadata.category,
-  }))
-
   return (
     <>
       <header className="sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2">
@@ -53,7 +37,6 @@ export function SiteHeader() {
           <DesktopNav items={MAIN_NAV} />
 
           <div className="flex items-center *:first:mr-2 max-sm:*:data-[slot=command-menu-trigger]:hidden">
-            <CommandMenu posts={postPreviews} blocks={blocks} enabledHotkeys />
             <NavItemGitHub />
             <Separator
               orientation="vertical"
@@ -72,7 +55,6 @@ export function SiteHeader() {
           "*:data-[slot=command-menu-trigger]:min-w-20 *:data-[slot=command-menu-trigger]:gap-2 *:data-[slot=command-menu-trigger]:rounded-none *:data-[slot=command-menu-trigger]:border-none *:data-[slot=command-menu-trigger]:bg-transparent *:data-[slot=command-menu-trigger]:px-0 *:data-[slot=command-menu-trigger]:hover:bg-transparent *:data-[slot=command-menu-trigger]:active:scale-none"
         )}
       >
-        <CommandMenu posts={postPreviews} blocks={blocks} />
         <Separator
           orientation="vertical"
           className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"

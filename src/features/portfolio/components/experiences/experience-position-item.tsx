@@ -19,8 +19,10 @@ import { ExperienceIcon } from "./experience-position-icon"
 
 export function ExperiencePositionItem({
   position,
+  companyName,
 }: {
   position: ExperiencePosition
+  companyName: string
 }) {
   const { start, end } = position.employmentPeriod
   const isOngoing = !end
@@ -38,6 +40,11 @@ export function ExperiencePositionItem({
           "outline-none focus-visible:before:ring-2 focus-visible:before:ring-ring/50 focus-visible:before:ring-inset",
           "data-disabled:before:content-none"
         )}
+        source="view_experience"
+        experience={{
+          title: position.title,
+          company: companyName,
+        }}
       >
         <div className="relative z-1 mb-1 flex items-center gap-3">
           <div

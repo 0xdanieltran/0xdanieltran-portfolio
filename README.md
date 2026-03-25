@@ -1,228 +1,200 @@
-# [chanhdai.com](https://chanhdai.com) &middot; [![GitHub License](https://img.shields.io/github/license/ncdai/chanhdai.com?label=License)](https://github.com/ncdai/chanhdai.com/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/ncdai/chanhdai.com.svg?style=flat&label-color=%23555&color=%23f59e0b)
+````md
+# Daniel Tran Portfolio
 
-A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my work as a Design Engineer.
+[![GitHub license](https://img.shields.io/github/license/0xdanieltran/0xdanieltran-portfolio)](https://github.com/0xdanieltran/0xdanieltran-portfolio/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/0xdanieltran/0xdanieltran-portfolio)](https://github.com/0xdanieltran/0xdanieltran-portfolio/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/0xdanieltran/0xdanieltran-portfolio)](https://github.com/0xdanieltran/0xdanieltran-portfolio/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/0xdanieltran/0xdanieltran-portfolio)](https://github.com/0xdanieltran/0xdanieltran-portfolio/commits/main)
 
-→ Check out the live site: [chanhdai.com](https://chanhdai.com)
+A modern, production-ready portfolio and technical blog showcasing my work as a **Senior Full Stack Engineer** focused on **SaaS, Fintech, AI systems, and Web3 infrastructure**.
 
-[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=7#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
-[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=7#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
+## Live Site
+
+- **Portfolio:** [https://0xdanieltran.vercel.app](https://0xdanieltran.vercel.app)
+- **Repository:** [0xdanieltran/0xdanieltran-portfolio](https://github.com/0xdanieltran/0xdanieltran-portfolio)
 
 ## Overview
 
-### Stack
+This project is a personal portfolio built to present my experience, technical writing, and selected work across modern product engineering domains.
 
-- Next.js 16
-- Tailwind CSS v4
+It highlights my background in:
+
+- Scalable SaaS platforms
+- Fintech and payment systems
+- AI-driven applications
+- Web3 and blockchain infrastructure
+- Distributed backend systems
+- Cloud-native engineering
+
+## Stack
+
+### Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
 - shadcn/ui
 
-### Featured
+### Backend
 
-- Clean & modern design
-- Light/Dark themes
-- vCard integration
-- SEO optimized ([JSON-LD schema](https://json-ld.org), sitemap, robots)
-- AI-ready with [/llms.txt](https://llmstxt.org)
-- Spam-protected email
-- Installable as PWA
-- Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
-- Consent management via [c15t](https://c15t.com)
+- Node.js
+- PostgreSQL
+- Supabase
+- REST APIs
+- Microservices
+
+### Infrastructure
+
+- Docker
+- AWS
+- Vercel
+- CI/CD pipelines
+
+### Integrations
+
+- Stripe
+- Authentication systems
+- AI APIs
+- Blockchain networks
+
+## Features
+
+### Portfolio
+
+- Project showcase
+- Work experience timeline
+- Skills overview
+- Resume download
+- Testimonials
+- Contact section
+
+### Engineering
+
+- Responsive design
+- Dark / Light theme support
+- SEO optimized
+- Performance focused
+- Accessible UI patterns
+- Modular architecture
 
 ### Content
 
-Centralized document system powered by MDX:
+- MDX-powered blog system
+- Structured project content
+- Syntax highlighting
+- Dynamic metadata
+- RSS-friendly content structure
+- AI-readable markdown content
 
-- Unified content layer for blog posts and component docs
-- Category-based content organization
-- Raw `.mdx` endpoints for AI readability
-- Syntax highlighting with code blocks
-- Dynamic OG images for rich link previews
-- RSS feed for content distribution
+## Project Structure
 
-### Registry
+```txt
+src/
+├── app/
+├── components/
+├── features/
+├── lib/
+├── styles/
+└── content/
+```
+````
 
-Easily build and distribute reusable components, hooks, and pages using a custom registry powered by the [shadcn CLI](https://ui.shadcn.com/docs/cli).
+## Getting Started
 
-Each entry is well-documented and includes:
+### Clone the repository
 
-- Live preview & code snippets
-- Beautiful, readable code blocks
-- One-click command blocks (pnpm, npm, yarn, bun)
+```bash
+git clone https://github.com/0xdanieltran/0xdanieltran-portfolio.git
+cd 0xdanieltran-portfolio
+```
 
-## Development
+### Install dependencies
 
-Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
+```bash
+pnpm install
+```
+
+### Run the development server
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Production Build
+
+```bash
+pnpm build
+pnpm start
+```
 
 ## License
 
-Licensed under the [MIT license](./LICENSE).
+This project is licensed under the [MIT License](./LICENSE).
 
-You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
+You are welcome to use this project as inspiration or as a starting point for your own portfolio. Please remove personal branding, content, and project-specific data before publishing your version.
 
-## Contributors
+## About Me
 
-[![Contributors](https://contrib.rocks/image?repo=ncdai/chanhdai.com)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+I am a Senior Full Stack Engineer with experience building production systems across:
 
-> Made with [contrib.rocks](https://contrib.rocks)
+- SaaS platforms
+- Fintech products
+- AI systems
+- Web3 infrastructure
+- Enterprise-grade applications
 
-## Sponsors
+My engineering focus includes:
 
-This project is proudly supported by:
+- Scalability
+- Reliability
+- Clean architecture
+- Performance optimization
+- Product-driven development
 
-<table>
-  <tbody>
-    <tr>
-      <td colspan="3"><strong>Open Source Program</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel.svg?v=1#gh-light-mode-only"
-            alt="OpenPanel"
-          />
-        </a>
-        <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel-dark.svg?v=1#gh-dark-mode-only"
-            alt="OpenPanel"
-          />
-        </a>
-      </td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Gold Sponsors</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
-          <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only" alt="shadcnstudio.com" />
-        </a>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
-          <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only" alt="shadcnstudio.com" />
-        </a>
-      </td>
-      <td>
-        <a href="https://shadcnspace.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnspace.svg?v=3#gh-light-mode-only"
-            alt="Shadcn Space"
-          />
-        </a>
-        <a href="https://shadcnspace.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnspace-dark.svg?v=3#gh-dark-mode-only"
-            alt="Shadcn Space"
-          />
-        </a>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Silver Sponsors</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://shadcncraft.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcncraft.svg?v=1#gh-light-mode-only"
-            alt="shadcncraft"
-          />
-        </a>
-        <a href="https://shadcncraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcncraft-dark.svg?v=1#gh-dark-mode-only"
-            alt="shadcncraft"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnblocks.svg?v=1#gh-light-mode-only"
-            alt="Shadcnblocks"
-          />
-        </a>
-        <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcnblocks-dark.svg?v=1#gh-dark-mode-only"
-            alt="Shadcnblocks"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only"
-            alt="React Bits"
-          />
-        </a>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
-            alt="React Bits"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Spark Supporters</strong></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://shoogle.dev?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shoogle.svg?v=1#gh-light-mode-only"
-            alt="Shoogle"
-          />
-        </a>
-        <a href="https://shoogle.dev?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shoogle-dark.svg?v=1#gh-dark-mode-only"
-            alt="Shoogle"
-          />
-        </a>
-      </td>
-      <td>
-        <a href="https://www.fonttrio.xyz?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/fonttrio.svg?v=1#gh-light-mode-only"
-            alt="Fonttrio"
-          />
-        </a>
-        <a href="https://www.fonttrio.xyz?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/fonttrio-dark.svg?v=1#gh-dark-mode-only"
-            alt="Fonttrio"
-          />
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+## Connect
 
-> Found this project useful? [Sponsor me](https://github.com/sponsors/ncdai) to help with support and maintenance.
+- **GitHub:** [github.com/0xdanieltran](https://github.com/0xdanieltran)
+- **Portfolio:** [https://0xdanieltran.vercel.app](https://0xdanieltran.vercel.app)
+- **Email:** [danillppiont106@gmail.com](danillppiont106@gmail.com)
 
-## Stats
+## Repository Analytics
 
-![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
+![Repository Analytics](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
 
 ## Star History
 
-[![RepoStars-dark](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)
-[![RepoStars-light](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)
+[![Star History Chart](https://api.star-history.com/svg?repos=0xdanieltran/0xdanieltran-portfolio&type=Date)](https://star-history.com/#0xdanieltran/0xdanieltran-portfolio&Date)
+
+## Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
+
+## Support
+
+If you found this project useful:
+
+- Star the repository
+- Fork the project
+- Share feedback
+
+Your support helps improve the project over time.
+
+## Author
+
+**Daniel Tran**
+Senior Full Stack Engineer
+
+- GitHub: [0xdanieltran](https://github.com/0xdanieltran)
+
+```
+
+Adapted from your uploaded README source. :contentReference[oaicite:0]{index=0}
+```

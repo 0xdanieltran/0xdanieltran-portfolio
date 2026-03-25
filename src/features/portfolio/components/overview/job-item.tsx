@@ -28,7 +28,7 @@ export function JobItem({
       <IntroItemIcon>{getJobIcon(title)}</IntroItemIcon>
 
       <IntroItemContent>
-        {title} @
+        {title}
         <IntroItemLink
           className="ml-0.5 font-medium"
           {...(experienceId
@@ -41,7 +41,7 @@ export function JobItem({
                 href: addQueryParams(website, UTM_PARAMS),
               })}
         >
-          {company}
+          {company ? `@ ${company}` : ""}
         </IntroItemLink>
       </IntroItemContent>
     </IntroItem>

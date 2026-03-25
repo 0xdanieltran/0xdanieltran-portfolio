@@ -2,343 +2,277 @@ import type { Experience } from "../types/experiences"
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "shadcncraft",
-    companyName: "shadcncraft",
-    companyLogo: "https://assets.chanhdai.com/images/companies/shadcncraft.svg",
-    companyWebsite: "https://shadcncraft.com",
+    id: "difines",
+    companyName: "DIFINES",
+    companyLogo: "/images/experiences/difines.webp",
+    companyWebsite: "https://www.difines.org/",
     positions: [
       {
         id: "1",
-        title: "Design Engineer",
+        title: "Senior Full Stack Engineer",
         employmentPeriod: {
-          start: "01.2026",
+          start: "02.2024",
+          end: "01.2026",
         },
         employmentType: "Full-time",
         icon: "code",
         description:
-          "- Work on the registry and React component library.\n- Design and build Pro application components and blocks, from Figma to production-ready React.",
+          "- Led architecture and development of the DFS Chain ecosystem, a Layer-0 blockchain platform powering wallets, exchanges, token issuance, launchpads, and digital asset services.\n- Designed and built DFS Scan, a blockchain explorer with real-time transaction indexing, block aggregation, wallet tracking, and on-chain analytics.\n- Engineered MetaFace Wallet, a MetaMask-style wallet supporting DFS-native and bridged assets across ecosystem applications.\n- Developed launchpad, exchange, token creation, airdrop, and tokenomics platforms including Quick IDO, Moegi IDO, WhiteCreator, POIPI, and Burn-to-Earn systems.\n- Architected shared ledger infrastructure, cross-ledger asset bridges, and backend services optimized for high-throughput financial operations.\n- Integrated AI-assisted analytics, operational automation, and LLM-enhanced engineering workflows to improve platform intelligence and delivery efficiency.",
         skills: [
           "TypeScript",
+          "Node.js",
+          "React",
           "Next.js",
-          "Tailwind CSS",
-          "shadcn/registry",
-          "Figma",
+          "PostgreSQL",
+          "Redis",
+          "GraphQL",
+          "System Design",
+          "Distributed Systems",
+          "Blockchain",
+          "Web3",
+          "Smart Contracts",
+          "Tokenomics",
+          "DEX Architecture",
+          "AI Integration",
+          "LLM Workflows",
+          "Web2 to Web3",
         ],
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
+    isCurrentEmployer: false,
   },
   {
-    id: "quaric",
-    companyName: "Quaric",
-    companyLogo: "https://assets.chanhdai.com/images/companies/quaric.svg",
-    companyWebsite: "https://quaric.com",
+    id: "xmrplay-ltd",
+    companyName: "XMRPlay Ltd",
+    companyLogo: "/images/experiences/xmr.gg.jpg",
+    companyWebsite: "https://xmr.gg",
     positions: [
-      {
-        id: "2",
-        title: "Design Engineer",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: "code",
-        description: `- Created Quaric Brand Identity.
-- Created the Quaric Design System to standardize design practices and accelerate development.
-
-In-house Project: [Quaric Website](https://quaric.com)
-- Designed the UI/UX for Quaric Website, delivering a seamless experience.
-- Developed online ordering to streamline purchases.
-- Integrated VNPAY-QR for secure transactions.
-- Registered the e-commerce site with [online.gov.vn](http://online.gov.vn/website/chi-tiet-115855) for compliance.
-
-In-house Project: [ZaDark](https://zadark.com)
-- Build and maintain ZaDark.com with Docusaurus, integrating AdSense.
-- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox — with 20k+ active users via Chrome Web Store (as of Sep 2025).`,
-        skills: [
-          "Next.js",
-          "Strapi",
-          "Auth0",
-          "VNPAY-QR",
-          "Docker",
-          "NGINX",
-          "Google Cloud",
-          "Docusaurus",
-          "Extension",
-          "UI/UX Design",
-          "UX Writing",
-          "Design System",
-          "Brand Design",
-          "Figma",
-          "Research",
-        ],
-      },
       {
         id: "1",
-        title: "Founder",
+        title: "Back End Engineer",
         employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: "idea",
-        skills: ["Business Ownership", "Business Law", "Business Tax"],
-      },
-    ],
-    isCurrentEmployer: true,
-  },
-  {
-    id: "simplamo",
-    companyName: "Simplamo",
-    companyLogo: "https://assets.chanhdai.com/images/companies/simplamo.webp",
-    positions: [
-      {
-        id: "2",
-        title: "Senior Frontend Developer",
-        employmentPeriod: {
-          start: "10.2022",
-          end: "01.2026",
+          start: "08.2023",
+          end: "02.2024",
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Built Tree & Gantt views features to improve goal organization, visibility, and progress tracking.
-- Developed [AI Chat](https://help.simplamo.com/features/simplamo-ai/ai-chat/guide_simplamo_ai_chat?ref=IN-926722) and [AI Assistant](https://help.simplamo.com/features/simplamo-ai/ai-expert/aiexpert-rockdiscribe?ref=IN-926722) features.
-- Developed [Whiteboards](https://help.simplamo.com/features/whiteboard/overview?ref=IN-926722) with real-time collaboration.
-- Built and maintained the [Zalo Mini App](https://zalo.me/s/1736112917405511258/) for Simplamo with seamless integration.
-- Developed interactive chart and analytics widgets for the [Dashboard](https://help.simplamo.com/features/dashboard/overview) to enhance data visualization.
-- Developed and maintained core features to enhance functionality and user experience.
-- Ensured UI/UX consistency and adherence to standards.
-- Implemented robust frontend solutions for web and mobile platforms.
-- Analyzed technical capabilities and provided optimal solutions.`,
+        description:
+          "- Engineered scalable backend infrastructure using Node.js, TypeScript, Express.js, and MongoDB supporting 5M+ daily transactions with 99.9% uptime.\n- Designed real-time gaming and communication systems with Socket.io, improving engagement and retention by 30%.\n- Developed AI-assisted payment processing and fraud detection workflows, increasing transaction speed by 50% while strengthening platform security.\n- Implemented secure authentication and session architecture with JWT and CAPTCHA, reducing unauthorized access by 40%.\n- Built affiliate, referral, and support workflow systems that increased traffic and reduced average response time from 48 hours to 12 hours.",
         skills: [
-          "TypeScript",
-          "Next.js",
-          "React Native",
-          "MobX",
-          "MobX-State-Tree",
-          "Tailwind CSS",
-          "Dify",
-          "Zalo Mini App",
-          "Agile",
-          "Teamwork",
-          "Research",
-          "Problem-solving",
-        ],
-      },
-      {
-        id: "1",
-        title: "UI Lead",
-        employmentPeriod: {
-          start: "10.2022",
-          end: "01.2026",
-        },
-        employmentType: "Full-time",
-        icon: "design",
-        description: `- Ensured UI/UX consistency and high-quality standards.
-- Designed intuitive, user-focused interfaces aligned with business goals.
-- Defined and established a cohesive UI style for Simplamo.`,
-        skills: ["Creativity", "UI/UX Design", "Figma"],
-      },
-    ],
-  },
-  {
-    id: "tungtung",
-    companyName: "Tung Tung",
-    companyLogo: "https://assets.chanhdai.com/images/companies/tungtung.webp",
-    positions: [
-      {
-        id: "3",
-        title: "Web Developer",
-        employmentPeriod: {
-          start: "2020",
-          end: "2022",
-        },
-        employmentType: "Full-time",
-        description: `- Built a scalable design system for consistency and efficiency.
-- Built a complex rich-text editor based on ProseMirror and Slate for customizable content creation.
-- Integrated APIs with the Backend Team to enhance functionality.`,
-        icon: "code",
-        skills: [
-          "React",
-          "Redux",
-          "Storybook",
-          "Lerna",
-          "Agile",
-          "Teamwork",
-          "Research",
-        ],
-      },
-      {
-        id: "2",
-        title: "Mobile Developer",
-        employmentPeriod: {
-          start: "2019",
-          end: "2020",
-        },
-        employmentType: "Full-time",
-        description: `- Rebuilt the app with React Native for better UX and performance.
-- Integrated MoMo and in-app purchases for seamless payments.
-- Optimized deployment for staging and production.
-- Published on App Store and Google Play, ensuring compliance.`,
-        icon: "code",
-        skills: [
-          "React Native",
-          "Redux",
-          "MoMo Payment API",
-          "App Store",
-          "Google Play Store",
-          "App Center",
-          "Agile",
-          "Teamwork",
-          "Research",
-        ],
-      },
-      {
-        id: "1",
-        title: "UI/UX Designer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2019",
-        },
-        employmentType: "Full-time",
-        description: `- Designed a Landing Page for enterprise clients.
-- Redesigned the Online Quiz Platform for a modern look on web and mobile.
-- Redesigned the Pricing interface for individual customers.
-- Enhanced UX by improving usability, navigation, and user flow.`,
-        icon: "design",
-        skills: ["UI/UX Design", "Sketch"],
-      },
-    ],
-  },
-  {
-    id: "freelance",
-    companyName: "Freelance",
-    positions: [
-      {
-        id: "2",
-        title: "Full-stack Developer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2020",
-        },
-        employmentType: "Part-time",
-        description: `- Built an order management website with real-time delivery tracking.
-- Developed an e-commerce site for bird's nest products.
-- Created a map to display monitoring station data.
-- Designed a customizable WordPress landing page.`,
-        icon: "code",
-        skills: [
-          "Laravel",
-          "React",
-          "Express.js",
-          "Socket.IO",
-          "MongoDB",
-          "Firebase",
-          "WordPress",
-          "Docker",
-          "NGINX",
-        ],
-      },
-      {
-        id: "1",
-        title: "Graphic & UI/UX Designer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2019",
-        },
-        employmentType: "Part-time",
-        description: "Designed logos, posters, ads, and UI.",
-        icon: "design",
-        skills: [
-          "Creativity",
-          "UI/UX Design",
-          "Graphic Design",
-          "Sketch",
-          "Adobe Photoshop",
-          "Adobe Illustrator",
-        ],
-      },
-    ],
-  },
-  {
-    id: "education",
-    companyName: "Education",
-    positions: [
-      {
-        id: "3",
-        title: "University of Science — VNUHCM",
-        employmentPeriod: {
-          start: "08.2018",
-          end: "10.2026",
-        },
-        icon: "education",
-        description: `- Currently studying for a Bachelor's degree in Information Systems.
-- Language Proficiency: B1 level in English (CEFR).
-- Achieved several awards, including:
-  - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
-  - 2nd Prize — Business Startup Competition 2019`,
-        skills: [
-          "C++",
-          "Java",
-          "Python",
-          "PHP",
-          "DSA",
-          "Advanced Databases",
-          "Systems Design",
-          "Distributed Systems",
-          "Software Engineering",
-          "Teamwork",
-        ],
-      },
-      {
-        id: "2",
-        title: "Ly Tu Trong High School for the Gifted — Can Tho City",
-        employmentPeriod: {
-          start: "08.2015",
-          end: "06.2018",
-        },
-        icon: "education",
-        description: `- Student of the Specialized Computer Science Program.
-- Granted direct admission to university due to achieving 3rd Prize at the national level.
-- [Achieved numerous awards](https://baocantho.com.vn/nguyen-chanh-dai-17-tuoi-va-19-giai-thuong-a97348.html) at city and national levels, including:
-  - [3rd Prize](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm) — National Science and Engineering Fair 2018 (ViSEF)
-  - 1st Prize — Can Tho City Science and Engineering Fair 2018
-  - Creativity Award — Binh Duong Hackathon 2017
-  - Consolation Prize — National Youth and Children's Creativity Contest 2016
-  - [1st Prize](https://www.youtube.com/watch?v=OYgugvjqU4A) — Can Tho City Youth and Children's Creativity Contest 2016
-  - 3rd Prize — National Young Informatics Contest 2016
-- Achieved the title of Outstanding Student from Grade 10-12.
-- Selected for the National Excellent Student Contest in Informatics for two consecutive years during high school.
-- Honored on the school's "Hall of Fame" for academic achievements.
-- Developed a feature using Node.js and Pandoc to recognize multiple-choice questions from .docx files and upload them to an [online quiz platform](https://youtu.be/QjR99wdmTyo) I created.
-- Developed websites based on Laravel framework.
-- Built websites with PHP and MySQL, following the MVC architecture.`,
-        skills: [
-          "Algorithms",
-          "C++",
-          "PHP",
-          "MySQL",
-          "Laravel",
           "Node.js",
-          "Pandoc",
+          "TypeScript",
+          "Express.js",
+          "MongoDB",
+          "Socket.io",
+          "JWT",
+          "AI Automation",
+          "Fraud Detection",
+          "Next.js",
+          "Tailwind CSS",
+          "Authentication",
+          "Middleware",
+          "Real-time Systems",
+          "Gaming",
+          "Casino",
+          "Payment Processing",
+          "Distributed Systems",
+          "JWT",
+          "High Concurrency Systems",
+          "REST API",
         ],
-      },
-      {
-        id: "1",
-        title: "Thuan Hung Secondary School",
-        employmentPeriod: {
-          start: "08.2011",
-          end: "06.2015",
-        },
-        icon: "education",
-        description: `- Recognized as the most outstanding student of the district.
-- Achieved numerous awards at city and national levels:
-  - Consolation Prize — National Young Informatics Contest 2015
-  - Consolation Prize — National Young Informatics Contest 2014
-  - 1st Prize — Can Tho City Young Informatics Contest 2014
-- Achieved the title of Outstanding Student from Grade 6-9.
-- Developed websites using the open-source NukeViet CMS.`,
-        skills: ["Pascal", "NukeViet", "HTML", "CSS", "JavaScript"],
+        isExpanded: false,
       },
     ],
+    isCurrentEmployer: false,
+  },
+  {
+    id: "decentreviews",
+    companyName: "Decent Reviews",
+    companyLogo: "/images/experiences/decentreviews.png",
+    companyWebsite: "https://decentreviews.co",
+    positions: [
+      {
+        id: "1",
+        title: "Back End Engineer & Smart Contract Developer",
+        employmentPeriod: {
+          start: "04.2023",
+          end: "08.2023",
+        },
+        employmentType: "Contract",
+        icon: "code",
+        description:
+          "- Built a review API and automated aggregation engine with Node.js, TypeScript, and Express.js, improving data collection efficiency by 50%.\n- Developed a badge generation engine that increased user-generated social sharing by 25%.\n- Integrated Ethereum smart contracts using Web3.js to automate verification workflows and reduce manual operations by 60%.\n- Implemented CI/CD pipelines with GitHub Actions and strengthened developer workflows with Swagger, Cypress, and Jest.\n- Containerized backend services with Docker, improving deployment reliability and reducing database response times below 200ms.",
+        skills: [
+          "Node.js",
+          "TypeScript",
+          "Express.js",
+          "Ethereum",
+          "Solidity",
+          "Web3.js",
+          "Smart Contracts",
+          "Docker",
+          "GitHub Actions",
+          "Swagger",
+          "Jest",
+          "Cypress",
+          "CI/CD",
+          "API Design",
+          "Review Systems",
+          "Automation",
+          "Review Aggregation",
+          "Badge Generation",
+          "Embeddable Widgets",
+        ],
+        isExpanded: false,
+      },
+    ],
+    isCurrentEmployer: false,
+  },
+  {
+    id: "worldspeed",
+    companyName: "WORLD SPEED",
+    companyLogo: "/images/experiences/worldspeed.png",
+    companyWebsite: "#",
+    positions: [
+      {
+        id: "1",
+        title: "Blockchain Full Stack Engineer",
+        employmentPeriod: {
+          start: "01.2021",
+          end: "04.2023",
+        },
+        employmentType: "Full-time",
+        icon: "code",
+        description:
+          "- Helped build a large-scale DeFi ecosystem including token generation platforms, ICO systems, play-to-earn games, NFT marketplaces, and 10+ Web3 products.\n- Developed an automated DEX bot executing trades in under 2 seconds, improving transaction efficiency by 40%.\n- Designed cross-chain token bridges across five blockchain networks, improving interoperability and transfer efficiency by 40%.\n- Streamlined React and smart contract integration using Web3.js and Ethers.js, reducing deployment time by 60%.\n- Built backend infrastructure and migrated API workflows to GraphQL, improving data retrieval speed and reducing code complexity.\n- Managed CI/CD and cloud deployment workflows using CircleCI, Bitbucket, GitHub, and AWS Lambda.",
+        skills: [
+          "React",
+          "Node.js",
+          "GraphQL",
+          "Web3.js",
+          "Ethers.js",
+          "AWS Lambda",
+          "CI/CD",
+          "CircleCI",
+          "DeFi",
+          "NFT",
+          "Cross-chain",
+          "Solidity",
+          "Solana",
+          "Ethereum",
+          "Binance Smart Chain",
+          "Metaverse",
+          "Play-to-Earn",
+          "Blockchain Architecture",
+        ],
+        isExpanded: false,
+      },
+    ],
+    isCurrentEmployer: false,
+  },
+  {
+    id: "defichain",
+    companyName: "Defichain",
+    companyLogo: "/images/experiences/defichain.png",
+    companyWebsite: "#",
+    positions: [
+      {
+        id: "1",
+        title: "Smart Contract Developer",
+        employmentPeriod: {
+          start: "04.2020",
+          end: "01.2021",
+        },
+        employmentType: "Contract",
+        icon: "code",
+        description:
+          "- Developed and deployed smart contracts for liquidity pools and yield farming strategies on Binance Smart Chain.\n- Achieved full automated testing coverage using Truffle and Hardhat.\n- Built Web3 interfaces that improved staking and liquidity onboarding workflows.",
+        skills: [
+          "Solidity",
+          "Binance Smart Chain",
+          "Smart Contracts",
+          "DeFi",
+          "Yield Farming",
+          "Hardhat",
+          "Truffle",
+          "Web3",
+          "Testing",
+          "Token Contracts",
+        ],
+        isExpanded: false,
+      },
+    ],
+    isCurrentEmployer: false,
+  },
+  {
+    id: "incarta",
+    companyName: "Incarta",
+    companyLogo: "/images/experiences/incarta.png",
+    companyWebsite: "https://incarta.com.au/",
+    positions: [
+      {
+        id: "1",
+        title: "Software Engineer (MERN Stack)",
+        employmentPeriod: {
+          start: "04.2019",
+          end: "04.2020",
+        },
+        employmentType: "Full-time",
+        icon: "code",
+        description:
+          "- Contributed to cloud-based healthcare and clinical data platforms supporting real-time patient monitoring and medical record workflows.\n- Built interactive clinical dashboards with React.js and D3.js to improve access to complex healthcare data during high-demand operations.\n- Developed scalable backend services with Node.js, Express, and MongoDB for secure ingestion and visualization of high-volume clinical data.\n- Collaborated with clinicians and infrastructure teams to deliver reliable, user-centric healthcare applications in private cloud environments.",
+        skills: [
+          "React",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "D3.js",
+          "Healthcare Systems",
+          "Cloud Applications",
+          "Data Visualization",
+          "REST API",
+          "Performance Optimization",
+          "Secure Data Processing",
+        ],
+        isExpanded: false,
+      },
+    ],
+    isCurrentEmployer: false,
+  },
+  {
+    id: "openagent",
+    companyName: "Open Agent",
+    companyLogo: "/images/experiences/openagent.png",
+    companyWebsite: "https://www.openagent.com.au/",
+    positions: [
+      {
+        id: "1",
+        title: "Front End Developer",
+        employmentPeriod: {
+          start: "08.2017",
+          end: "04.2019",
+        },
+        employmentType: "Full-time",
+        icon: "code",
+        description:
+          "- Developed and maintained large-scale frontend applications using React.js, TypeScript, HTML5, and CSS3.\n- Built 100+ reusable production-grade UI components, improving scalability and consistency across products.\n- Collaborated with Agile teams to translate product and design requirements into performant frontend implementations, accelerating delivery by ~25%.\n- Resolved 300+ production issues and improved platform stability through debugging, testing, and release support.\n- Implemented responsive, cross-browser compatible interfaces for consistent desktop and mobile experiences.",
+        skills: [
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Responsive Design",
+          "UI Components",
+          "Frontend Architecture",
+          "Agile",
+          "Testing",
+          "Cross-browser Development",
+        ],
+        isExpanded: false,
+      },
+    ],
+    isCurrentEmployer: false,
   },
 ]

@@ -33,9 +33,9 @@ export function TestimonialsMarquee() {
       <h2 className="sr-only">Testimonials</h2>
 
       <div className="grid gap-2 px-2 sm:grid-cols-2">
-        {FEATURED_TESTIMONIALS.map((item) => (
+        {FEATURED_TESTIMONIALS.map((item, index) => (
           <TestimonialSpotlight
-            key={item.url}
+            key={index}
             className="bg-accent-muted"
             {...item}
           />
@@ -75,11 +75,11 @@ function TestimonialList({
 
       <MarqueeContent direction={direction}>
         {data
-          .filter((item) => !item.isFeatured)
+          .filter((item, index) => !item.isFeatured)
           .sort(compareFn)
-          .map((item) => (
+          .map((item, index) => (
             <MarqueeItem
-              key={item.url}
+              key={index}
               className="mx-1 h-full max-w-xs min-w-2xs"
               style={item.style}
             >

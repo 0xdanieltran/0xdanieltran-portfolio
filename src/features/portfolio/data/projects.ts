@@ -2,239 +2,531 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
-    id: "react-wheel-picker",
-    title: "React Wheel Picker",
-    period: {
-      start: "05.2025",
-    },
-    link: "https://react-wheel-picker.chanhdai.com",
+    id: "dfs-web-chain",
+    title: "DFS Chain",
+    period: { start: "2024" },
+    link: "https://difines.org",
     skills: [
-      "Open Source",
-      "React",
+      "Next.js",
       "TypeScript",
-      "Monorepo",
-      "Turborepo",
-      "pnpm-workspace",
-      "Package Publishing",
-      "NPM Registry",
-      "GitHub Actions",
+      "Blockchain",
+      "Web3",
+      "DeFi",
+      "PostgreSQL",
+      "Supabase",
+      "Tailwind",
+      "DApp Architecture",
+      "Token Economy",
     ],
-    description: `iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. / Backed by [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker)
-- Natural touch scrolling with smooth inertia, mouse drag and scroll for desktop
-- Infinite loop scrolling
-- Unstyled core for complete style customization
-- Full keyboard navigation and type-ahead search
-`,
-    logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
+    description: `Architected and developed a blockchain ecosystem supporting DeFi applications, token economies, and enterprise-grade Web3 integrations.
+- Designed DFS Chain infrastructure to support scalable decentralized applications and token utilities
+- Built staking, token issuance, and payment infrastructure for ecosystem participants
+- Developed developer tooling and APIs enabling faster Web3 product integration`,
+    logo: "/images/projects/dfs-simuchain.webp",
     isExpanded: true,
   },
-  {
-    id: "chanhdaidotcom",
-    title: "chanhdai.com",
-    period: {
-      start: "01.2025",
-    },
-    link: "https://github.com/ncdai/chanhdai.com",
-    skills: [
-      "Open Source",
-      "Next.js 16",
-      "Tailwind CSS v4",
-      "Radix UI",
-      "Motion",
-      "shadcn/ui",
-      "shadcn registry",
-      "Vercel",
-    ],
-    description:
-      "A minimal, pixel-perfect dev portfolio, shadcn registry, and blog.",
-    logo: "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
-  },
-  {
-    id: "quaricdotcom",
-    title: "quaric.com",
-    period: {
-      start: "03.2024",
-    },
-    link: "https://quaric.com",
-    skills: [
-      "Company Project",
-      "Next.js 15",
-      "Tailwind CSS v3",
-      "shadcn/ui",
-      "Strapi 5",
-      "VNPAY-QR",
-      "Docker",
-      "Docker Compose",
-      "NGINX",
-    ],
-    logo: "https://assets.chanhdai.com/images/project-logos/quaricdotcom.svg",
-  },
-  {
-    id: "zadark",
-    title: "ZaDark",
-    period: {
-      start: "01.2022",
-    },
-    link: "https://zadark.com",
-    skills: [
-      "Pet Project",
-      "Open Source",
-      "Browser Extension",
-      "CLI",
-      "Docusaurus 3",
-    ],
-    description: `ZaDark adds Dark Mode, anti-peeking, customizable fonts, backgrounds, and more to Zalo Web and PC.
-- Earned 10M+ VND in net sales from a paid Safari Extension*
-- 80k+ downloads on SourceForge* (awarded Community Leader badge by SourceForge)
-- 30k+ active users via Chrome Web Store*
-- Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
 
-<p class="text-muted-foreground">* Peak metrics recorded; actual current figures may vary.</p>
-`,
-    logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
-  },
   {
-    id: "qabox",
-    title: "QABox",
-    period: {
-      start: "07.2023",
-      end: "07.2023",
-    },
-    link: "https://github.com/ncdai/qabox",
+    id: "dfs-scan",
+    title: "DFS Scan",
+    period: { start: "2024" },
+    link: "https://dfsscan.com",
     skills: [
-      "University Project",
-      "PHP",
-      "MySQL",
-      "MVC",
-      "Docker",
-      "Docker Compose",
+      "Next.js",
+      "TypeScript",
+      "Blockchain Explorer",
+      "Web3",
+      "PostgreSQL",
+      "Supabase",
+      "Data Visualization",
+      "API Integration",
     ],
-    description:
-      "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/qabox",
+    description: `Developed a full-featured blockchain explorer providing transparency into DFS Chain transactions and network activity.
+- Implemented transaction indexing and block parsing services
+- Built wallet tracking and smart contract interaction monitoring
+- Created real-time analytics dashboards for blockchain data visualization`,
+    logo: "/images/projects/dfsscan.webp",
+    isExpanded: false,
   },
+
   {
-    id: "taskbox",
-    title: "TaskBox",
-    period: {
-      start: "07.2023",
-      end: "07.2023",
-    },
-    link: "https://github.com/ncdai/taskbox",
+    id: "metaface-wallet",
+    title: "MetaFace – DFS Wallet",
+    period: { start: "2024" },
+    link: "http://metaface.dfsscan.com",
     skills: [
-      "University Project",
-      "PHP",
-      "MySQL",
-      "MVC",
-      "Docker",
-      "Docker Compose",
+      "Next.js",
+      "TypeScript",
+      "Web3",
+      "Wallet Development",
+      "Blockchain",
+      "PostgreSQL",
+      "Supabase",
+      "Crypto Payments",
     ],
-    description:
-      "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/taskbox",
+    description: `Built a secure Web3 wallet enabling token transfers and asset management within the DFS ecosystem.
+- Implemented secure transaction signing and wallet management workflows
+- Integrated blockchain data services for real-time portfolio tracking
+- Developed authentication and transaction history systems for improved user experience`,
+    logo: "/images/projects/dfs_wallet.webp",
+    isExpanded: false,
   },
+
   {
-    id: "daichat-app",
-    title: "DaiChat App",
-    period: {
-      start: "07.2020",
-      end: "07.2020",
-    },
-    link: "https://www.youtube.com/watch?v=H5U3J_W1low",
-    skills: ["University Project", "Java", "Java Swing", "Java Networking"],
-    description: `- Course: Java Application Programming — FIT@HCMUS
-- Requirement: Developed a real-time chat application using Java technologies
-- Project Score: 10/10
-- Source Code:
-  - Server: https://github.com/ncdai/ltudjava-summer2020-chatapp_server
-  - Client: https://github.com/ncdai/ltudjava-summer2020-chatapp_client`,
-  },
-  {
-    id: "qlsv-app",
-    title: "QLSV App",
-    period: {
-      start: "06.2020",
-      end: "06.2020",
-    },
-    link: "https://www.youtube.com/watch?v=tG9SZEBrwog",
-    skills: ["University Project", "Java", "Java Swing", "Hibernate", "MySQL"],
-    description: `- Course: Java Application Programming — FIT@HCMUS
-- Requirement: Built a student management system with role-based functionalities using Java technologies
-- Project Score: 10/10
-- Source Code: https://github.com/ncdai/ltudjava-summer2020-hibernate`,
-  },
-  {
-    id: "penphy",
-    title: "Penphy",
-    period: {
-      start: "01.2019",
-      end: "08.2019",
-    },
-    link: "https://www.youtube.com/watch?v=EdU7rUO-UA4",
-    skills: ["Startup Project", "JavaScript", "React Native"],
-    description: "2nd Prize — Business Startup Competition 2019",
-  },
-  {
-    id: "unlimitedstudy",
-    title: "UnlimitedStudy",
-    period: {
-      start: "01.2017",
-      end: "08.2018",
-    },
-    link: "https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm",
+    id: "wex-swap",
+    title: "WEX Swap",
+    period: { start: "2024" },
+    link: "https://wexswap.com",
     skills: [
-      "National Competition",
-      "Creative Software",
-      "PHP",
-      "Laravel 4",
-      "MySQL",
-      "jQuery",
-      "Bootstrap 3",
+      "Next.js",
+      "TypeScript",
+      "DEX",
+      "Web3",
+      "Liquidity Pools",
+      "Token Swap",
+      "DeFi",
+      "Tailwind",
     ],
-    description: `UnlimitedStudy is a website that provides teaching and learning support tools for teachers and students.
-- 3rd Prize — National Science and Engineering Fair 2018 (ViSEF)
-- 1st Prize — Can Tho City Science and Engineering Fair 2018
-- 3rd Prize — National Young Informatics Contest 2018
-- 2nd Prize — Can Tho City Youth and Children's Creativity Contest 2018
-- 3rd Prize — Can Tho City Young Informatics Contest 2018
-- Reached 7k+ users, mainly high school students in Can Tho City
-- Pilot implemented in high schools across Can Tho City with English quizzes, supervised by English subject specialists from the Can Tho City Department of Education and Training`,
+    description: `Engineered a decentralized exchange enabling token swaps and liquidity participation within the DFS ecosystem.
+- Implemented AMM-based swap functionality and liquidity pool mechanics
+- Built reward distribution logic for liquidity providers
+- Integrated staking and farming features to improve ecosystem engagement`,
+    logo: "/images/projects/wex.webp",
+    isExpanded: false,
   },
+
   {
-    id: "dmessage",
-    title: "DMessage",
-    period: {
-      start: "05.2017",
-      end: "05.2017",
-    },
-    link: "https://github.com/ncdai/DMessage",
+    id: "xmr-casino",
+    title: "XMR.gg | Casino Platform",
+    period: { start: "2023" },
+    link: "https://xmr.gg",
     skills: [
-      "Self-learning Project",
-      "Pet Project",
-      "Express.js",
-      "Socket.io",
+      "Node.js",
+      "TypeScript",
       "MongoDB",
-      "Mongoose ODM",
+      "Redis",
+      "High Concurrency",
+      "Crypto Payments",
+      "Gaming Systems",
+      "Fraud Prevention",
+      "REST API",
     ],
-    description:
-      "A Messenger clone built to practice real-time communication using Socket.IO. This project showcases my self-learning journey in implementing WebSockets for instant messaging.",
+    description: `Led backend development for a large-scale platform, building microservices, APIs, data models, and infrastructure required to support complex business operations.
+- Architected and implemented a scalable microservices backend supporting high-volume transaction processing with strong availability and fault tolerance.
+- Built secure crypto payment and wallet integration services alongside traditional transaction processing features
+- Designed real-time communication systems including socket-based chat, live activity feeds, and reward distribution features such as chat rain and cashback programs
+- Implemented a robust JWT-based authentication and authorization system with advanced security controls and AI-driven fraud/anomaly detection
+- Improved platform performance and reliability through distributed caching, query optimization, and database tuning
+- Developed internal financial logic including balance management, transaction tracking, and reward calculation services`,
+    logo: "/images/projects/casino.webp",
+    isExpanded: false,
   },
+
   {
-    id: "study-english",
-    title: "Study English",
-    period: {
-      start: "11.2016",
-      end: "12.2017",
-    },
-    link: "https://www.youtube.com/watch?v=OYgugvjqU4A",
+    id: "ai-dating",
+    title: "AI Dating Assistant App",
+    period: { start: "2025" },
+    link: "#",
     skills: [
-      "National Competition",
-      "Creative Software",
-      "PHP",
-      "Laravel 4",
-      "MySQL",
+      "React Native",
+      "TypeScript",
+      "OpenAI",
+      "LLM",
+      "Mobile Development",
+      "AI Integration",
+      "Expo",
+      "iOS",
+      "Android",
     ],
-    description: `Study English is a free, mobile-friendly website for high school English learning, offering vocabulary, quizzes, listening practice, and more.
-- Consolation Prize — National Youth and Children's Creativity Contest 2016
-- 1st Prize — Can Tho City Youth and Children's Creativity Contest 2016
-- Consolation Prize — Can Tho City Young Informatics Contest 2016`,
+    description: `Developed an AI-powered mobile assistant that enhances user communication through contextual response generation.
+- Integrated LLM APIs for intelligent message recommendations
+- Built context analysis features using conversation history and sentiment signals
+- Designed cross-platform mobile architecture using React Native and Expo`,
+    logo: "/images/projects/ai-reactnative.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "verge3d-model",
+    title: "Verge3D | Interactive 3D Model Viewer",
+    period: { start: "2023" },
+    link: "https://interactive-model-verge3d.vercel.app",
+    skills: [
+      "React",
+      "Three.js",
+      "WebGL",
+      "Verge3D",
+      "3D Visualization",
+      "JavaScript",
+      "Interactive UI",
+    ],
+    description: `Built an interactive browser-based 3D visualization platform for real-time model rendering and interaction.
+- Developed modular scene architecture supporting dynamic model loading
+- Optimized rendering performance across browsers and devices
+- Implemented interactive controls for object manipulation and scene navigation`,
+    logo: "/images/projects/interfactive-model-verge3d.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "incarta",
+    title: "Incarta | Clinical Chart (Alarta)",
+    period: { start: "2022" },
+    link: "https://incarta.com.au",
+    skills: [
+      "React",
+      "Node.js",
+      "Healthcare",
+      "PostgreSQL",
+      "Cloud Systems",
+      "REST API",
+      "Data Systems",
+    ],
+    description: `Contributed to a cloud-based clinical records platform used in critical healthcare environments.
+- Developed medical dashboards for patient monitoring and reporting
+- Built secure healthcare data processing workflows
+- Implemented analytics tools supporting clinical decision making`,
+    logo: "/images/projects/clinical.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "edtech-myhomework",
+    title: "EdTech | MyHomework App",
+    period: { start: "2022" },
+    link: "https://info.myhomeworkapp.com",
+    skills: [
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "RLS",
+      "Education Platform",
+      "AWS",
+      "RBAC",
+      "Analytics",
+    ],
+    description: `Developed a full-stack education platform supporting students, teachers, and parents.
+- Implemented role-based access control and data isolation policies
+- Built assignment management and grading automation tools
+- Developed analytics dashboards to track student performance`,
+    logo: "/images/projects/edtech-myhomework.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "decent-reviews",
+    title: "Decent Reviews",
+    period: { start: "2021" },
+    link: "https://linkedin.com/company/decentreviews",
+    skills: [
+      "Node.js",
+      "Solidity",
+      "Web3",
+      "MongoDB",
+      "Express",
+      "Smart Contracts",
+      "CI/CD",
+      "API Design",
+    ],
+    description: `Developed backend services and smart contract integrations for a decentralized review aggregation platform.
+- Built automated review ingestion and scoring systems
+- Integrated blockchain verification for review authenticity
+- Developed scalable REST APIs and CI/CD deployment workflows`,
+    logo: "/images/projects/decent-reviews.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "ai-video-generator",
+    title: "AI Play – Video Generator",
+    period: { start: "2024" },
+    link: "https://ai-play.netlify.app",
+    skills: [
+      "React",
+      "AI",
+      "D-ID API",
+      "Video Generation",
+      "API Integration",
+      "Animation",
+    ],
+    description: `Built an AI media generation platform enabling video creation from static images and voice input.
+- Integrated D-ID AI video generation APIs
+- Developed media processing workflows and UI pipelines
+- Implemented voice configuration and animation controls`,
+    logo: "/images/projects/ai-video-generator.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "aifx",
+    title: "AIFX Platform",
+    period: { start: "2024" },
+    link: "https://aifx.pepesushi.vip",
+    skills: [
+      "React",
+      "AI",
+      "Trading Systems",
+      "Web3",
+      "Solidity",
+      "Crypto Payments",
+      "Binance Smart Chain",
+    ],
+    description: `Developed an AI-assisted trading platform integrating financial data with crypto payment systems.
+- Built real-time trading dashboards and signal processing features
+- Integrated blockchain payment support for subscriptions
+- Developed AI-based trading assistance workflows`,
+    logo: "/images/projects/aifx.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "fuji-chat",
+    title: "Web3 Chat Platform – Fuji Chat",
+    period: { start: "2023" },
+    link: "https://fujichat.vercel.app",
+    skills: [
+      "React",
+      "Web3",
+      "Firebase",
+      "Wallet Integration",
+      "Messaging Systems",
+      "Token Transfer",
+    ],
+    description: `Developed a decentralized messaging platform using wallet identity as authentication.
+- Built wallet-based login and messaging infrastructure
+- Implemented token transfers within chat workflows
+- Developed group messaging and community governance features`,
+    logo: "/images/projects/chatfi.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "pepe-sushi",
+    title: "PEPE Sushi",
+    period: { start: "2023" },
+    link: "https://pepe-sushi.vercel.app",
+    skills: [
+      "React",
+      "Solidity",
+      "Web3",
+      "DEX",
+      "Token Systems",
+      "Binance Smart Chain",
+    ],
+    description: `Contributed to a meme token ecosystem providing DeFi utilities and token interaction features.
+- Developed token interaction interfaces and wallet integrations
+- Implemented burn mechanics and ecosystem utilities
+- Supported DeFi transaction workflows`,
+    logo: "/images/projects/pepe-sushi.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "genogram",
+    title: "Genogram",
+    period: { start: "2021" },
+    link: "https://genogram-gojs.netlify.app",
+    skills: [
+      "React",
+      "GoJS",
+      "Data Visualization",
+      "JavaScript",
+      "UI Engineering",
+    ],
+    description: `Built an interactive data visualization tool for modeling complex family relationships.
+- Developed dynamic diagram rendering using GoJS
+- Implemented drag-and-edit relationship management
+- Built structured data visualization workflows`,
+    logo: "/images/projects/genogram.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "album-app",
+    title: "Album App",
+    period: { start: "2020" },
+    link: "#",
+    skills: [
+      "Ionic",
+      "Angular",
+      "Node.js",
+      "PostgreSQL",
+      "Mobile Development",
+      "Social Platform",
+    ],
+    description: `Developed a mobile social platform for photo sharing and user interaction.
+- Implemented OTP authentication and user onboarding
+- Built image upload and social interaction features
+- Developed backend services supporting mobile clients`,
+    logo: "/images/projects/app.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "dior-virtual-shop",
+    title: "DIOR Virtual Shop | Immersive 3D Commerce Experience",
+    period: { start: "2023" },
+    link: "https://dior-vrshop.vercel.app",
+    skills: [
+      "Three.js",
+      "WebGL",
+      "JavaScript",
+      "Panolens",
+      "3D Commerce",
+      "E-commerce",
+      "Interactive UI",
+      "Performance Optimization",
+      "CMS Integration",
+    ],
+    description: `Developed an immersive browser-based 3D commerce experience enabling users to explore a virtual showroom with interactive product discovery.
+- Engineered modular 3D scene architecture supporting dynamic loading of panoramic environments and product assets
+- Built content management workflows allowing administrators to upload and manage 3D models and product metadata
+- Optimized rendering performance through asset compression and efficient scene management
+- Integrated interactive product navigation and commerce flows bridging immersive UX with real purchasing functionality`,
+    logo: "/images/projects/dior.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "sato-pump",
+    title: "Sato Pump | Meme Token DEX Platform",
+    period: { start: "2023" },
+    link: "https://satopump.vercel.app",
+    skills: [
+      "React",
+      "TypeScript",
+      "Solidity",
+      "Ethers.js",
+      "Web3",
+      "DEX",
+      "Tokenomics",
+      "Hardhat",
+      "Binance Smart Chain",
+      "WalletConnect",
+    ],
+    description: `Built a decentralized trading platform focused on meme tokens with advanced token lifecycle mechanics.
+- Developed DEX interaction flows including wallet connection and token swaps
+- Implemented bonding curve token pricing logic and referral reward mechanisms
+- Built smart contract integrations supporting token management and trading features
+- Designed scalable frontend architecture for DeFi interaction workflows`,
+    logo: "/images/projects/sato-pump.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "roppongi-ai",
+    title: "Roppongi AI | AI Business Website",
+    period: { start: "2022" },
+    link: "https://roppongi-ai.netlify.app/",
+    skills: [
+      "WordPress",
+      "Elementor",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "AI Integration",
+      "SEO",
+      "Responsive Design",
+    ],
+    description: `Developed a business website focused on presenting AI solutions and services.
+- Built custom WordPress theme with Elementor based layout system
+- Implemented responsive UI optimized for business lead generation
+- Integrated AI product presentation workflows and marketing content structure
+- Improved performance and SEO structure for better discoverability`,
+    logo: "/images/projects/roppongi-ai.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "speaking-girl-ai",
+    title: "Speaking Girl AI | AI Avatar Interaction Platform",
+    period: { start: "2024" },
+    link: "https://speakingai.difines.io",
+    skills: [
+      "React",
+      "TypeScript",
+      "OpenAI",
+      "Azure TTS",
+      "AI Integration",
+      "Conversational AI",
+      "Frontend Architecture",
+    ],
+    description: `Developed an AI avatar interaction platform combining conversational AI with real-time voice synthesis.
+- Integrated OpenAI models for conversational response generation
+- Implemented Azure Text-to-Speech pipelines for natural voice output
+- Built interactive UI for AI conversation workflows
+- Designed scalable frontend architecture for AI-driven user interaction`,
+    logo: "/images/projects/ai-speaking-girl.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "dentist-website",
+    title: "Dentist Website | Healthcare Business Platform",
+    period: { start: "2021" },
+    link: "#",
+    skills: [
+      "React",
+      "JavaScript",
+      "HTML5",
+      "SCSS",
+      "CSS3",
+      "Responsive Design",
+      "UI Development",
+    ],
+    description: `Developed a modern healthcare website focused on patient engagement and service presentation.
+- Built responsive UI components for service listings and appointment information
+- Designed clean user experience focused on accessibility and trust
+- Implemented reusable frontend components for healthcare content management`,
+    logo: "/images/projects/dentist.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "fashion-website",
+    title: "Fashion Website | E-commerce UI Platform",
+    period: { start: "2021" },
+    link: "https://aura-fashion-theme.netlify.app/",
+    skills: [
+      "React",
+      "JavaScript",
+      "HTML5",
+      "SCSS",
+      "CSS3",
+      "E-commerce UI",
+      "Frontend Architecture",
+    ],
+    description: `Developed a modern fashion e-commerce frontend focused on product presentation and brand experience.
+- Built responsive product catalog and landing page components
+- Designed UI optimized for product discovery and conversion
+- Implemented reusable design components for scalable storefront development`,
+    logo: "/images/projects/fashion.webp",
+    isExpanded: false,
+  },
+
+  {
+    id: "crypto-website",
+    title: "Crypto Website | Digital Asset Platform UI",
+    period: { start: "2021" },
+    link: "https://crypto-aura-theme.netlify.app/",
+    skills: [
+      "React",
+      "JavaScript",
+      "HTML5",
+      "SCSS",
+      "CSS3",
+      "Crypto UI",
+      "Landing Pages",
+    ],
+    description: `Developed a cryptocurrency platform interface focused on product marketing and ecosystem presentation.
+- Built landing pages for token ecosystem promotion
+- Designed UI sections for roadmap, tokenomics, and ecosystem features
+- Implemented responsive layouts optimized for Web3 product presentation`,
+    logo: "/images/projects/crypto.webp",
+    isExpanded: false,
   },
 ]
+
+export function getAllProjects() {
+  return PROJECTS
+}

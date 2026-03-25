@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://chanhdai.com",
+  url: process.env.APP_URL || "https://0xdanieltran.vercel.app",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -20,31 +20,23 @@ export const MAIN_NAV: NavItem[] = [
     href: "/",
   },
   {
-    title: "Components",
-    href: "/components",
-  },
-  {
-    title: "Blocks",
-    href: "/blocks",
+    title: "Project",
+    href: "/project",
   },
   {
     title: "Blog",
     href: "/blog",
   },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
-    className: "sm:max-md:hidden",
-  },
 ]
 
-export const X_USERNAME = "@iamncdai"
-export const GITHUB_USERNAME = "ncdai"
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
+export const X_USERNAME = "@danieltran"
+export const GITHUB_USERNAME = "0xdanieltran"
+export const SOURCE_CODE_GITHUB_REPO = "0xdanieltran/0xdanieltran-portfolio"
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/0xdanieltran/0xdanieltran-portfolio"
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
+export const SPONSORSHIP_URL = "#"
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "0xdanieltran.vercel.app",
 }

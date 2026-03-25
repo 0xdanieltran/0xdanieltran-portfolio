@@ -1,4 +1,4 @@
-import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
+import { BoxIcon, LinkIcon } from "lucide-react"
 import Image from "next/image"
 
 import {
@@ -29,58 +29,23 @@ export function ProjectItem({
   className?: string
   project: Project
 }) {
-  const { start, end } = project.period
-  const isOngoing = !end
-  const isSinglePeriod = end === start
-
   return (
     <Collapsible className={className} defaultOpen={project.isExpanded}>
       <div className="flex items-center hover:bg-accent-muted">
-        {project.logo ? (
-          <Image
-            src={project.logo}
-            alt={project.title}
-            width={32}
-            height={32}
-            quality={100}
-            className="mx-4 flex size-6 shrink-0 select-none"
-            unoptimized
-            aria-hidden
-          />
-        ) : (
-          <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background select-none">
-            <BoxIcon className="size-4" />
-          </div>
-        )}
-
+        <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background select-none">
+          <BoxIcon className="size-4" />
+        </div>
         <div className="flex-1 border-l border-dashed border-line">
-          <CollapsibleTrigger className="flex w-full items-center gap-2 p-4 pr-2 text-left">
+          <CollapsibleTrigger
+            className="flex w-full items-center gap-2 p-4 pr-2 text-left"
+            source="view_project"
+            project={project}
+          >
             <div className="flex-1">
               <h3 className="mb-1 leading-snug font-medium text-balance">
                 {project.title}
               </h3>
-
-              <dl className="text-sm text-muted-foreground">
-                <dt className="sr-only">Period</dt>
-                <dd className="flex items-center gap-0.5">
-                  <span>{start}</span>
-                  {!isSinglePeriod && (
-                    <>
-                      <span className="font-mono">—</span>
-                      {isOngoing ? (
-                        <>
-                          <InfinityIcon className="size-4.5 translate-y-[0.5px]" />
-                          <span className="sr-only">Present</span>
-                        </>
-                      ) : (
-                        <span>{end}</span>
-                      )}
-                    </>
-                  )}
-                </dd>
-              </dl>
             </div>
-
             <Tooltip>
               <TooltipTrigger
                 render={
@@ -109,11 +74,26 @@ export function ProjectItem({
 
       <CollapsibleContent className="overflow-hidden">
         <div className="space-y-4 border-t border-line p-4">
-          {project.description && (
-            <ProseMono>
-              <Markdown>{project.description}</Markdown>
-            </ProseMono>
-          )}
+          <div className="flex flex-col items-start gap-6 text-sm text-muted-foreground">
+            {/* Image side */}
+            <Image
+              src={project.logo || "/images/projects/default.webp"}
+              alt={project.title}
+              width={160}
+              height={160}
+              quality={100}
+              className="h-auto w-full object-contain"
+              unoptimized
+              aria-hidden
+            />
+
+            {/* Description side */}
+            {project.description && (
+              <ProseMono>
+                <Markdown>{project.description}</Markdown>
+              </ProseMono>
+            )}
+          </div>
 
           {project.skills.length > 0 && (
             <ul className="flex flex-wrap gap-1.5">

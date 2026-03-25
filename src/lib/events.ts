@@ -15,6 +15,9 @@ const eventSchema = z.object({
     "command_menu_search",
     "command_menu_action",
     "blog_search",
+    "view_project",
+    "open_project_link",
+    "view_experience",
   ]),
   // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z

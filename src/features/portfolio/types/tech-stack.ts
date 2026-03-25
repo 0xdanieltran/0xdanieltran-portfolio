@@ -18,4 +18,6 @@ export type TechStack = {
   categories: string[]
   /** If true, use theme-specific icons for dark/light mode. */
   theme?: boolean
+  /** Optional custom image URL for the icon, overrides default resolution. */
+  imgUrl?: string
 }

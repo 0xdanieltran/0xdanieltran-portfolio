@@ -30,34 +30,14 @@ export function TechStack() {
                         rel="noopener"
                         aria-label={tech.title}
                       >
-                        {tech.theme ? (
-                          <>
-                            <Image
-                              src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
-                              alt={`${tech.title} light icon`}
-                              width={32}
-                              height={32}
-                              className="hidden [html.light_&]:block"
-                              unoptimized
-                            />
-                            <Image
-                              src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
-                              alt={`${tech.title} dark icon`}
-                              width={32}
-                              height={32}
-                              className="hidden [html.dark_&]:block"
-                              unoptimized
-                            />
-                          </>
-                        ) : (
-                          <Image
-                            src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
-                            alt={`${tech.title} icon`}
-                            width={32}
-                            height={32}
-                            unoptimized
-                          />
-                        )}
+                        <Image
+                          src={`${tech.imgUrl}`}
+                          alt={`${tech.title} icon`}
+                          width={100}
+                          height={50}
+                          className="h-7 w-auto"
+                          unoptimized
+                        />
                       </a>
                     }
                   />
