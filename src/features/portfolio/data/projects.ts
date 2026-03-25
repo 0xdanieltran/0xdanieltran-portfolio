@@ -169,10 +169,10 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    id: "incarta",
-    title: "Incarta | Clinical Chart (Alarta)",
+    id: "clinical-chart",
+    title: "Clinical Chart",
     period: { start: "2022" },
-    link: "https://incarta.com.au",
+    link: "#",
     skills: [
       "React",
       "Node.js",
