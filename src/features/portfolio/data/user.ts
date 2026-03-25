@@ -14,8 +14,8 @@ export const USER: User = {
     "Open Source Contributor",
     "SaaS, Fintech, AI & Web3 Enthusiast",
   ],
-  address: "Melbourne, VIC, Australia",
-  phoneNumber: "+61 3 9005 7031", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  address: "1129 København K, Denmark",
+  phoneNumber: "+45 33 12 98 34", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "danillppiont106@gmail.com", // base64 encoded
   website: "https://0xdanieltran.vercel.app",
   jobTitle: "Senior Full Stack Engineer",
@@ -40,7 +40,7 @@ export const USER: User = {
   avatar: "./images/logos/danieltran.png",
   ogImage: "./images/logos/danieltran.png",
   namePronunciationUrl: "#",
-  timeZone: "Australia/Melbourne",
+  timeZone: "Europe/Copenhagen",
   keywords: [
     // Identity / Branding
     "Daniel Tran",

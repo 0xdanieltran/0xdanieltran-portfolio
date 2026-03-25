@@ -14,7 +14,7 @@ export const EXPERIENCES: Experience[] = [
           start: "02.2024",
           end: "01.2026",
         },
-        employmentType: "Full-time",
+        employmentType: "Contract",
         icon: "code",
         description:
           "- Led architecture and development of the DFS Chain ecosystem, a Layer-0 blockchain platform powering wallets, exchanges, token issuance, launchpads, and digital asset services.\n- Designed and built DFS Scan, a blockchain explorer with real-time transaction indexing, block aggregation, wallet tracking, and on-chain analytics.\n- Engineered MetaFace Wallet, a MetaMask-style wallet supporting DFS-native and bridged assets across ecosystem applications.\n- Developed launchpad, exchange, token creation, airdrop, and tokenomics platforms including Quick IDO, Moegi IDO, WhiteCreator, POIPI, and Burn-to-Earn systems.\n- Architected shared ledger infrastructure, cross-ledger asset bridges, and backend services optimized for high-throughput financial operations.\n- Integrated AI-assisted analytics, operational automation, and LLM-enhanced engineering workflows to improve platform intelligence and delivery efficiency.",
@@ -55,7 +55,7 @@ export const EXPERIENCES: Experience[] = [
           start: "08.2023",
           end: "02.2024",
         },
-        employmentType: "Full-time",
+        employmentType: "Contract",
         icon: "code",
         description:
           "- Engineered scalable backend infrastructure using Node.js, TypeScript, Express.js, and MongoDB supporting 5M+ daily transactions with 99.9% uptime.\n- Designed real-time gaming and communication systems with Socket.io, improving engagement and retention by 30%.\n- Developed AI-assisted payment processing and fraud detection workflows, increasing transaction speed by 50% while strengthening platform security.\n- Implemented secure authentication and session architecture with JWT and CAPTCHA, reducing unauthorized access by 40%.\n- Built affiliate, referral, and support workflow systems that increased traffic and reduced average response time from 48 hours to 12 hours.",
@@ -206,10 +206,10 @@ export const EXPERIENCES: Experience[] = [
     isCurrentEmployer: false,
   },
   {
-    id: "incarta",
-    companyName: "Incarta",
-    companyLogo: "/images/experiences/incarta.png",
-    companyWebsite: "https://incarta.com.au/",
+    id: "liva-healthcare",
+    companyName: "Liva Healthcare",
+    companyLogo: "/images/experiences/liva-healthcare.jpg",
+    companyWebsite: "https://www.livahealthcare.com/",
     positions: [
       {
         id: "1",
@@ -221,7 +221,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Full-time",
         icon: "code",
         description:
-          "- Contributed to cloud-based healthcare and clinical data platforms supporting real-time patient monitoring and medical record workflows.\n- Built interactive clinical dashboards with React.js and D3.js to improve access to complex healthcare data during high-demand operations.\n- Developed scalable backend services with Node.js, Express, and MongoDB for secure ingestion and visualization of high-volume clinical data.\n- Collaborated with clinicians and infrastructure teams to deliver reliable, user-centric healthcare applications in private cloud environments.",
+          "- Contributed to the architecture and development of a configurable cloud-native digital health platform enabling end-to-end care program management, patient engagement, and real-time health data monitoring.\n- Designed and implemented scalable backend services using Node.js, Express, and MongoDB to securely ingest, process, and serve high-volume patient data from mobile applications, connected health devices, and third-party healthcare integrations.\n- Developed advanced analytics dashboards and coach management portals using React.js and D3.js, improving clinical visibility into patient progress, treatment outcomes, and operational performance.\n- Implemented real-time data processing pipelines and monitoring workflows to enable proactive interventions, personalized patient feedback, and measurable outcome tracking across healthcare programs.\n- Integrated wearable devices and remote monitoring systems through secure API architectures to enhance automated health tracking and support personalized care delivery.\n- Partnered closely with clinicians, product stakeholders, and DevOps teams to deliver highly available, secure, and performance-optimized healthcare solutions aligned with enterprise reliability standards.\n -Enhanced platform scalability and operational resilience through microservices architecture, distributed caching strategies, and observability tooling, supporting expanding patient populations and increasing data workloads.",
         skills: [
           "React",
           "Node.js",
@@ -241,10 +241,10 @@ export const EXPERIENCES: Experience[] = [
     isCurrentEmployer: false,
   },
   {
-    id: "openagent",
-    companyName: "Open Agent",
-    companyLogo: "/images/experiences/openagent.png",
-    companyWebsite: "https://www.openagent.com.au/",
+    id: "adapt-agency",
+    companyName: "Adapt agency",
+    companyLogo: "/images/experiences/adapt-agency.png",
+    companyWebsite: "https://www.adaptagency.com/",
     positions: [
       {
         id: "1",
@@ -274,5 +274,39 @@ export const EXPERIENCES: Experience[] = [
       },
     ],
     isCurrentEmployer: false,
+  },
+  {
+    id: "education",
+    companyName: "Technical University of Denmark (DTU)",
+    positions: [
+      {
+        id: "3",
+        title: "Bachelor of Science (BSc) in Software Technology",
+        employmentPeriod: {
+          start: "09.2013",
+          end: "06.2017",
+        },
+        icon: "education",
+        description: `- Awarded Bachelor's degree in Software Engineering from the Technical University of Denmark (DTU).
+- Focused on software architecture, distributed systems, databases, and scalable application development.
+- Completed coursework in algorithms, data structures, operating systems, and cloud computing fundamentals.
+- Built multiple academic projects involving full-stack development, API design, and data processing systems.
+- Collaborated in team-based engineering projects following agile development methodologies.
+- Developed strong foundations in system design, backend engineering, and performance optimization.`,
+        skills: [
+          "Data Structures & Algorithms",
+          "Software Architecture",
+          "Database Systems (SQL/NoSQL)",
+          "Computer Networks",
+          "Backend Development",
+          "API Design",
+          "Cloud Computing Fundamentals",
+          "System Design",
+          "Object-Oriented Programming",
+          "Software Testing",
+          "Problem Solving",
+        ],
+      },
+    ],
   },
 ]
