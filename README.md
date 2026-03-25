@@ -1,4 +1,3 @@
-````md
 # Daniel Tran Portfolio
 
 [![GitHub license](https://img.shields.io/github/license/0xdanieltran/0xdanieltran-portfolio)](https://github.com/0xdanieltran/0xdanieltran-portfolio/blob/main/LICENSE)
@@ -98,7 +97,6 @@ src/
 ├── styles/
 └── content/
 ```
-````
 
 ## Getting Started
 
@@ -193,8 +191,3 @@ Your support helps improve the project over time.
 Senior Full Stack Engineer
 
 - GitHub: [0xdanieltran](https://github.com/0xdanieltran)
-
-```
-
-Adapted from your uploaded README source. :contentReference[oaicite:0]{index=0}
-```
