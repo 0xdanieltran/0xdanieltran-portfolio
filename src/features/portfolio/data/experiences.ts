@@ -58,7 +58,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Contract",
         icon: "code",
         description:
-          "- Engineered scalable backend infrastructure using Node.js, TypeScript, Express.js, and MongoDB supporting 5M+ daily transactions with 99.9% uptime.\n- Designed real-time gaming and communication systems with Socket.io, improving engagement and retention by 30%.\n- Developed AI-assisted payment processing and fraud detection workflows, increasing transaction speed by 50% while strengthening platform security.\n- Implemented secure authentication and session architecture with JWT and CAPTCHA, reducing unauthorized access by 40%.\n- Built affiliate, referral, and support workflow systems that increased traffic and reduced average response time from 48 hours to 12 hours.",
+          "- Architected high-performance backend infrastructure using Node.js, TypeScript, Express.js, and MongoDB to support enterprise-scale transaction volumes with 99.9% uptime.\n- Designed real-time gaming and communication systems with Socket.io, improving engagement and retention by 30%.\n- Developed AI-assisted payment processing and fraud detection workflows, increasing transaction speed by 50% while strengthening platform security.\n- Implemented secure authentication and session architecture with JWT and CAPTCHA, reducing unauthorized access by 40%.\n- Built affiliate, referral, and support workflow systems that increased traffic and reduced average response time from 48 hours to 12 hours.",
         skills: [
           "Node.js",
           "TypeScript",
