@@ -23,8 +23,8 @@ export const USER: User = {
     {
       title: "Senior Full Stack Engineer",
       company: "",
-      website: "https://shadcncraft.com",
-      experienceId: "shadcncraft",
+      website: "https://0xdanieltran.vercel.app",
+      experienceId: "0xdanieltran",
     },
   ],
   about: `
