@@ -33,8 +33,7 @@ export const USER: User = {
 - Contributed to multiple **Web3 infrastructure projects** including crypto wallets, blockchain explorers, token ecosystems, and DeFi platforms across EVM networks.
 - Strong expertise in **distributed systems architecture**, microservices, API platforms, and cloud-native applications using **TypeScript, Node.js, PostgreSQL, and modern cloud infrastructure**.
 - Product-driven engineer with strong ownership mindset, combining **system design expertise and cross-functional collaboration** to deliver reliable production systems.
-- Helped raise over **$250K in token sales** by architecting and developing a blockchain launchpad for [AstraDAO](https://x.com/astradao_org).
-- Engineered scalable backend infrastructure handling **5M+ daily transactions** for a high-traffic online casino platform [Dwayne](https://xmr.gg).
+- Engineered scalable backend infrastructure handling **5M+ daily transactions** for a high-traffic online casino platform [XMRPlay Ltd](https://xmr.gg).
 - Designed and developed a **Ethereum and Solana style blockchain explorer** for the DFS Chain ecosystem, delivering real-time transaction indexing, wallet tracking, and on-chain analytics via [DFS Scan](https://dfsscan.com).
 `,
   avatar: "./images/logos/danieltran.png",
