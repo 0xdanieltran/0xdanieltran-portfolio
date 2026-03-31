@@ -4,8 +4,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://assets.chanhdai.com/images/link-icons/x.webp?v=2",
     title: "X",
-    subtitle: "0xdanieltran",
-    href: "https://x.com/0xdanieltran",
+    subtitle: "0xdanieltran106",
+    href: "https://x.com/0xdanieltran106",
   },
   {
     icon: "https://assets.chanhdai.com/images/link-icons/github.webp?v=2",
