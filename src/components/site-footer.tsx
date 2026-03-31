@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/0xdanieltran?utm_source=0xdanieltran.vercel.app"
+              href="https://x.com/0xdanieltran106?utm_source=0xdanieltran.vercel.app"
               target="_blank"
               rel="noopener"
             >
