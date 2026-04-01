@@ -5,7 +5,7 @@ import { getAllDocs, getDocsByCategory } from "@/features/doc/data/documents"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllDocs().map((post) => ({
-    url: `${SITE_INFO.url}/blog/${post.slug}`,
+    url: `${SITE_INFO.url}/insights/${post.slug}`,
     lastModified: new Date(post.metadata.updatedAt).toISOString(),
   }))
 
@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.metadata.updatedAt).toISOString(),
   }))
 
-  const routes = ["", "/blog", "/components"].map((route) => ({
+  const routes = ["", "/insights", "/components"].map((route) => ({
     url: `${SITE_INFO.url}${route}`,
     lastModified: new Date().toISOString(),
   }))

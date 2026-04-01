@@ -1,16 +1,20 @@
 import type { Metadata } from "next"
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 
-import { About } from "@/features/portfolio/components/about"
 import { Blog } from "@/features/portfolio/components/blog"
 import { Experiences } from "@/features/portfolio/components/experiences"
+import { FinalCta } from "@/features/portfolio/components/final-cta"
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
+import { HeroPositioning } from "@/features/portfolio/components/hero-positioning"
 import { Overview } from "@/features/portfolio/components/overview"
+import { PartnershipModel } from "@/features/portfolio/components/partnership-model"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
+import { SelectedWork } from "@/features/portfolio/components/selected-work"
 import { SocialLinks } from "@/features/portfolio/components/social-links-v2"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
 import { TestimonialsMarquee } from "@/features/portfolio/components/testimonials-marquee"
+import { WhoIWorkWith } from "@/features/portfolio/components/who-i-work-with"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
@@ -36,21 +40,30 @@ export default function Page() {
         <ProfileHeader />
         <Separator />
 
+        <HeroPositioning />
+        <Separator />
+
         <Overview />
         <SocialLinks />
         <Separator />
 
-        <About />
-        <div className="flex h-2 w-full border-x border-line" />
+        <PartnershipModel />
+        <Separator />
+
+        {/* <WhoIWorkWith />
+        <Separator /> */}
 
         <TestimonialsMarquee />
-        <div className="flex h-2 w-full border-x border-line" />
-
-        <GitHubContributions />
         <Separator />
+
+        {/* <GitHubContributions />
+        <Separator /> */}
 
         <TechStack />
         <Separator />
+
+        {/* <SelectedWork />
+        <Separator /> */}
 
         <Experiences />
         <Separator />
@@ -59,6 +72,9 @@ export default function Page() {
         <Separator />
 
         <Blog />
+        <Separator />
+
+        <FinalCta />
         <Separator />
 
         {/* <Awards />

@@ -2,29 +2,21 @@ import type { TechStack } from "../types/tech-stack"
 
 export const TECH_STACK: TechStack[] = [
   {
-    key: "typescript",
-    title: "TypeScript",
-    href: "https://www.typescriptlang.org/",
-    imgUrl:
-      "https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white",
-    categories: ["Language"],
-  },
-  {
-    key: "react",
-    title: "React",
-    href: "https://react.dev/",
-    imgUrl:
-      "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black",
-    categories: ["Library", "UI Library"],
-  },
-  {
     key: "nextjs",
     title: "Next.js",
     href: "https://nextjs.org/",
     imgUrl:
       "https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white",
-    categories: ["Framework"],
+    categories: ["Primary Stack", "Framework"],
     theme: true,
+  },
+  {
+    key: "typescript",
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org/",
+    imgUrl:
+      "https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white",
+    categories: ["Primary Stack", "Language"],
   },
   {
     key: "nodejs",
@@ -32,7 +24,7 @@ export const TECH_STACK: TechStack[] = [
     href: "https://nodejs.org/",
     imgUrl:
       "https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white",
-    categories: ["Runtime Environment"],
+    categories: ["Backend", "Runtime Environment"],
   },
   {
     key: "python",
@@ -40,7 +32,7 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.python.org/",
     imgUrl:
       "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
-    categories: ["Language", "AI"],
+    categories: ["Backend", "Language", "AI"],
   },
   {
     key: "supabase",
@@ -48,7 +40,7 @@ export const TECH_STACK: TechStack[] = [
     href: "https://supabase.com/",
     imgUrl:
       "https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white",
-    categories: ["Backend", "Database", "SaaS"],
+    categories: ["Primary Stack", "Backend", "Database", "SaaS"],
   },
   {
     key: "postgresql",
@@ -56,15 +48,7 @@ export const TECH_STACK: TechStack[] = [
     href: "https://www.postgresql.org/",
     imgUrl:
       "https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white",
-    categories: ["Database"],
-  },
-  {
-    key: "stripe",
-    title: "Stripe",
-    href: "https://stripe.com/",
-    imgUrl:
-      "https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white",
-    categories: ["Fintech", "Payments"],
+    categories: ["Primary Stack", "Database"],
   },
   {
     key: "openai",
@@ -72,7 +56,47 @@ export const TECH_STACK: TechStack[] = [
     href: "https://openai.com/",
     imgUrl:
       "https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white",
-    categories: ["AI", "LLM"],
+    categories: ["Primary Stack", "AI", "LLM"],
+  },
+  {
+    key: "graphql",
+    title: "GraphQL",
+    href: "https://graphql.org/",
+    imgUrl:
+      "https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white",
+    categories: ["Backend"],
+  },
+  {
+    key: "redis",
+    title: "Redis",
+    href: "https://redis.io/",
+    imgUrl:
+      "https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white",
+    categories: ["Backend"],
+  },
+  {
+    key: "aws",
+    title: "AWS",
+    href: "https://aws.amazon.com/",
+    imgUrl:
+      "https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white",
+    categories: ["Infrastructure"],
+  },
+  {
+    key: "docker",
+    title: "Docker",
+    href: "https://www.docker.com/",
+    imgUrl:
+      "https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white",
+    categories: ["Infrastructure"],
+  },
+  {
+    key: "cicd",
+    title: "CI/CD",
+    href: "https://github.com/features/actions",
+    imgUrl:
+      "https://img.shields.io/badge/CI%2FCD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white",
+    categories: ["Infrastructure"],
   },
   {
     key: "ethereum",
@@ -80,6 +104,22 @@ export const TECH_STACK: TechStack[] = [
     href: "https://ethereum.org/",
     imgUrl:
       "https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white",
-    categories: ["Web3", "Blockchain"],
+    categories: ["Blockchain", "Web3"],
+  },
+  {
+    key: "solana",
+    title: "Solana",
+    href: "https://solana.com/",
+    imgUrl:
+      "https://img.shields.io/badge/Solana-14F195?style=for-the-badge&logo=solana&logoColor=000000",
+    categories: ["Blockchain", "Web3"],
+  },
+  {
+    key: "ethersjs",
+    title: "Ethers.js",
+    href: "https://docs.ethers.org/",
+    imgUrl:
+      "https://img.shields.io/badge/Ethers.js-2535A0?style=for-the-badge&logo=ethereum&logoColor=white",
+    categories: ["Blockchain", "Web3"],
   },
 ]

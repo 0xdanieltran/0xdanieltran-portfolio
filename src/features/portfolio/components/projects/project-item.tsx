@@ -29,6 +29,12 @@ export function ProjectItem({
   className?: string
   project: Project
 }) {
+  const hasStructuredContent =
+    project.businessDescription ||
+    project.role ||
+    project.highlights?.length ||
+    project.impact
+
   return (
     <Collapsible className={className} defaultOpen={project.isExpanded}>
       <div className="flex items-center hover:bg-accent-muted">
@@ -88,10 +94,44 @@ export function ProjectItem({
             />
 
             {/* Description side */}
-            {project.description && (
-              <ProseMono>
-                <Markdown>{project.description}</Markdown>
-              </ProseMono>
+            {hasStructuredContent ? (
+              <div className="w-full space-y-3">
+                {project.businessDescription && (
+                  <p className="font-mono text-sm text-foreground">
+                    {project.businessDescription}
+                  </p>
+                )}
+                {project.role && (
+                  <div>
+                    <p className="font-medium text-foreground">Role</p>
+                    <p className="font-mono text-sm">{project.role}</p>
+                  </div>
+                )}
+                {!!project.highlights?.length && (
+                  <div>
+                    <p className="font-medium text-foreground">
+                      Technical Highlights
+                    </p>
+                    <ul className="list-disc space-y-0.5 pl-4 font-mono text-sm">
+                      {project.highlights.map((highlight, index) => (
+                        <li key={index}>{highlight}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {project.impact && (
+                  <div>
+                    <p className="font-medium text-foreground">Impact</p>
+                    <p className="font-mono text-sm">{project.impact}</p>
+                  </div>
+                )}
+              </div>
+            ) : (
+              project.description && (
+                <ProseMono>
+                  <Markdown>{project.description}</Markdown>
+                </ProseMono>
+              )
             )}
           </div>
 

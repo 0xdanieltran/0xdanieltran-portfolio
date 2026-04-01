@@ -9,7 +9,7 @@ export const EXPERIENCES: Experience[] = [
     positions: [
       {
         id: "1",
-        title: "Senior Full Stack Engineer",
+        title: "Senior Platform Engineer",
         employmentPeriod: {
           start: "02.2024",
           end: "01.2026",
@@ -17,7 +17,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Contract",
         icon: "code",
         description:
-          "- Led architecture and development of the DFS Chain ecosystem, a Layer-0 blockchain platform powering wallets, exchanges, token issuance, launchpads, and digital asset services.\n- Designed and built DFS Scan, a blockchain explorer with real-time transaction indexing, block aggregation, wallet tracking, and on-chain analytics.\n- Engineered MetaFace Wallet, a MetaMask-style wallet supporting DFS-native and bridged assets across ecosystem applications.\n- Developed launchpad, exchange, token creation, airdrop, and tokenomics platforms including Quick IDO, Moegi IDO, WhiteCreator, POIPI, and Burn-to-Earn systems.\n- Architected shared ledger infrastructure, cross-ledger asset bridges, and backend services optimized for high-throughput financial operations.\n- Integrated AI-assisted analytics, operational automation, and LLM-enhanced engineering workflows to improve platform intelligence and delivery efficiency.",
+          "Led architecture and development of a blockchain ecosystem powering wallets, exchanges, and digital asset infrastructure.\n- Architected DFS Chain platform services across token issuance, launchpad, and exchange workflows.\n- Designed and delivered DFS Scan with real-time indexing, wallet tracking, and on-chain analytics.\n- Engineered MetaFace Wallet infrastructure for DFS-native and bridged assets.\n- Built scalable ledger and bridge services for high-throughput financial operations.\n- Integrated AI-assisted analytics and automation workflows to improve delivery speed.",
         skills: [
           "TypeScript",
           "Node.js",
@@ -58,7 +58,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Contract",
         icon: "code",
         description:
-          "- Architected high-performance backend infrastructure using Node.js, TypeScript, Express.js, and MongoDB to support enterprise-scale transaction volumes with 99.9% uptime.\n- Designed real-time gaming and communication systems with Socket.io, improving engagement and retention by 30%.\n- Developed AI-assisted payment processing and fraud detection workflows, increasing transaction speed by 50% while strengthening platform security.\n- Implemented secure authentication and session architecture with JWT and CAPTCHA, reducing unauthorized access by 40%.\n- Built affiliate, referral, and support workflow systems that increased traffic and reduced average response time from 48 hours to 12 hours.",
+          "Led backend delivery for a high-traffic gaming and payments platform handling production transaction workloads.\n- Architected Node.js and TypeScript microservices for reliable high-concurrency operations.\n- Built real-time communication systems that improved engagement and retention.\n- Developed fraud detection and AI-assisted payment workflows to improve speed and security.\n- Implemented robust authentication and session controls with JWT and CAPTCHA.\n- Delivered referral and support automation that reduced response time and improved growth loops.",
         skills: [
           "Node.js",
           "TypeScript",
@@ -102,7 +102,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Contract",
         icon: "code",
         description:
-          "- Built a review API and automated aggregation engine with Node.js, TypeScript, and Express.js, improving data collection efficiency by 50%.\n- Developed a badge generation engine that increased user-generated social sharing by 25%.\n- Integrated Ethereum smart contracts using Web3.js to automate verification workflows and reduce manual operations by 60%.\n- Implemented CI/CD pipelines with GitHub Actions and strengthened developer workflows with Swagger, Cypress, and Jest.\n- Containerized backend services with Docker, improving deployment reliability and reducing database response times below 200ms.",
+          "Built the technical foundation for a decentralized review product focused on trusted verification at scale.\n- Delivered review ingestion and aggregation APIs with Node.js and TypeScript.\n- Integrated Ethereum verification workflows to reduce manual review operations.\n- Implemented CI/CD and testing workflows to improve release quality and velocity.\n- Containerized services with Docker for more reliable deployments and stable performance.\n- Launched embeddable output features that increased social sharing and distribution.",
         skills: [
           "Node.js",
           "TypeScript",
@@ -145,7 +145,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Full-time",
         icon: "code",
         description:
-          "- Helped build a large-scale DeFi ecosystem including token generation platforms, ICO systems, play-to-earn games, NFT marketplaces, and 10+ Web3 products.\n- Developed an automated DEX bot executing trades in under 2 seconds, improving transaction efficiency by 40%.\n- Designed cross-chain token bridges across five blockchain networks, improving interoperability and transfer efficiency by 40%.\n- Streamlined React and smart contract integration using Web3.js and Ethers.js, reducing deployment time by 60%.\n- Built backend infrastructure and migrated API workflows to GraphQL, improving data retrieval speed and reducing code complexity.\n- Managed CI/CD and cloud deployment workflows using CircleCI, Bitbucket, GitHub, and AWS Lambda.",
+          "Contributed to platform architecture across a multi-product DeFi ecosystem spanning tokens, exchanges, and NFT experiences.\n- Built and shipped Web3 products including token generation and ICO-related systems.\n- Developed low-latency DEX automation and trading workflows for faster execution.\n- Designed cross-chain bridge capabilities across multiple blockchain networks.\n- Improved frontend and smart-contract integration velocity using Web3.js and Ethers.js.\n- Migrated backend APIs toward GraphQL and improved cloud delivery with CI/CD.",
         skills: [
           "React",
           "Node.js",
@@ -187,7 +187,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Contract",
         icon: "code",
         description:
-          "- Developed and deployed smart contracts for liquidity pools and yield farming strategies on Binance Smart Chain.\n- Achieved full automated testing coverage using Truffle and Hardhat.\n- Built Web3 interfaces that improved staking and liquidity onboarding workflows.",
+          "Implemented production smart contract systems for early-stage DeFi products on Binance Smart Chain.\n- Developed contracts for liquidity pools and yield farming mechanics.\n- Established automated testing workflows with Hardhat and Truffle.\n- Built staking and liquidity interfaces to improve onboarding and usage.",
         skills: [
           "Solidity",
           "Binance Smart Chain",
@@ -221,7 +221,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Full-time",
         icon: "code",
         description:
-          "- Contributed to the architecture and development of a configurable cloud-native digital health platform enabling end-to-end care program management, patient engagement, and real-time health data monitoring.\n- Designed and implemented scalable backend services using Node.js, Express, and MongoDB to securely ingest, process, and serve high-volume patient data from mobile applications, connected health devices, and third-party healthcare integrations.\n- Developed advanced analytics dashboards and coach management portals using React.js and D3.js, improving clinical visibility into patient progress, treatment outcomes, and operational performance.\n- Implemented real-time data processing pipelines and monitoring workflows to enable proactive interventions, personalized patient feedback, and measurable outcome tracking across healthcare programs.\n- Integrated wearable devices and remote monitoring systems through secure API architectures to enhance automated health tracking and support personalized care delivery.\n- Partnered closely with clinicians, product stakeholders, and DevOps teams to deliver highly available, secure, and performance-optimized healthcare solutions aligned with enterprise reliability standards.\n -Enhanced platform scalability and operational resilience through microservices architecture, distributed caching strategies, and observability tooling, supporting expanding patient populations and increasing data workloads.",
+          "Built core platform capabilities for a cloud healthcare product serving clinicians and patient programs.\n- Developed scalable backend services for secure ingestion and processing of health data.\n- Delivered analytics dashboards and operational tools for care teams and coaches.\n- Integrated wearable and remote-monitoring data through secure API workflows.\n- Improved reliability and scalability using microservices, caching, and observability patterns.\n- Collaborated cross-functionally with clinicians, product, and DevOps to ship production features.",
         skills: [
           "React",
           "Node.js",
@@ -256,7 +256,7 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Full-time",
         icon: "code",
         description:
-          "- Developed and maintained large-scale web applications using React.js, TypeScript, HTML5, and CSS3, delivering reusable and maintainable UI component architectures.\n- Built over 100+ production-grade UI components following modern frontend patterns, improving development scalability and consistency across applications.\n- Collaborated within Agile teams to translate product and design requirements into performant frontend implementations, accelerating feature delivery timelines by approximately 25%.\n- Led frontend debugging and stabilization efforts, resolving 300+ production issues across application lifecycle stages and improving platform reliability.\n- Implemented responsive layouts and cross-browser compatible interfaces ensuring consistent user experience across desktop and mobile environments.\n- Participated in continuous integration workflows, application testing, and release cycles to maintain production stability.",
+          "Delivered frontend platform quality for multiple production web products in a fast-paced agency environment.\n- Built and maintained scalable React and TypeScript applications with reusable UI architecture.\n- Developed 100+ production UI components to improve consistency and team velocity.\n- Accelerated feature delivery by collaborating closely with product and design teams.\n- Led debugging and stabilization efforts across hundreds of production issues.\n- Ensured responsive, cross-browser reliability through testing and release discipline.",
         skills: [
           "React",
           "TypeScript",

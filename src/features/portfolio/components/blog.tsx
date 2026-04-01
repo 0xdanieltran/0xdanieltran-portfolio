@@ -5,7 +5,13 @@ import { Button } from "@/components/base/ui/button"
 import { PostItem } from "@/features/blog/components/post-item"
 import { getAllDocs } from "@/features/doc/data/documents"
 
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
+import {
+  Panel,
+  PanelDescription,
+  PanelHeader,
+  PanelTitle,
+  PanelTitleSup,
+} from "./panel"
 
 export function Blog() {
   const allPosts = getAllDocs()
@@ -14,9 +20,13 @@ export function Blog() {
     <Panel id="blog">
       <PanelHeader>
         <PanelTitle>
-          Blog
+          Engineering Insights
           <PanelTitleSup>({allPosts.length})</PanelTitleSup>
         </PanelTitle>
+        <PanelDescription>
+          Thoughts on AI engineering, scalable architecture, and modern web
+          development.
+        </PanelDescription>
       </PanelHeader>
 
       <div className="relative py-4">
@@ -37,9 +47,9 @@ export function Blog() {
           className="gap-2 border-none pr-2.5 pl-3"
           size="sm"
           nativeButton={false}
-          render={<Link href="/blog" />}
+          render={<Link href="/insights" />}
         >
-          All Posts
+          All Insights
           <ArrowRightIcon />
         </Button>
       </div>

@@ -21,10 +21,7 @@ export function TestimonialItem({
   quote,
 }: TestimonialType & { className?: string }) {
   return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener"
+    <div
       className={cn(
         "block h-full rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted",
         className
@@ -46,6 +43,6 @@ export function TestimonialItem({
           <TestimonialAuthorTagline>{authorTagline}</TestimonialAuthorTagline>
         </TestimonialAuthor>
       </Testimonial>
-    </a>
+    </div>
   )
 }

@@ -7,34 +7,39 @@ export const USER: User = {
   username: "danieltran",
   gender: "male",
   pronouns: "he/him",
-  bio: "Senior Full Stack Engineer | SaaS, Fintech, AI & Web3 Platforms",
+  bio: "AI Platform Engineer | SaaS Engineering Partner | Platform Architect",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Full Stack Engineer",
-    "Open Source Contributor",
-    "SaaS, Fintech, AI & Web3 Enthusiast",
+    "AI & Full-Stack Engineering Partner",
+    "Next.js, Supabase, PostgreSQL, OpenAI",
+    "SaaS Engineering Partner",
+    "Platform Architect for startup teams",
   ],
   address: "1129 København K, Denmark",
   phoneNumber: "+45 33 12 98 34", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "danillppiont106@gmail.com", // base64 encoded
   website: "https://0xdanieltran.vercel.app",
-  jobTitle: "Senior Full Stack Engineer",
+  jobTitle: "AI Platform Engineer",
   jobs: [
     {
-      title: "Senior Full Stack Engineer",
+      title: "AI & Full-Stack Engineering Partner",
       company: "",
       website: "https://0xdanieltran.vercel.app",
       experienceId: "0xdanieltran",
     },
   ],
   about: `
-- **Senior Full Stack Engineer** with 9+ years of experience building scalable platforms across **SaaS, Fintech, Web3, and AI-driven systems**.
-- Designed and delivered large-scale **financial and SaaS platforms**, including payment systems, subscription platforms, analytics dashboards, and high-concurrency backend services.
-- Contributed to multiple **Web3 infrastructure projects** including crypto wallets, blockchain explorers, token ecosystems, and DeFi platforms across EVM networks.
-- Strong expertise in **distributed systems architecture**, microservices, API platforms, and cloud-native applications using **TypeScript, Node.js, PostgreSQL, and modern cloud infrastructure**.
-- Product-driven engineer with strong ownership mindset, combining **system design expertise and cross-functional collaboration** to deliver reliable production systems.
-- Engineered scalable backend infrastructure handling **5M+ daily transactions** for a high-traffic online casino platform [XMRPlay Ltd](https://xmr.gg).
-- Designed and developed a **Ethereum and Solana style blockchain explorer** for the DFS Chain ecosystem, delivering real-time transaction indexing, wallet tracking, and on-chain analytics via [DFS Scan](https://dfsscan.com).
+Senior Platform Engineer with **9+ years of experience** building production SaaS, fintech, Web3, and AI platforms.
+
+I specialize in building scalable applications using **Next.js, Supabase, PostgreSQL, and modern cloud infrastructure**.
+
+My work focuses on:
+- Platform scalability
+- AI feature integration
+- Backend architecture
+- High-performance frontend systems
+- Developer infrastructure
+
+I enjoy working with startups and product teams where I can combine engineering depth with product thinking.
 `,
   avatar: "./images/logos/danieltran.png",
   ogImage: "./images/logos/danieltran.png",
@@ -46,7 +51,7 @@ export const USER: User = {
     "0xDanielTran",
     "Daniel Tran software engineer",
     "Daniel Tran portfolio",
-    "Senior Full Stack Engineer",
+    "Senior Platform Engineer",
     "Senior Software Engineer",
     "Full Stack Developer",
     "Software Engineer Portfolio",

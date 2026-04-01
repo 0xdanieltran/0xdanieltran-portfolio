@@ -4,6 +4,10 @@ import type { NavItem } from "@/types/nav"
 export const SITE_INFO = {
   name: USER.displayName,
   url: process.env.APP_URL || "https://0xdanieltran.vercel.app",
+  calendarUrl:
+    process.env.NEXT_PUBLIC_CALENDAR_URL ||
+    process.env.CALENDAR_SCHEDULE_URL ||
+    "https://calendly.com/0xdanieltran/30min",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -24,8 +28,12 @@ export const MAIN_NAV: NavItem[] = [
     href: "/project",
   },
   {
-    title: "Blog",
-    href: "/blog",
+    title: "Insights",
+    href: "/insights",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
   },
 ]
 

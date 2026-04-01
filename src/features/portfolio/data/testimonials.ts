@@ -10,7 +10,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/startupfounder",
     authorName: "Ethan Parker",
-    authorTagline: "Founder | Fintech Startup",
+    authorTagline: "Founder | Fintech SaaS Startup",
     url: "#",
     quote:
       "Working with Daniel was one of the best engineering decisions we made. He quickly understood our architecture challenges and delivered scalable solutions that improved both performance and reliability.",
@@ -28,7 +28,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/web3founder",
     authorName: "Ryan Cole",
-    authorTagline: "Web3 Founder",
+    authorTagline: "Founder | Web3 Infrastructure",
     url: "#",
     quote:
       "His understanding of blockchain infrastructure and backend systems helped us stabilize our platform during a critical growth phase. Very reliable engineer.",
@@ -46,7 +46,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/productmanager",
     authorName: "James Walker",
-    authorTagline: "Product Manager",
+    authorTagline: "Product Manager | SaaS Platform",
     url: "#",
     quote:
       "What impressed me most was his ability to translate product requirements into technical execution without unnecessary complexity.",
@@ -55,7 +55,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/devopslead",
     authorName: "Ankit Sharma",
-    authorTagline: "DevOps Lead",
+    authorTagline: "DevOps Lead | Cloud Infrastructure",
     url: "#",
     quote:
       "Daniel understands how real production systems behave. His work on backend performance and infrastructure significantly improved our platform stability.",
@@ -64,7 +64,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/clientreview",
     authorName: "Olivia Grant",
-    authorTagline: "Startup Founder",
+    authorTagline: "Founder | B2B SaaS Startup",
     url: "#",
     quote:
       "Communication was excellent, delivery was fast, and the quality exceeded expectations. Would absolutely work together again.",
@@ -73,7 +73,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/architect",
     authorName: "Victor Huang",
-    authorTagline: "Software Architect",
+    authorTagline: "Software Architect | Enterprise SaaS",
     url: "#",
     quote:
       "Daniel approaches engineering problems with a strong architectural mindset. His solutions are always thoughtful and future-proof.",
@@ -82,7 +82,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/blockchainpm",
     authorName: "Noah Bennett",
-    authorTagline: "Blockchain Product Lead",
+    authorTagline: "Product Lead | Blockchain Platform",
     url: "#",
     quote:
       "One of the most dependable engineers I've worked with. Strong ownership, strong delivery, and great attention to technical detail.",
@@ -91,7 +91,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/engineeringmanager",
     authorName: "Grace Patel",
-    authorTagline: "Engineering Manager",
+    authorTagline: "Engineering Manager | Fintech Systems",
     url: "#",
     quote:
       "Daniel works like a senior engineer you can trust with critical systems. He delivers consistently and raises the engineering standard of the team.",
@@ -104,7 +104,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/devreview",
     authorName: "Alex",
-    authorTagline: "Engineer",
+    authorTagline: "Engineer | SaaS Platform",
     url: "#",
     quote: "Strong engineer with great system thinking.",
     date: "2026-03-25",
@@ -112,7 +112,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/frontenddev",
     authorName: "Mason",
-    authorTagline: "Frontend Engineer",
+    authorTagline: "Frontend Engineer | B2B SaaS",
     url: "#",
     quote: "Super clean architecture work.",
     date: "2026-03-24",
@@ -120,7 +120,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/startupceo",
     authorName: "Isabella",
-    authorTagline: "Startup CEO",
+    authorTagline: "CEO | Startup Studio",
     url: "#",
     quote: "Reliable and very professional.",
     date: "2026-03-23",
@@ -128,7 +128,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/aiengineer",
     authorName: "Leo",
-    authorTagline: "AI Engineer",
+    authorTagline: "AI Engineer | Applied AI",
     url: "#",
     quote: "Knows how to build real systems.",
     date: "2026-03-22",
@@ -136,7 +136,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/productlead",
     authorName: "Daniel K",
-    authorTagline: "Product Lead",
+    authorTagline: "Product Lead | Fintech",
     url: "#",
     quote: "Great ownership mindset.",
     date: "2026-03-21",
@@ -144,7 +144,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/uxengineer",
     authorName: "Hannah",
-    authorTagline: "UX Engineer",
+    authorTagline: "UX Engineer | SaaS Platform",
     url: "#",
     quote: "Very thoughtful engineering work.",
     date: "2026-03-20",
@@ -152,7 +152,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/devmanager",
     authorName: "Robert",
-    authorTagline: "Dev Manager",
+    authorTagline: "Development Manager | Product Engineering",
     url: "#",
     quote: "High quality delivery.",
     date: "2026-03-19",
@@ -160,7 +160,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/backenddev",
     authorName: "Kevin",
-    authorTagline: "Backend Engineer",
+    authorTagline: "Backend Engineer | Distributed Systems",
     url: "#",
     quote: "Impressive backend skills.",
     date: "2026-03-18",
@@ -168,7 +168,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/web3dev",
     authorName: "Chris",
-    authorTagline: "Web3 Engineer",
+    authorTagline: "Web3 Engineer | DeFi Platform",
     url: "#",
     quote: "Strong blockchain knowledge.",
     date: "2026-03-17",
@@ -176,7 +176,7 @@ export const TESTIMONIALS_2: Testimonial[] = [
   {
     authorAvatar: "https://unavatar.io/x/founder",
     authorName: "Emma",
-    authorTagline: "Founder",
+    authorTagline: "Founder | Fintech SaaS Startup",
     url: "#",
     quote: "Would definitely hire again.",
     date: "2026-03-16",

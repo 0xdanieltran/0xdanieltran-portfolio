@@ -7,21 +7,27 @@ export const PROJECTS: Project[] = [
     period: { start: "2024" },
     link: "https://difines.org",
     skills: [
+      "Supabase",
+      "PostgreSQL",
       "Next.js",
       "TypeScript",
       "Blockchain",
       "Web3",
       "DeFi",
-      "PostgreSQL",
-      "Supabase",
       "Tailwind",
       "DApp Architecture",
       "Token Economy",
     ],
-    description: `Architected and developed a blockchain ecosystem supporting DeFi applications, token economies, and enterprise-grade Web3 integrations.
-- Designed DFS Chain infrastructure to support scalable decentralized applications and token utilities
-- Built staking, token issuance, and payment infrastructure for ecosystem participants
-- Developed developer tooling and APIs enabling faster Web3 product integration`,
+    businessDescription:
+      "Blockchain infrastructure platform supporting DeFi applications and token ecosystems.",
+    role: "Lead Full Stack Engineer",
+    highlights: [
+      "Built blockchain explorer and wallet-adjacent infrastructure",
+      "Designed token launch, staking, and ecosystem service architecture",
+      "Created integration APIs for partner teams and developers",
+    ],
+    impact:
+      "Enabled scalable ecosystem infrastructure and faster developer integrations.",
     logo: "/images/projects/dfs-simuchain.webp",
     isExpanded: true,
   },
@@ -32,19 +38,25 @@ export const PROJECTS: Project[] = [
     period: { start: "2024" },
     link: "https://dfsscan.com",
     skills: [
+      "Supabase",
+      "PostgreSQL",
       "Next.js",
       "TypeScript",
       "Blockchain Explorer",
       "Web3",
-      "PostgreSQL",
-      "Supabase",
       "Data Visualization",
       "API Integration",
     ],
-    description: `Developed a full-featured blockchain explorer providing transparency into DFS Chain transactions and network activity.
-- Implemented transaction indexing and block parsing services
-- Built wallet tracking and smart contract interaction monitoring
-- Created real-time analytics dashboards for blockchain data visualization`,
+    businessDescription:
+      "Blockchain explorer for real-time transaction visibility and on-chain analytics.",
+    role: "Full Stack Engineer",
+    highlights: [
+      "Implemented transaction indexing and block parsing pipelines",
+      "Built wallet tracking and contract interaction monitoring",
+      "Delivered analytics views for network health and activity",
+    ],
+    impact:
+      "Improved ecosystem transparency and developer debugging capabilities.",
     logo: "/images/projects/dfsscan.webp",
     isExpanded: false,
   },
@@ -55,19 +67,25 @@ export const PROJECTS: Project[] = [
     period: { start: "2024" },
     link: "http://metaface.dfsscan.com",
     skills: [
+      "Supabase",
+      "PostgreSQL",
       "Next.js",
       "TypeScript",
       "Web3",
       "Wallet Development",
       "Blockchain",
-      "PostgreSQL",
-      "Supabase",
       "Crypto Payments",
     ],
-    description: `Built a secure Web3 wallet enabling token transfers and asset management within the DFS ecosystem.
-- Implemented secure transaction signing and wallet management workflows
-- Integrated blockchain data services for real-time portfolio tracking
-- Developed authentication and transaction history systems for improved user experience`,
+    businessDescription:
+      "Web3 wallet product for secure transfers and portfolio management.",
+    role: "Full Stack Engineer",
+    highlights: [
+      "Implemented secure signing and wallet management workflows",
+      "Integrated chain data for real-time portfolio visibility",
+      "Built authentication and transaction history services",
+    ],
+    impact:
+      "Delivered reliable wallet operations and improved user confidence.",
     logo: "/images/projects/dfs_wallet.webp",
     isExpanded: false,
   },
@@ -87,10 +105,15 @@ export const PROJECTS: Project[] = [
       "DeFi",
       "Tailwind",
     ],
-    description: `Engineered a decentralized exchange enabling token swaps and liquidity participation within the DFS ecosystem.
-- Implemented AMM-based swap functionality and liquidity pool mechanics
-- Built reward distribution logic for liquidity providers
-- Integrated staking and farming features to improve ecosystem engagement`,
+    businessDescription:
+      "Decentralized exchange for token swaps and liquidity participation.",
+    role: "Frontend + Protocol Integration Engineer",
+    highlights: [
+      "Implemented AMM swap and liquidity pool mechanics",
+      "Built reward distribution logic for liquidity providers",
+      "Integrated staking and farming experiences",
+    ],
+    impact: "Increased ecosystem engagement through usable DeFi trading flows.",
     logo: "/images/projects/wex.webp",
     isExpanded: false,
   },
@@ -111,13 +134,16 @@ export const PROJECTS: Project[] = [
       "Fraud Prevention",
       "REST API",
     ],
-    description: `Led backend development for a large-scale platform, building microservices, APIs, data models, and infrastructure required to support complex business operations.
-- Architected and implemented a scalable microservices backend supporting high-volume transaction processing with strong availability and fault tolerance.
-- Built secure crypto payment and wallet integration services alongside traditional transaction processing features
-- Designed real-time communication systems including socket-based chat, live activity feeds, and reward distribution features such as chat rain and cashback programs
-- Implemented a robust JWT-based authentication and authorization system with advanced security controls and AI-driven fraud/anomaly detection
-- Improved platform performance and reliability through distributed caching, query optimization, and database tuning
-- Developed internal financial logic including balance management, transaction tracking, and reward calculation services`,
+    businessDescription:
+      "High-traffic gaming and payments platform with complex financial operations.",
+    role: "Senior Backend Engineer",
+    highlights: [
+      "Architected microservices for high-volume transaction processing",
+      "Built wallet, crypto payment, and financial tracking services",
+      "Improved reliability with Redis caching and database tuning",
+    ],
+    impact:
+      "Supported production throughput at scale while improving platform stability.",
     logo: "/images/projects/casino.webp",
     isExpanded: false,
   },
@@ -138,10 +164,16 @@ export const PROJECTS: Project[] = [
       "iOS",
       "Android",
     ],
-    description: `Developed an AI-powered mobile assistant that enhances user communication through contextual response generation.
-- Integrated LLM APIs for intelligent message recommendations
-- Built context analysis features using conversation history and sentiment signals
-- Designed cross-platform mobile architecture using React Native and Expo`,
+    businessDescription:
+      "AI assistant app for contextual communication and response generation.",
+    role: "AI Product Engineer",
+    highlights: [
+      "Integrated LLM APIs for high-quality response suggestions",
+      "Built context-aware prompt and conversation handling",
+      "Delivered cross-platform architecture with React Native + Expo",
+    ],
+    impact:
+      "Reduced response friction and increased user engagement in messaging flows.",
     logo: "/images/projects/ai-reactnative.webp",
     isExpanded: false,
   },
@@ -160,10 +192,16 @@ export const PROJECTS: Project[] = [
       "JavaScript",
       "Interactive UI",
     ],
-    description: `Built an interactive browser-based 3D visualization platform for real-time model rendering and interaction.
-- Developed modular scene architecture supporting dynamic model loading
-- Optimized rendering performance across browsers and devices
-- Implemented interactive controls for object manipulation and scene navigation`,
+    businessDescription:
+      "Interactive browser-based 3D model viewer for product visualization.",
+    role: "Frontend Engineer",
+    highlights: [
+      "Built modular scene architecture for dynamic model loading",
+      "Optimized rendering performance across browsers and devices",
+      "Implemented interaction controls for object manipulation",
+    ],
+    impact:
+      "Improved 3D content accessibility and reduced friction for visual demos.",
     logo: "/images/projects/interfactive-model-verge3d.webp",
     isExpanded: false,
   },
@@ -174,18 +212,23 @@ export const PROJECTS: Project[] = [
     period: { start: "2022" },
     link: "#",
     skills: [
+      "PostgreSQL",
       "React",
       "Node.js",
       "Healthcare",
-      "PostgreSQL",
       "Cloud Systems",
       "REST API",
       "Data Systems",
     ],
-    description: `Contributed to a cloud-based clinical records platform used in critical healthcare environments.
-- Developed medical dashboards for patient monitoring and reporting
-- Built secure healthcare data processing workflows
-- Implemented analytics tools supporting clinical decision making`,
+    businessDescription:
+      "Cloud clinical records platform supporting care teams with critical patient data.",
+    role: "Full Stack Engineer",
+    highlights: [
+      "Developed patient monitoring dashboards and reporting tools",
+      "Built secure healthcare data processing workflows",
+      "Implemented analytics for clinical decision support",
+    ],
+    impact: "Enabled more reliable data visibility for care operations.",
     logo: "/images/projects/clinical.webp",
     isExpanded: false,
   },
@@ -196,19 +239,25 @@ export const PROJECTS: Project[] = [
     period: { start: "2022" },
     link: "https://info.myhomeworkapp.com",
     skills: [
+      "PostgreSQL",
       "Next.js",
       "Node.js",
-      "PostgreSQL",
       "RLS",
       "Education Platform",
       "AWS",
       "RBAC",
       "Analytics",
     ],
-    description: `Developed a full-stack education platform supporting students, teachers, and parents.
-- Implemented role-based access control and data isolation policies
-- Built assignment management and grading automation tools
-- Developed analytics dashboards to track student performance`,
+    businessDescription:
+      "Education platform for assignment workflows across students, teachers, and parents.",
+    role: "Full Stack Engineer",
+    highlights: [
+      "Implemented RBAC and row-level data isolation",
+      "Built assignment management and grading automation",
+      "Developed analytics dashboards for student performance",
+    ],
+    impact:
+      "Improved administrative efficiency and progress visibility for schools.",
     logo: "/images/projects/edtech-myhomework.webp",
     isExpanded: false,
   },
@@ -228,10 +277,16 @@ export const PROJECTS: Project[] = [
       "CI/CD",
       "API Design",
     ],
-    description: `Developed backend services and smart contract integrations for a decentralized review aggregation platform.
-- Built automated review ingestion and scoring systems
-- Integrated blockchain verification for review authenticity
-- Developed scalable REST APIs and CI/CD deployment workflows`,
+    businessDescription:
+      "Decentralized review platform combining API aggregation with on-chain verification.",
+    role: "Backend + Smart Contract Integration Engineer",
+    highlights: [
+      "Built review ingestion and scoring pipelines",
+      "Integrated blockchain proofs for authenticity checks",
+      "Delivered scalable REST APIs and CI/CD workflows",
+    ],
+    impact:
+      "Increased trust and scalability of the review verification pipeline.",
     logo: "/images/projects/decent-reviews.webp",
     isExpanded: false,
   },
@@ -249,10 +304,16 @@ export const PROJECTS: Project[] = [
       "API Integration",
       "Animation",
     ],
-    description: `Built an AI media generation platform enabling video creation from static images and voice input.
-- Integrated D-ID AI video generation APIs
-- Developed media processing workflows and UI pipelines
-- Implemented voice configuration and animation controls`,
+    businessDescription:
+      "AI media platform for generating videos from images and voice inputs.",
+    role: "AI Frontend Engineer",
+    highlights: [
+      "Integrated D-ID video generation APIs",
+      "Built media processing and rendering workflows",
+      "Implemented voice, animation, and output controls",
+    ],
+    impact:
+      "Reduced content production effort for creators and marketing teams.",
     logo: "/images/projects/ai-video-generator.webp",
     isExpanded: false,
   },
@@ -271,10 +332,16 @@ export const PROJECTS: Project[] = [
       "Crypto Payments",
       "Binance Smart Chain",
     ],
-    description: `Developed an AI-assisted trading platform integrating financial data with crypto payment systems.
-- Built real-time trading dashboards and signal processing features
-- Integrated blockchain payment support for subscriptions
-- Developed AI-based trading assistance workflows`,
+    businessDescription:
+      "AI-assisted trading platform with crypto-enabled subscription flows.",
+    role: "Full Stack Engineer",
+    highlights: [
+      "Built real-time signal and trading dashboard interfaces",
+      "Integrated crypto payment support for subscriptions",
+      "Implemented AI-assisted decision support workflows",
+    ],
+    impact:
+      "Improved product differentiation through faster AI-assisted analysis.",
     logo: "/images/projects/aifx.webp",
     isExpanded: false,
   },
@@ -292,10 +359,16 @@ export const PROJECTS: Project[] = [
       "Messaging Systems",
       "Token Transfer",
     ],
-    description: `Developed a decentralized messaging platform using wallet identity as authentication.
-- Built wallet-based login and messaging infrastructure
-- Implemented token transfers within chat workflows
-- Developed group messaging and community governance features`,
+    businessDescription:
+      "Wallet-native messaging platform for Web3 communities.",
+    role: "Frontend + Realtime Engineer",
+    highlights: [
+      "Built wallet-based login and chat infrastructure",
+      "Implemented token transfer flows inside messaging",
+      "Added group communication and community features",
+    ],
+    impact:
+      "Enabled community engagement with native Web3 identity and payments.",
     logo: "/images/projects/chatfi.webp",
     isExpanded: false,
   },
@@ -313,10 +386,15 @@ export const PROJECTS: Project[] = [
       "Token Systems",
       "Binance Smart Chain",
     ],
-    description: `Contributed to a meme token ecosystem providing DeFi utilities and token interaction features.
-- Developed token interaction interfaces and wallet integrations
-- Implemented burn mechanics and ecosystem utilities
-- Supported DeFi transaction workflows`,
+    businessDescription:
+      "Meme token ecosystem with DeFi utilities and token operations.",
+    role: "Web3 Frontend Engineer",
+    highlights: [
+      "Developed wallet integration and token interaction UIs",
+      "Implemented burn mechanics and utility flows",
+      "Supported DeFi transaction workflows and UX",
+    ],
+    impact: "Improved token utility adoption through clearer user flows.",
     logo: "/images/projects/pepe-sushi.webp",
     isExpanded: false,
   },
@@ -333,10 +411,15 @@ export const PROJECTS: Project[] = [
       "JavaScript",
       "UI Engineering",
     ],
-    description: `Built an interactive data visualization tool for modeling complex family relationships.
-- Developed dynamic diagram rendering using GoJS
-- Implemented drag-and-edit relationship management
-- Built structured data visualization workflows`,
+    businessDescription:
+      "Interactive family relationship modeling and visualization tool.",
+    role: "Frontend Engineer",
+    highlights: [
+      "Developed dynamic diagram rendering with GoJS",
+      "Implemented drag-and-edit relationship management",
+      "Built structured data visualization workflows",
+    ],
+    impact: "Simplified complex relationship mapping for end users.",
     logo: "/images/projects/genogram.webp",
     isExpanded: false,
   },
@@ -347,17 +430,22 @@ export const PROJECTS: Project[] = [
     period: { start: "2020" },
     link: "#",
     skills: [
+      "PostgreSQL",
       "Ionic",
       "Angular",
       "Node.js",
-      "PostgreSQL",
       "Mobile Development",
       "Social Platform",
     ],
-    description: `Developed a mobile social platform for photo sharing and user interaction.
-- Implemented OTP authentication and user onboarding
-- Built image upload and social interaction features
-- Developed backend services supporting mobile clients`,
+    businessDescription:
+      "Mobile social app for photo sharing and user interactions.",
+    role: "Full Stack Mobile Engineer",
+    highlights: [
+      "Implemented OTP authentication and onboarding",
+      "Built upload, feed, and social interaction features",
+      "Developed backend APIs with PostgreSQL persistence",
+    ],
+    impact: "Delivered a stable social experience for mobile-first users.",
     logo: "/images/projects/app.webp",
     isExpanded: false,
   },
@@ -378,11 +466,16 @@ export const PROJECTS: Project[] = [
       "Performance Optimization",
       "CMS Integration",
     ],
-    description: `Developed an immersive browser-based 3D commerce experience enabling users to explore a virtual showroom with interactive product discovery.
-- Engineered modular 3D scene architecture supporting dynamic loading of panoramic environments and product assets
-- Built content management workflows allowing administrators to upload and manage 3D models and product metadata
-- Optimized rendering performance through asset compression and efficient scene management
-- Integrated interactive product navigation and commerce flows bridging immersive UX with real purchasing functionality`,
+    businessDescription:
+      "Immersive 3D commerce experience for virtual product discovery.",
+    role: "Frontend 3D Engineer",
+    highlights: [
+      "Engineered modular 3D scene architecture for dynamic assets",
+      "Built content workflows for managing models and metadata",
+      "Integrated product navigation with commerce-ready interactions",
+    ],
+    impact:
+      "Improved product engagement through immersive shopping experiences.",
     logo: "/images/projects/dior.webp",
     isExpanded: false,
   },
@@ -404,11 +497,15 @@ export const PROJECTS: Project[] = [
       "Binance Smart Chain",
       "WalletConnect",
     ],
-    description: `Built a decentralized trading platform focused on meme tokens with advanced token lifecycle mechanics.
-- Developed DEX interaction flows including wallet connection and token swaps
-- Implemented bonding curve token pricing logic and referral reward mechanisms
-- Built smart contract integrations supporting token management and trading features
-- Designed scalable frontend architecture for DeFi interaction workflows`,
+    businessDescription:
+      "Meme token DEX with bonding-curve mechanics and referral incentives.",
+    role: "Web3 Product Engineer",
+    highlights: [
+      "Built wallet connection and token swap interaction flows",
+      "Implemented bonding-curve pricing and referral logic",
+      "Integrated smart contracts for token lifecycle management",
+    ],
+    impact: "Enabled faster token launches and higher community participation.",
     logo: "/images/projects/sato-pump.webp",
     isExpanded: false,
   },
@@ -428,11 +525,15 @@ export const PROJECTS: Project[] = [
       "SEO",
       "Responsive Design",
     ],
-    description: `Developed a business website focused on presenting AI solutions and services.
-- Built custom WordPress theme with Elementor based layout system
-- Implemented responsive UI optimized for business lead generation
-- Integrated AI product presentation workflows and marketing content structure
-- Improved performance and SEO structure for better discoverability`,
+    businessDescription:
+      "AI business website focused on lead generation and service positioning.",
+    role: "Frontend Engineer",
+    highlights: [
+      "Built custom WordPress and Elementor page architecture",
+      "Implemented responsive conversion-focused page sections",
+      "Improved SEO and performance for discoverability",
+    ],
+    impact: "Strengthened online positioning and inbound lead quality.",
     logo: "/images/projects/roppongi-ai.webp",
     isExpanded: false,
   },
@@ -451,11 +552,16 @@ export const PROJECTS: Project[] = [
       "Conversational AI",
       "Frontend Architecture",
     ],
-    description: `Developed an AI avatar interaction platform combining conversational AI with real-time voice synthesis.
-- Integrated OpenAI models for conversational response generation
-- Implemented Azure Text-to-Speech pipelines for natural voice output
-- Built interactive UI for AI conversation workflows
-- Designed scalable frontend architecture for AI-driven user interaction`,
+    businessDescription:
+      "Conversational AI avatar platform with live voice synthesis.",
+    role: "AI Frontend Engineer",
+    highlights: [
+      "Integrated OpenAI conversational response pipelines",
+      "Implemented Azure Text-to-Speech output flow",
+      "Built scalable UI architecture for interactive sessions",
+    ],
+    impact:
+      "Delivered engaging AI avatar interactions with production-ready UX.",
     logo: "/images/projects/ai-speaking-girl.webp",
     isExpanded: false,
   },
@@ -474,10 +580,15 @@ export const PROJECTS: Project[] = [
       "Responsive Design",
       "UI Development",
     ],
-    description: `Developed a modern healthcare website focused on patient engagement and service presentation.
-- Built responsive UI components for service listings and appointment information
-- Designed clean user experience focused on accessibility and trust
-- Implemented reusable frontend components for healthcare content management`,
+    businessDescription:
+      "Healthcare business website focused on service trust and patient conversion.",
+    role: "Frontend Engineer",
+    highlights: [
+      "Built responsive UI for services and appointment information",
+      "Designed accessible user flows for healthcare visitors",
+      "Implemented reusable components for ongoing content updates",
+    ],
+    impact: "Improved patient information clarity and appointment intent.",
     logo: "/images/projects/dentist.webp",
     isExpanded: false,
   },
@@ -496,10 +607,15 @@ export const PROJECTS: Project[] = [
       "E-commerce UI",
       "Frontend Architecture",
     ],
-    description: `Developed a modern fashion e-commerce frontend focused on product presentation and brand experience.
-- Built responsive product catalog and landing page components
-- Designed UI optimized for product discovery and conversion
-- Implemented reusable design components for scalable storefront development`,
+    businessDescription:
+      "Fashion e-commerce frontend focused on merchandising and conversion.",
+    role: "Frontend Engineer",
+    highlights: [
+      "Built responsive catalog and landing page components",
+      "Designed UI patterns optimized for product discovery",
+      "Implemented reusable storefront component architecture",
+    ],
+    impact: "Increased usability and consistency for catalog browsing flows.",
     logo: "/images/projects/fashion.webp",
     isExpanded: false,
   },
@@ -518,10 +634,15 @@ export const PROJECTS: Project[] = [
       "Crypto UI",
       "Landing Pages",
     ],
-    description: `Developed a cryptocurrency platform interface focused on product marketing and ecosystem presentation.
-- Built landing pages for token ecosystem promotion
-- Designed UI sections for roadmap, tokenomics, and ecosystem features
-- Implemented responsive layouts optimized for Web3 product presentation`,
+    businessDescription:
+      "Crypto product website for token ecosystem communication and growth.",
+    role: "Frontend Engineer",
+    highlights: [
+      "Built landing pages for ecosystem and token promotion",
+      "Designed roadmap and tokenomics presentation sections",
+      "Implemented responsive layouts for Web3 audiences",
+    ],
+    impact: "Improved ecosystem storytelling and product communication.",
     logo: "/images/projects/crypto.webp",
     isExpanded: false,
   },
