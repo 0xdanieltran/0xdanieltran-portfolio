@@ -13,12 +13,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
     subtitle: "0xAI",
     href: "https://github.com/0xdanieltran",
   },
-  {
-    icon: "https://assets.chanhdai.com/images/link-icons/linkedin.webp?v=2",
-    title: "LinkedIn",
-    subtitle: "0xdanieltran",
-    href: "https://linkedin.com/in/0xdanieltran",
-  },
+  // {
+  //   icon: "https://assets.chanhdai.com/images/link-icons/linkedin.webp?v=2",
+  //   title: "LinkedIn",
+  //   subtitle: "0xdanieltran",
+  //   href: "https://linkedin.com/in/0xdanieltran",
+  // },
   {
     icon: "https://assets.chanhdai.com/images/link-icons/dailydotdev.webp?v=2",
     title: "daily.dev",
@@ -32,9 +32,21 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://discord.com/users/0xdanieltran",
   },
   {
-    icon: "/images/logos/telegram.svg",
-    title: "Telegram",
-    subtitle: "0xdanieltran",
-    href: "https://t.me",
+    icon: "/images/logos/gmail.png",
+    title: "Gmail",
+    subtitle: "danillppiont106@gmail.com",
+    href: "mailto:danillppiont106@gmail.com",
   },
+  {
+    icon: "/images/logos/web3.jpg",
+    title: "Web3 Career",
+    subtitle: "0xdanieltran",
+    href: "https://web3.career/@0xdanieltran",
+  },
+  // {
+  //   icon: "/images/logos/telegram.svg",
+  //   title: "Telegram",
+  //   subtitle: "0xdanieltran",
+  //   href: "https://t.me",
+  // },
 ]

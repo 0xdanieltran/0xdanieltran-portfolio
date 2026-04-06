@@ -55,9 +55,9 @@ export function Overview() {
             </IntroItemContent>
           </IntroItem>
 
-          <CurrentLocalTimeItem timeZone={USER.timeZone} />
+          {/* <CurrentLocalTimeItem timeZone={USER.timeZone} /> */}
 
-          <PhoneItem phoneNumber={USER.phoneNumber} />
+          {/* <PhoneItem phoneNumber={USER.phoneNumber} /> */}
 
           <EmailItem email={USER.email} />
 

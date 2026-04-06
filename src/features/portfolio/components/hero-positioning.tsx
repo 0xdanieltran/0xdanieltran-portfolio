@@ -1,10 +1,13 @@
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
+import { SITE_INFO } from "@/config/site"
 
 import { Panel, PanelContent } from "./panel"
 
 export function HeroPositioning() {
+  const scheduleUrl = SITE_INFO.calendarUrl || "/contact"
+
   return (
     <Panel id="hero-positioning">
       <PanelContent className="space-y-4">
@@ -60,7 +63,17 @@ export function HeroPositioning() {
             <Link href="#projects">View Projects</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/contact">Contact Me</Link>
+            <Link
+              href={scheduleUrl}
+              target={scheduleUrl.startsWith("http") ? "_blank" : undefined}
+              rel={
+                scheduleUrl.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+            >
+              Book a Call
+            </Link>
           </Button>
         </div>
         <p className="font-mono text-xs text-muted-foreground">

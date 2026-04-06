@@ -51,7 +51,7 @@ export function FinalCta() {
                   : undefined
               }
             >
-              Schedule a Call
+              Get Technical Advice
             </Link>
           </Button>
         </div>
