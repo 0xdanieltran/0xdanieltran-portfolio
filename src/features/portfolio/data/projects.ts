@@ -861,8 +861,8 @@ export const PROJECTS: Project[] = [
   {
     id: "micro-bitcoin",
     title: "Micro Bitcoin Platform",
-    period: { start: "2022" },
-    link: "https://microbitcoin.vercel.app/",
+    period: { start: "2025" },
+    link: "https://ubtc-frontend.vercel.app",
     skills: [
       "React",
       "TypeScript",
