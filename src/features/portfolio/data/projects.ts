@@ -119,6 +119,41 @@ export const PROJECTS: Project[] = [
   },
 
   {
+    id: "kin-home",
+    title:
+      "KIN HOME | Solar Financial Performance & Cost Intelligence Platform",
+    period: { start: "2025" },
+    link: "",
+    skills: [
+      "Svelte",
+      "SvelteKit",
+      "Turso",
+      "QuickBooks",
+      "Quickbase",
+      "Firebase Auth",
+      "Railway",
+      "Chart.js",
+      "Financial Modeling",
+      "Cost Intelligence",
+    ],
+    businessDescription:
+      "Solar financial performance and cost intelligence platform designed to unify accounting data with operational targets to deliver real-time profitability insights.",
+    role: "Full-Stack Financial Systems Engineer",
+    highlights: [
+      "Built a full-stack financial modeling platform integrating QuickBooks actuals with Quickbase and Turso operational datasets",
+      "Architected Profit & Loss and PBA models including gross margin, G&A allocation, and net income forecasting",
+      "Implemented dynamic price-per-watt financial scenarios based on kW system sizing",
+      "Developed direct vs indirect cost allocation across EPC and sales operations",
+      "Created advanced financial adjustments including domestic content rebates and internal crew salary allocations",
+      "Delivered project-level and tool-level financial breakdowns for operational decision making",
+    ],
+    impact:
+      "Enabled real-time profitability tracking and improved financial visibility for solar project operations and executive decision making.",
+    logo: "/images/projects/kin-exec.webp",
+    isExpanded: false,
+  },
+
+  {
     id: "xmr-casino",
     title: "XMR.gg | Casino Platform",
     period: { start: "2023" },
