@@ -681,33 +681,33 @@ export const PROJECTS: Project[] = [
     isExpanded: false,
   },
 
-  {
-    id: "speaking-girl-ai",
-    title: "Speaking Girl AI | AI Avatar Interaction Platform",
-    period: { start: "2024" },
-    link: "https://speakingai.difines.io",
-    skills: [
-      "React",
-      "TypeScript",
-      "OpenAI",
-      "Azure TTS",
-      "AI Integration",
-      "Conversational AI",
-      "Frontend Architecture",
-    ],
-    businessDescription:
-      "Conversational AI avatar platform with live voice synthesis.",
-    role: "AI Frontend Engineer",
-    highlights: [
-      "Integrated OpenAI conversational response pipelines",
-      "Implemented Azure Text-to-Speech output flow",
-      "Built scalable UI architecture for interactive sessions",
-    ],
-    impact:
-      "Delivered engaging AI avatar interactions with production-ready UX.",
-    logo: "/images/projects/ai-speaking-girl.webp",
-    isExpanded: false,
-  },
+  // {
+  //   id: "speaking-girl-ai",
+  //   title: "Speaking Girl AI | AI Avatar Interaction Platform",
+  //   period: { start: "2024" },
+  //   link: "https://speakingai.difines.io",
+  //   skills: [
+  //     "React",
+  //     "TypeScript",
+  //     "OpenAI",
+  //     "Azure TTS",
+  //     "AI Integration",
+  //     "Conversational AI",
+  //     "Frontend Architecture",
+  //   ],
+  //   businessDescription:
+  //     "Conversational AI avatar platform with live voice synthesis.",
+  //   role: "AI Frontend Engineer",
+  //   highlights: [
+  //     "Integrated OpenAI conversational response pipelines",
+  //     "Implemented Azure Text-to-Speech output flow",
+  //     "Built scalable UI architecture for interactive sessions",
+  //   ],
+  //   impact:
+  //     "Delivered engaging AI avatar interactions with production-ready UX.",
+  //   logo: "/images/projects/ai-speaking-girl.webp",
+  //   isExpanded: false,
+  // },
 
   {
     id: "dentist-website",
