@@ -543,6 +543,47 @@ export const PROJECTS: Project[] = [
   },
 
   {
+    id: "burn-to-earn",
+    title: "Burn To Earn Token Platform",
+    period: { start: "2023" },
+    link: "https://burn-to-earn.vercel.app/", // change if different project URL
+    skills: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "SCSS",
+      "Ethers.js",
+      "WalletConnect",
+      "MetaMask",
+      "Solidity",
+      "Hardhat",
+      "BNB Smart Chain",
+      "Web3",
+      "Crypto UI",
+    ],
+
+    businessDescription:
+      "Web3 token utility platform that enables users to burn selected tokens to gain access to higher value assets and participate in deflationary tokenomics mechanisms across supported meme coins and blockchain ecosystems.",
+
+    role: "Web3 Full Stack Engineer",
+
+    highlights: [
+      "Developed burn to earn mechanism allowing users to destroy tokens in exchange for platform rewards",
+      "Implemented smart contracts for token burn validation and reward distribution",
+      "Built wallet integration supporting MetaMask and WalletConnect",
+      "Created transaction confirmation flows and burn history tracking UI",
+      "Designed responsive token burn dashboard with real time blockchain interaction",
+      "Integrated support for multiple meme tokens on BNB Smart Chain",
+    ],
+
+    impact:
+      "Enabled token value optimization through deflationary mechanics while providing users with an intuitive interface to participate in token burn reward strategies.",
+
+    logo: "/images/projects/b2e-home.webp",
+    isExpanded: false,
+  },
+
+  {
     id: "genogram",
     title: "Genogram",
     period: { start: "2021" },
