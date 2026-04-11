@@ -1,0 +1,190 @@
+---
+title: "Supabase in Production: Lessons from Scaling Real Apps"
+description: "What actually works (and what breaks) when using Supabase in real-world production systems."
+image: "/images/insights/supabase.png"
+pinned: true
+createdAt: "2026-04-11"
+updatedAt: "2026-04-11"
+---
+
+## Supabase in Production: Lessons from Scaling Real Apps
+
+Supabase is one of the fastest ways to go from idea to a working product.
+
+But building something that _works locally_ is very different from running something in production with real users, real data, and real edge cases.
+
+Here are the lessons I learned from using Supabase in production systems.
+
+---
+
+## 🚀 1. Supabase is amazing for speed — but structure matters early
+
+Supabase makes it very easy to move fast:
+
+- Database
+- Authentication
+- APIs
+- Storage
+
+All ready out of the box.
+
+The trap?
+
+You can move **too fast without thinking about structure**.
+
+### What I learned:
+
+- Design your database schema properly from the beginning
+- Think about relationships, not just tables
+- Avoid “quick hacks” — they become real problems later
+
+👉 Fast setup is powerful, but long-term structure matters more.
+
+---
+
+## 🔐 2. Row Level Security (RLS) is powerful… and easy to get wrong
+
+RLS is one of the best features in Supabase. It lets you control exactly who can access what data.
+
+But it’s also where most production issues come from.
+
+### Common mistakes:
+
+- Policies that are too open (security risk)
+- Policies that are too strict (things silently break)
+- Forgetting to test edge cases
+
+### What I learned:
+
+- Always test RLS with **real user scenarios**
+- Keep policies simple and readable
+- Log and debug access issues early
+
+👉 If your app behaves “randomly,” it’s often an RLS issue.
+
+---
+
+## ⚡ 3. Performance issues don’t show up until real usage
+
+Everything feels fast… until you have real users.
+
+Then suddenly:
+
+- Queries slow down
+- Dashboards lag
+- APIs feel inconsistent
+
+### What I learned:
+
+- Add indexes early for frequently queried fields
+- Avoid over-fetching data
+- Use pagination for large datasets
+- Cache where possible
+
+👉 Supabase scales well, but **your queries must be optimized**.
+
+---
+
+## 🔁 4. Edge Functions are useful — but not for everything
+
+Supabase Edge Functions are great for:
+
+- Lightweight logic
+- Webhooks
+- Simple backend tasks
+
+But they’re not a replacement for a full backend.
+
+### What I learned:
+
+- Use Edge Functions for small, focused tasks
+- Avoid putting complex business logic there
+- Move heavy logic to a dedicated backend when needed
+
+👉 Keep Edge Functions simple — or they become hard to maintain.
+
+---
+
+## 💳 5. Real-time and payments require extra care
+
+Supabase makes real-time features easy.
+
+But in production:
+
+- Events can fire multiple times
+- State can go out of sync
+- Payments must be **100% reliable**
+
+### What I learned:
+
+- Always design for **idempotency** (same action shouldn’t break things)
+- Never trust client-side state alone
+- Double-check payment flows and webhooks
+
+👉 Real-time is easy to build, but hard to make reliable.
+
+---
+
+## 🧠 6. Debugging in production is different
+
+When something breaks locally, it’s easy.
+
+In production, it’s not.
+
+### What I learned:
+
+- Add logging early
+- Monitor API usage and errors
+- Track user actions when possible
+
+👉 If you can’t see what’s happening, you can’t fix it.
+
+---
+
+## 📦 7. Supabase is great — but it’s not “set and forget”
+
+Supabase gives you a powerful foundation.
+
+But you still need:
+
+- Good system design
+- Clear architecture
+- Ongoing optimization
+
+### Final thought:
+
+Supabase doesn’t remove the need for engineering thinking —  
+it just lets you move faster with it.
+
+---
+
+## ✅ When Supabase works best
+
+Supabase is a great choice when you want to:
+
+- Build MVPs quickly
+- Launch SaaS products
+- Create real-time applications
+- Ship fast with a small team
+
+---
+
+## ⚠️ When to be careful
+
+You’ll need more planning when:
+
+- Your app has complex business logic
+- You handle payments or financial data
+- You expect high concurrency or scale
+
+---
+
+## Closing
+
+Supabase is one of the best tools available today for modern product development.
+
+Used well, it can take you from idea to production faster than almost anything else.
+
+But like any powerful tool, the real difference comes from **how you use it**.
+
+---
