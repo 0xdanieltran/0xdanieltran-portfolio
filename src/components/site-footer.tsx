@@ -1,6 +1,7 @@
 import { Icons } from "@/components/icons"
 import { SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export function SiteFooter() {
   return (
@@ -34,12 +35,12 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://linkedin.com/in/0xdanieltran"
+              href="https://t.me/danieltran106"
               target="_blank"
               rel="noopener"
             >
-              <Icons.linkedin className="size-4" />
-              <span className="sr-only">LinkedIn</span>
+              <Image src="/images/logos/telegram.svg" alt="Telegram" width={16} height={16} />
+              <span className="sr-only">Telegram</span>
             </a>
           </div>
         </div>

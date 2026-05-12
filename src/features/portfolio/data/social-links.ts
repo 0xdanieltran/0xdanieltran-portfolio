@@ -26,10 +26,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://app.daily.dev/0xdanieltran",
   },
   {
-    icon: "https://assets.chanhdai.com/images/link-icons/discord.webp?v=2",
-    title: "Discord",
-    subtitle: "0xdanieltran",
-    href: "https://discord.com/users/0xdanieltran",
+    icon: "/images/logos/telegram.svg",
+    title: "Telegram",
+    subtitle: "@danieltran106",
+    href: "https://t.me/danieltran106",
   },
   {
     icon: "/images/logos/gmail.png",
