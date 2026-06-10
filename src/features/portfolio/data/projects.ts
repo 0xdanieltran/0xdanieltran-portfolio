@@ -183,70 +183,40 @@ export const PROJECTS: Project[] = [
     isExpanded: false,
   },
 
-  {
-    id: "rakuearn",
-    title: "Rakuearn Rewards Platform",
-    period: { start: "2024" },
-    link: "https://rakuearn.com/en",
-    skills: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "PostgreSQL",
-      "Tailwind",
-      "AI Integration",
-      "Reward Systems",
-      "Points Economy",
-    ],
-    businessDescription:
-      "AI-powered rewards platform where users earn points by completing surveys, tasks, and engagement activities, then redeem rewards through digital payouts and gift cards.",
+  // {
+  //   id: "rakuearn",
+  //   title: "Rakuearn Rewards Platform",
+  //   period: { start: "2024" },
+  //   link: "https://rakuearn.com/en",
+  //   skills: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "Supabase",
+  //     "PostgreSQL",
+  //     "Tailwind",
+  //     "AI Integration",
+  //     "Reward Systems",
+  //     "Points Economy",
+  //   ],
+  //   businessDescription:
+  //     "AI-powered rewards platform where users earn points by completing surveys, tasks, and engagement activities, then redeem rewards through digital payouts and gift cards.",
 
-    role: "Full Stack Engineer",
+  //   role: "Full Stack Engineer",
 
-    highlights: [
-      "Built survey and task participation system for user reward generation",
-      "Implemented points wallet and reward exchange functionality",
-      "Developed payout integrations for digital rewards and bank transfers",
-      "Integrated AI recommendation engine to surface relevant earning opportunities",
-      "Created user dashboard for tracking points, tasks, and reward history",
-    ],
+  //   highlights: [
+  //     "Built survey and task participation system for user reward generation",
+  //     "Implemented points wallet and reward exchange functionality",
+  //     "Developed payout integrations for digital rewards and bank transfers",
+  //     "Integrated AI recommendation engine to surface relevant earning opportunities",
+  //     "Created user dashboard for tracking points, tasks, and reward history",
+  //   ],
 
-    impact:
-      "Improved user engagement and retention by introducing a transparent points economy and streamlined reward redemption system.",
+  //   impact:
+  //     "Improved user engagement and retention by introducing a transparent points economy and streamlined reward redemption system.",
 
-    logo: "/images/projects/rakuearn.webp",
-    isExpanded: false,
-  },
-
-  {
-    id: "ai-dating",
-    title: "AI Dating Assistant App",
-    period: { start: "2025" },
-    link: "#",
-    skills: [
-      "React Native",
-      "TypeScript",
-      "OpenAI",
-      "LLM",
-      "Mobile Development",
-      "AI Integration",
-      "Expo",
-      "iOS",
-      "Android",
-    ],
-    businessDescription:
-      "AI assistant app for contextual communication and response generation.",
-    role: "AI Product Engineer",
-    highlights: [
-      "Integrated LLM APIs for high-quality response suggestions",
-      "Built context-aware prompt and conversation handling",
-      "Delivered cross-platform architecture with React Native + Expo",
-    ],
-    impact:
-      "Reduced response friction and increased user engagement in messaging flows.",
-    logo: "/images/projects/ai-reactnative.webp",
-    isExpanded: false,
-  },
+  //   logo: "/images/projects/rakuearn.webp",
+  //   isExpanded: false,
+  // },
 
   {
     id: "verge3d-model",
