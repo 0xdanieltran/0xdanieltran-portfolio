@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next"
 import dynamic from "next/dynamic"
 
 import { SiteFooter } from "@/components/site-footer"
@@ -10,6 +11,7 @@ const ScrollToTop = dynamic(() =>
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="group/layout">
+      <Analytics />
       <SiteHeader />
       <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
       <SiteFooter />
