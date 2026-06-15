@@ -2,6 +2,70 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "o1-exchange",
+    title: "o1 Exchange",
+    period: { start: "2024" },
+    link: "https://o1.exchange",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Web3",
+      "DeFi",
+      "DEX Aggregation",
+      "Copy Trading",
+      "Smart Contracts",
+      "Trading Systems",
+    ],
+    businessDescription:
+      "Advanced cryptocurrency trading platform offering spot trading, instant swaps, copy trading, and multi-router DeFi liquidity aggregation.",
+    role: "Senior Full Stack Engineer",
+    highlights: [
+      "Developed core trading platform functionality including copy trading, spot trading, and instant trading workflows",
+      "Designed and built a Meta DEX Aggregator Engine utilizing multiple routing strategies to optimize swap execution",
+      "Implemented high-performance routing logic to deliver faster transactions, improved liquidity access, and reduced trading costs",
+      "Built backend services and APIs supporting real-time trading operations and portfolio synchronization",
+    ],
+    impact:
+      "Improved trading efficiency and execution quality through intelligent routing, enabling users to access optimal liquidity across multiple decentralized exchanges.",
+    logo: "/images/projects/o1exchange-metadex.webp",
+    isExpanded: true,
+  },
+
+  {
+    id: "predictefy",
+    title: "Predictefy",
+    period: { start: "2024" },
+    link: "https://predictefy.com",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Web3",
+      "Prediction Markets",
+      "Copy Trading",
+      "API Integrations",
+      "Real-Time Data",
+      "Blockchain",
+    ],
+    businessDescription:
+      "Prediction market platform enabling users to participate in event-based markets and leverage social trading strategies powered by blockchain technology.",
+    role: "Senior Full Stack Engineer",
+    highlights: [
+      "Contributed to full-stack development of the prediction market platform across frontend, backend, and data services",
+      "Integrated third-party prediction market providers and external market data sources, including Polymarket-compatible endpoints",
+      "Implemented one-click copy trading functionality allowing users to automatically replicate successful trading strategies",
+      "Built real-time market synchronization, trade execution, and portfolio tracking systems",
+    ],
+    impact:
+      "Enhanced user engagement and trading accessibility by simplifying prediction market participation and enabling automated strategy replication.",
+    logo: "/images/projects/predictefy.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "dfs-web-chain",
     title: "DFS Chain",
     period: { start: "2024" },
