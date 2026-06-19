@@ -97,6 +97,41 @@ export const PROJECTS: Project[] = [
   },
 
   {
+    id: "difines-ai",
+    title: "DIFINES AI",
+    period: { start: "2026" },
+    link: "https://difines-ai.vercel.app/",
+    skills: [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "pgvector",
+      "AI SDK",
+      "Groq",
+      "Llama 3.3 70B",
+      "Google Embedding Model",
+      "RAG",
+      "Markdown Knowledge Base",
+      "Tailwind",
+    ],
+    businessDescription:
+      "RAG-based AI consultant that answers user questions about the DIFINES ecosystem using markdown knowledge resources, Supabase pgvector search, and Groq-powered LLM responses.",
+    role: "Full Stack AI Engineer",
+    highlights: [
+      "Built a RAG chatbot for the DIFINES consultant page using markdown documents as the knowledge source",
+      "Implemented Supabase pgvector storage and similarity search for retrieving relevant ecosystem documentation",
+      "Integrated Groq Llama 3.3 70B for fast AI responses and Google text-embedding-004 for document embeddings",
+      "Created an ingestion workflow to chunk markdown files, generate embeddings, and store searchable knowledge in PostgreSQL",
+      "Designed the assistant UI to match the existing DIFINES landing page style and provide a smooth chat experience",
+    ],
+    impact:
+      "Improved user understanding of the DIFINES ecosystem by enabling instant AI-powered answers based on verified project documentation.",
+    logo: "/images/projects/difines-ai.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "dfs-scan",
     title: "DFS Scan",
     period: { start: "2024" },
