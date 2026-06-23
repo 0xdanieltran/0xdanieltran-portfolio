@@ -2,6 +2,43 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "skypost-ai",
+    title: "Skypost AI",
+    period: { start: "2026" },
+    link: "https://skypost-ai.vercel.app",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Groq",
+      "AI SDK",
+      "Bluesky API",
+      "OAuth",
+      "Vercel",
+      "Cron Jobs",
+      "Tailwind",
+      "shadcn/ui",
+    ],
+    businessDescription:
+      "AI scheduling platform for marketing content that generates, organizes, schedules, and automatically publishes social media content using AI-powered workflows and connected social accounts.",
+    role: "Full Stack AI Engineer",
+    highlights: [
+      "Built an AI-powered marketing automation platform that transforms a single content idea into weeks or months of scheduled social media content",
+      "Integrated Groq Llama 3.3 70B and AI SDK to generate high-quality marketing posts with configurable tone, audience targeting, and content strategies",
+      "Implemented secure Bluesky account connection and OAuth-based authentication for automated publishing workflows",
+      "Designed a scheduling engine that automatically generates publishing calendars and manages future content across customizable posting frequencies",
+      "Created a content management dashboard for reviewing, editing, scheduling, and monitoring AI-generated marketing campaigns",
+      "Developed automated publishing infrastructure with retry mechanisms, publishing logs, token management, and delivery tracking",
+      "Implemented timezone-aware scheduling and content batching to support global marketing campaigns and consistent audience engagement",
+    ],
+    impact:
+      "Enabled marketers, creators, and businesses to automate content planning, generation, scheduling, and publishing from a single platform, significantly reducing manual effort while improving content consistency and audience reach.",
+    logo: "/images/projects/skypost-ai.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "o1-exchange",
     title: "o1 Exchange",
     period: { start: "2024" },
