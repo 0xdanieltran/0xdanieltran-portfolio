@@ -147,7 +147,7 @@ export const PROJECTS: Project[] = [
       "AI SDK",
       "Groq",
       "Llama 3.3 70B",
-      "Google Embedding Model",
+      "Gemini embedding-001",
       "RAG",
       "Markdown Knowledge Base",
       "Tailwind",
@@ -158,7 +158,7 @@ export const PROJECTS: Project[] = [
     highlights: [
       "Built a RAG chatbot for the DIFINES consultant page using markdown documents as the knowledge source",
       "Implemented Supabase pgvector storage and similarity search for retrieving relevant ecosystem documentation",
-      "Integrated Groq Llama 3.3 70B for fast AI responses and Google text-embedding-004 for document embeddings",
+      "Integrated Groq Llama 3.3 70B for fast AI responses and Gemini embedding-001 for document embeddings",
       "Created an ingestion workflow to chunk markdown files, generate embeddings, and store searchable knowledge in PostgreSQL",
       "Designed the assistant UI to match the existing DIFINES landing page style and provide a smooth chat experience",
     ],

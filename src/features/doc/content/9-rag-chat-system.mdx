@@ -1,0 +1,117 @@
+---
+title: "Building a RAG Chat System: Lessons from DIFINES AI"
+description: "What I learned building a production RAG chatbot with markdown knowledge, pgvector search, global search fallback, and Groq — including the pros, cons, and trade-offs."
+image: "https://images.unsplash.com/photo-1676299081847-824916de030a"
+pinned: false
+createdAt: "2026-07-06"
+updatedAt: "2026-07-06"
+---
+
+Retrieval-Augmented Generation (RAG) has become the default pattern for domain-specific chat systems.
+
+Instead of fine-tuning a model on your data, you retrieve relevant documents at query time and let the LLM answer from that context.
+
+It sounds simple. In practice, the gap between a working demo and a useful assistant is mostly about **knowledge quality, retrieval accuracy, and UX expectations**.
+
+## Why RAG instead of a plain chatbot
+
+For most product teams, RAG is the right starting point because:
+
+- Answers stay grounded in your own documentation
+- You can update knowledge without retraining a model
+- It is cheaper and faster to ship than custom fine-tuning
+- You control what the model is allowed to see
+
+The trade-off: your chat quality is only as good as your retrieval pipeline and source material.
+
+## Case study: DIFINES AI
+
+While working on the [DIFINES AI](https://difines-ai.vercel.app/) consultant, the goal was straightforward — help users understand the DIFINES ecosystem without reading through long docs manually.
+
+The stack:
+
+- **Knowledge source:** Markdown documentation
+- **Embeddings:** Gemini embedding-001 (switched from text-embedding-004 after Google deprecated the older model)
+- **Vector store:** Supabase pgvector in PostgreSQL
+- **Retrieval:** Similarity search over chunked documents
+- **Fallback:** Global search when no relevant knowledge base results are found
+- **Generation:** Groq Llama 3.3 70B via AI SDK
+- **Frontend:** React chat UI aligned with the existing DIFINES landing page
+
+The ingestion flow was: chunk markdown files → generate embeddings → store in pgvector → retrieve top matches on each user question → pass context to the LLM.
+
+When vector search returns no useful match, the system falls back to global search so users can still get an answer instead of hitting a dead end.
+
+This worked well for a focused domain assistant where answers should come from verified project documentation first — with a broader fallback when the knowledge base does not cover the question.
+
+## What worked well (pros)
+
+**Markdown as the knowledge base**
+
+Simple to maintain, version in Git, and easy for non-engineers to update. No proprietary CMS required.
+
+**pgvector inside Supabase**
+
+One database for app data and vector search. Less infrastructure to manage early on.
+
+**Fast inference with Groq**
+
+Low-latency responses matter in chat UX. Users expect near-instant replies, not a 10-second wait.
+
+**Scoped domain**
+
+RAG performs best when the assistant has a clear boundary — "answer questions about DIFINES" — not "answer anything about everything."
+
+**Grounded answers**
+
+When retrieval works, users get responses tied to actual docs, which builds trust compared to a generic chatbot making things up.
+
+**Global search fallback**
+
+Pure RAG breaks down when the knowledge base has no match. Adding global search as a fallback lets users still get useful answers for questions outside the stored documentation, instead of forcing the model to guess from thin context.
+
+**Testing with real user questions**
+
+From the start, validation was based on actual user questions — not curated demo prompts. That surfaced real retrieval gaps early, especially edge-case phrasing that never shows up in synthetic test sets.
+
+## What was hard (cons)
+
+**Retrieval quality is the real product**
+
+Bad chunking or weak embeddings mean the model gets irrelevant context — and still sounds confident.
+
+**Stale knowledge**
+
+If docs update but embeddings are not re-ingested, the assistant quietly becomes wrong.
+
+**Chunk size trade-offs**
+
+Too small → lost context. Too large → noisy retrieval and higher token cost.
+
+**No retrieval = weak or empty answers**
+
+When nothing relevant is found in the knowledge base, a strict RAG-only system either hallucinates or returns nothing useful. That is why the global search fallback mattered — it covers questions the database cannot answer.
+
+**Evaluation still takes iteration**
+
+Even with real user questions, retrieval quality is hard to measure with similarity scores alone. You still need to review which chunks were retrieved and whether the final answer was actually helpful.
+
+## What I would prioritize next time
+
+- Make the fallback path explicit in the UI — show when an answer came from docs vs global search
+- Build a simple re-ingestion pipeline when docs change
+- Log retrieved chunks and fallback triggers per query for debugging
+- Keep refining test cases from real user questions as the product evolves
+- Keep the assistant scope narrow — RAG is not a replacement for a general-purpose AI
+
+## Final thoughts
+
+RAG chat systems are not really about picking the best LLM.
+
+They are about **document structure, retrieval design, and honest UX**.
+
+DIFINES AI proved that a lightweight stack — markdown, pgvector, global search fallback, and a fast inference provider — can deliver real value when the domain is clear and the knowledge base is maintained.
+
+The pros are speed to ship, grounded answers, and coverage beyond the stored docs. The cons are ongoing maintenance and the hidden complexity of making retrieval actually reliable.
+
+If you are building a RAG chatbot today, spend less time on model selection and more time on chunking, ingestion, fallback design, and validating with real user questions.

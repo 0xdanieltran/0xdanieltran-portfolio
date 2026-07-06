@@ -1,0 +1,87 @@
+---
+title: "Designing a Queue System for Limited Resource Pools"
+description: "How to architect an asynchronous FIFO queue broker when upstream capacity is capped — row locking, resource pool rotation, and event-driven state transitions."
+image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+pinned: false
+createdAt: "2026-07-06"
+updatedAt: "2026-07-06"
+---
+
+Some platforms do not scale by adding more servers. They scale by routing traffic through a **fixed pool of upstream resources** — each with a hard concurrency limit.
+
+The provider may allow rapid sequential reuse, but only N active sessions at any exact moment. When thousands of multi-tenant requests arrive at once, the middleware cannot forward everything. It needs a queue.
+
+This is a broker problem: absorb spikes, enforce concurrency, and never assign the same resource twice.
+
+## The core constraint
+
+- Many tenants send requests from a frontend
+- An upstream engine accepts only a fixed number of concurrent sessions
+- Each resource can be reused quickly, but never across overlapping jobs
+- Different job types may consume different credit weights
+
+The goal is **safe sequential distribution** through a limited pool — not uncontrolled parallelism.
+
+## Two state machines, not one
+
+Treat the **queue** and the **resource pool** as separate state machines.
+
+**Queue:** A FIFO jobs table (`pending → assigned → processing → completed → failed`). Workers claim jobs with `FOR UPDATE SKIP LOCKED` so multiple workers never grab the same row.
+
+**Resource pool:** A separate table tracking `available → reserved → busy → cooldown`, with metadata like last-used timestamp, active job ID, and credit balance.
+
+The queue absorbs spikes. The pool enforces the concurrency ceiling.
+
+## Atomic worker flow
+
+When a worker picks up a job:
+
+1. Claim the next pending job
+2. Reserve an available resource
+3. Mark it busy and assign it to the job
+4. Submit the upstream request
+5. Release the resource when done
+
+If all resources are busy, jobs wait in queue. That is correct behavior — not a failure.
+
+## Credit accounting and async API
+
+Not every job costs the same. The middleware should calculate variable credit weight, validate balance before enqueueing, and finalize accounting only after upstream verification.
+
+Clients should not block on pool availability. Accept the request, enqueue the job, return `202 Accepted`, and process in the background with callbacks or polling.
+
+## Event-driven, not recursive
+
+Under heavy traffic, self-calling workflows can trigger loop-detection guardrails.
+
+Use **one state transition per execution** instead:
+
+`pending → assigned → processing → completed`
+
+Workers should be stateless and short-lived — tied to a unique job ID, resource ID, and idempotency key per dispatch. Database-driven orchestration is easier to monitor and far more resilient than recursive workflow chains.
+
+## Pros and cons
+
+**What works**
+
+- Postgres row locking for safe multi-worker claiming
+- Queue as a shock absorber during traffic spikes
+- Explicit state tables you can inspect and replay
+
+**What is hard**
+
+- Latency when demand exceeds pool capacity
+- Stuck resources if a worker crashes mid-job
+- Credit edge cases on partial failures and retries
+
+Stress-test before production: simulate concurrent spikes, run multiple workers in parallel, and verify zero resource collisions across tenants.
+
+## Final thoughts
+
+When upstream capacity is capped, the middleware is the product.
+
+A reliable design combines a FIFO queue, a separate resource pool, transactional row locks, event-driven state transitions, async API handoffs, and credit rules enforced before work begins.
+
+This is not just a queue — it is a **broker** that turns a hard upstream limit into a dependable multi-tenant system.
+
+I have implemented this architecture successfully in production. [Contact me](/contact) if you would like to see the real project behind it.
