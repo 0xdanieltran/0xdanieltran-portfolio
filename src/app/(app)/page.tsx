@@ -77,13 +77,7 @@ export default function Page() {
         <FinalCta />
         <Separator />
 
-        {/* <Awards />
-        <Separator />
-
-        <Certifications />
-        <Separator />
-
-        <Bookmarks />
+        {/* <Bookmarks />
         <Separator /> */}
       </div>
     </>

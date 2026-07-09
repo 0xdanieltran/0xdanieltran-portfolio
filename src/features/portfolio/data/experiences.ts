@@ -12,7 +12,6 @@ export const EXPERIENCES: Experience[] = [
         title: "Senior Platform Engineer",
         employmentPeriod: {
           start: "02.2024",
-          end: "01.2026",
         },
         employmentType: "Contract",
         icon: "code",
@@ -45,7 +44,7 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: false,
+    isCurrentEmployer: true,
   },
   {
     id: "xmrplay-ltd",

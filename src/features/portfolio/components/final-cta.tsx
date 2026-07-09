@@ -32,7 +32,7 @@ export function FinalCta() {
               PostgreSQL)
             </li>
             <li>AI feature development and integration</li>
-            <li>Scalable frontend systems and backend architecture</li>
+            <li>System architecture and scalable platform engineering</li>
             <li>Blockchain infrastructure and Web3 platform engineering</li>
             <li>Technical architecture and senior engineering consulting</li>
           </ul>

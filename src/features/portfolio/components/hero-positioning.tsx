@@ -26,15 +26,25 @@ export function HeroPositioning() {
           <p className="font-mono text-sm text-muted-foreground">
             Senior Platform Engineer with 9+ years building production SaaS,
             fintech, Web3, and AI systems used by real users. I specialize in
-            scalable product architecture, AI integrations, and modern cloud
+            scalable platforms, AI-native applications, and modern cloud
             infrastructure.
           </p>
           <ul className="mt-2 list-disc space-y-1 pl-4 font-mono text-sm text-muted-foreground">
-            <li>Scalable platform architecture and production system design</li>
-            <li>AI feature integration for production SaaS products</li>
-            <li>Backend architecture and API design</li>
-            <li>High-performance React and Next.js frontend systems</li>
-            <li>Developer infrastructure and production delivery workflows</li>
+            <li>
+              Platform engineering, distributed systems, and scalable
+              architecture
+            </li>
+            <li>
+              AI agents, RAG pipelines, and LLM-powered product development
+            </li>
+            <li>Backend engineering, APIs, and event-driven microservices</li>
+            <li>
+              High-performance React, Next.js, and modern frontend architecture
+            </li>
+            <li>
+              Cloud infrastructure, CI/CD, observability, and developer
+              productivity
+            </li>
           </ul>
           <ul className="mt-3 flex flex-wrap gap-1.5 font-mono text-xs text-muted-foreground">
             <li className="rounded-md border border-line px-2 py-1">

@@ -3,15 +3,13 @@ import { format } from "date-fns"
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { getAllDocs } from "@/features/doc/data/documents"
 import { getLLMText } from "@/features/doc/lib/get-llm-text"
-import { AWARDS } from "@/features/portfolio/data/awards"
-import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
 import { EXPERIENCES } from "@/features/portfolio/data/experiences"
 import { PROJECTS } from "@/features/portfolio/data/projects"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 
-const SUMMARY = `${USER.bio}. Senior Platform Engineer with 9+ years building production SaaS, fintech, Web3, and AI platforms. Specializes in Next.js, Supabase, PostgreSQL, and cloud-native backend architecture. Based in ${USER.address}.`
+const SUMMARY = `${USER.bio}. Senior Platform Engineer with 9+ years building production SaaS, fintech, Web3, and AI systems used by real users. Specializes in scalable platforms, AI-native applications, and modern cloud infrastructure. Based in ${USER.address}.`
 
 function getInsightPosts() {
   return getAllDocs().filter((doc) => doc.metadata.category !== "components")
@@ -33,8 +31,6 @@ export function getLlmsTxtContent() {
 
 - [Experience](${SITE_INFO.url}/experience.md): Career roles across blockchain, fintech, gaming, healthcare, and SaaS engineering.
 - [Projects](${SITE_INFO.url}/projects.md): ${PROJECTS.length}+ projects including Skypost AI, o1 Exchange, Predictefy, DFS Chain, and DIFINES AI.
-- [Awards](${SITE_INFO.url}/awards.md): Programming competition awards and open-source recognition.
-- [Certifications](${SITE_INFO.url}/certifications.md): Professional credentials and certifications.
 
 ## Insights (Blog)
 
@@ -49,10 +45,6 @@ ${posts.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/insights/${it
 - [GitHub](https://github.com/0xdanieltran): Open-source work and code repositories.
 - [X](https://x.com/0xdanieltran106): Updates and engineering insights.
 - [Schedule a Call](${SITE_INFO.calendarUrl}): Book a 30-minute intro call.
-
-## Optional
-
-- [Components Registry](${SITE_INFO.url}/components): Open-source React UI components and shadcn registry.
 - [Source Code](${SOURCE_CODE_GITHUB_URL}): Portfolio source on GitHub.
 `
 }
@@ -121,22 +113,6 @@ ${[role, business, skills, highlights, impact, description].filter(Boolean).join
 }).join("\n\n")}`
 }
 
-function getAwardsText() {
-  return `## Awards
-
-${AWARDS.map(
-  (item) => `### ${item.prize} | ${item.title}
-
-${item.description}`
-).join("\n\n")}`
-}
-
-function getCertificationsText() {
-  return `## Certifications
-
-${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL}) (${item.issuer})`).join("\n")}`
-}
-
 async function getBlogContent() {
   const posts = getInsightPosts()
 
@@ -151,7 +127,7 @@ async function getBlogContent() {
 }
 
 export async function getLlmsFullTxtContent() {
-  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and engineering insights. It includes personal details, work experience, ${PROJECTS.length}+ projects, achievements, certifications, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as an ${USER.jobTitle}.</SYSTEM>
+  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and engineering insights. It includes personal details, work experience, ${PROJECTS.length}+ projects, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as an ${USER.jobTitle}.</SYSTEM>
 
 # ${USER.displayName}
 
@@ -162,10 +138,6 @@ ${getAboutText()}
 ${getExperienceText()}
 
 ${getProjectsText()}
-
-${getAwardsText()}
-
-${getCertificationsText()}
 
 ## Insights (Blog)
 

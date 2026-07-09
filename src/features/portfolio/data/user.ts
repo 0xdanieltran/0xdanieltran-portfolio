@@ -28,16 +28,16 @@ export const USER: User = {
     },
   ],
   about: `
-Senior Platform Engineer with **9+ years of experience** building production SaaS, fintech, Web3, and AI platforms.
+Senior Platform Engineer with **9+ years of experience** building production SaaS, fintech, Web3, and AI systems used by real users.
 
-I specialize in building scalable applications using **Next.js, Supabase, PostgreSQL, and modern cloud infrastructure**.
+I specialize in scalable platforms, AI-native applications, and modern cloud infrastructure.
 
 My work focuses on:
-- Platform scalability
-- AI feature integration
-- Backend architecture
-- High-performance frontend systems
-- Developer infrastructure
+- Platform engineering, distributed systems, and scalable architecture
+- AI agents, RAG pipelines, and LLM-powered product development
+- Backend engineering, APIs, and event-driven microservices
+- High-performance React, Next.js, and modern frontend architecture
+- Cloud infrastructure, CI/CD, observability, and developer productivity
 
 I enjoy working with startups and product teams where I can combine engineering depth with product thinking.
 `,
