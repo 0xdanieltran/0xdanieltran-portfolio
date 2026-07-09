@@ -42,11 +42,11 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/:section(blog|components)/:slug.mdx",
+        source: "/:section(blog|components|insights)/:slug.mdx",
         destination: "/doc.mdx/:slug",
       },
       {
-        source: "/:section(blog|components)/:slug",
+        source: "/:section(blog|components|insights)/:slug",
         destination: "/doc.mdx/:slug",
         has: [
           {

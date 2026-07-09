@@ -14,7 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.metadata.updatedAt).toISOString(),
   }))
 
-  const routes = ["", "/insights", "/components"].map((route) => ({
+  const routes = [
+    "",
+    "/insights",
+    "/components",
+    "/llms.txt",
+    "/llms-full.txt",
+  ].map((route) => ({
     url: `${SITE_INFO.url}${route}`,
     lastModified: new Date().toISOString(),
   }))

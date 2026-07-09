@@ -22,7 +22,7 @@
   "menuColor": "default",
   "menuAccent": "subtle",
   "registries": {
-    "@ncdai": "https://chanhdai.com/r/{name}.json",
+    "@0xdanieltran": "https://0xdanieltran.vercel.app/r/{name}.json",
     "@kibo-ui": "https://kibo-ui.com/r/{name}.json",
     "@react-bits": "https://reactbits.dev/r/{name}.json"
   }
