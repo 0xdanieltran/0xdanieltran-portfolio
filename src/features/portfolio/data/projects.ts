@@ -2,6 +2,48 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "sonica-studio",
+    title: "Sonica Studio",
+    period: { start: "2026" },
+    link: "https://sonicastudio.vercel.app",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "AI",
+      "LLM",
+      "Music AI",
+      "Audio Processing",
+      "Stripe",
+      "Crypto payment",
+      "Vercel",
+      "Tailwind",
+      "shadcn/ui",
+    ],
+    businessDescription:
+      "AI-powered music creation platform that helps creators generate original music, lyrics, melodies, and complete productions through intelligent AI workflows while providing tools for editing, organizing, and publishing creative projects.",
+
+    role: "Full Stack AI Engineer",
+
+    highlights: [
+      "Architected a scalable asynchronous music generation pipeline with queue-based processing, job lifecycle management, retries, progress tracking, and failure recovery for long-running AI generation tasks",
+      "Built the platform using Next.js, TypeScript, and Supabase, leveraging PostgreSQL, Authentication, Storage, Edge Functions, and Row-Level Security for a secure multi-user SaaS architecture",
+      "Designed a production-ready backend architecture supporting concurrent music generation requests, real-time status updates, optimized database operations, and efficient resource utilization",
+      "Integrated AI-powered music generation workflows capable of producing complete songs, instrumentals, vocals, lyrics, and multiple musical styles through configurable generation pipelines",
+      "Developed a comprehensive project management system with generation history, versioning, favorites, search, filtering, and cloud-based asset management",
+      "Implemented subscription, credit-based billing, secure authentication, and user quota management to support commercial-scale AI music generation services",
+      "Optimized frontend performance with Next.js App Router, server components, streaming, caching, and real-time Supabase subscriptions to deliver a responsive user experience",
+    ],
+
+    impact:
+      "Empowered musicians, creators, content producers, and businesses to transform ideas into professional-quality music within minutes, dramatically accelerating creative workflows while making high-quality music production more accessible.",
+
+    logo: "/images/projects/sonica.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "skypost-ai",
     title: "Skypost AI",
     period: { start: "2026" },
