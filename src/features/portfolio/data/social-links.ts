@@ -28,8 +28,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "/images/logos/telegram.svg",
     title: "Telegram",
-    subtitle: "@danieltran106",
-    href: "https://t.me/danieltran106",
+    subtitle: "@oxdanieltran106",
+    href: "https://t.me/oxdanieltran106",
   },
   {
     icon: "/images/logos/gmail.png",
@@ -43,10 +43,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
     subtitle: "0xdanieltran",
     href: "https://web3.career/@0xdanieltran",
   },
-  // {
-  //   icon: "/images/logos/telegram.svg",
-  //   title: "Telegram",
-  //   subtitle: "0xdanieltran",
-  //   href: "https://t.me",
-  // },
 ]
