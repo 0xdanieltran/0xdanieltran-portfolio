@@ -59,6 +59,46 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Primary Stack", "AI", "LLM"],
   },
   {
+    key: "rag",
+    title: "RAG",
+    href: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    imgUrl:
+      "https://img.shields.io/badge/RAG-4F46E5?style=for-the-badge&logo=openai&logoColor=white",
+    categories: ["AI", "LLM"],
+  },
+  {
+    key: "ai-agents",
+    title: "AI Agents",
+    href: "https://openai.com/index/new-tools-for-building-agents/",
+    imgUrl:
+      "https://img.shields.io/badge/AI_Agents-412991?style=for-the-badge&logo=openai&logoColor=white",
+    categories: ["AI", "Automation"],
+  },
+  {
+    key: "automation",
+    title: "Automation",
+    href: "https://en.wikipedia.org/wiki/Automation",
+    imgUrl:
+      "https://img.shields.io/badge/Automation-2563EB?style=for-the-badge&logo=probot&logoColor=white",
+    categories: ["AI", "Automation"],
+  },
+  {
+    key: "ai-integration",
+    title: "AI Integration",
+    href: "https://platform.openai.com/docs/overview",
+    imgUrl:
+      "https://img.shields.io/badge/AI_Integration-059669?style=for-the-badge&logo=openai&logoColor=white",
+    categories: ["AI", "Integration"],
+  },
+  {
+    key: "n8n",
+    title: "n8n",
+    href: "https://n8n.io/",
+    imgUrl:
+      "https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white",
+    categories: ["AI", "Automation"],
+  },
+  {
     key: "graphql",
     title: "GraphQL",
     href: "https://graphql.org/",

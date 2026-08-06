@@ -18,7 +18,7 @@ import {
 const GROUPS = [
   {
     title: "Primary Production Stack",
-    items: ["Next.js", "Supabase", "PostgreSQL", "TypeScript", "OpenAI"],
+    items: ["Next.js", "Supabase", "PostgreSQL", "TypeScript", "LLM APIs"],
   },
   {
     title: "Backend",
@@ -29,8 +29,18 @@ const GROUPS = [
     items: ["AWS", "Docker", "CI/CD"],
   },
   {
-    title: "Blockchain",
-    items: ["Ethereum", "Solana", "Ethers.js"],
+    title: "AI Engineering & Automation",
+    items: [
+      "RAG",
+      "AI Agents",
+      "LLM Integration",
+      "Workflow Automation",
+      "n8n",
+      "LangChain",
+      "Pinecone",
+      "OpenAI",
+      "Claude",
+    ],
   },
 ]
 
@@ -43,7 +53,7 @@ export function TechStack() {
         </PanelTitle>
         <PanelDescription>
           Next.js, Supabase, PostgreSQL, and AI-native tooling for scalable SaaS
-          and Web3 products.
+          and intelligent products.
         </PanelDescription>
       </PanelHeader>
 
