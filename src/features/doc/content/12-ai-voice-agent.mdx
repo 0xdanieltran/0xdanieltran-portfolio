@@ -1,0 +1,123 @@
+---
+title: "Architecting a Production AI Voice Sales Agent"
+description: "How to design a real-time AI sales agent that connects telephony, speech processing, LLM reasoning, RAG, CRM actions, and human handoff."
+image: "https://images.unsplash.com/photo-1589254065878-42c9da997008"
+pinned: false
+createdAt: "2026-08-06"
+updatedAt: "2026-08-06"
+---
+
+An AI voice sales agent is not just an LLM connected to a phone number.
+
+A production system has to coordinate **telephony, speech processing, AI reasoning, trusted business data, CRM actions, and human escalation** while keeping the conversation fast enough to feel natural.
+
+The architecture is therefore closer to a real-time orchestration system than a traditional chatbot.
+
+## The core architecture
+
+```mermaid
+flowchart LR
+    Customer["Customer"] <--> Twilio["Twilio"]
+    Twilio --> STT["Speech-to-Text"]
+    STT --> Agent["AI Agent"]
+
+    Agent <--> Logic["Sales Logic"]
+    Agent <--> RAG["RAG Knowledge Base"]
+    Agent <--> Live["Live Business Data"]
+
+    Agent --> TTS["ElevenLabs"]
+    TTS --> Twilio
+
+    Agent --> CRM["CRM / Lead Management"]
+    Agent --> FollowUp["Follow-Up Actions"]
+    Twilio --> Human["Human Sales Agent"]
+```
+
+Twilio handles the call layer, speech-to-text converts customer audio into usable input, and ElevenLabs returns the AI response as natural speech.
+
+The AI layer coordinates the conversation and decides what information or action is required next.
+
+## Keep business logic outside the model
+
+The LLM should not control every decision by itself.
+
+Sales scripts, qualification rules, objection handling, escalation conditions, and allowed actions should live in a controlled application layer around the model.
+
+This makes behavior easier to validate and prevents important business rules from depending entirely on probabilistic model output.
+
+## RAG and live data have different roles
+
+RAG is useful for trusted but relatively stable knowledge:
+
+- Product information
+- FAQs and policies
+- Sales scripts
+- Rebuttals and objection handling
+- Internal sales material
+
+Dynamic information should come directly from authorized systems:
+
+- Current pricing
+- Stock or availability
+- Appointment slots
+- Lead information
+- CRM history
+
+Separating these sources keeps answers grounded without forcing rapidly changing operational data into the knowledge base.
+
+## Voice systems are latency-sensitive
+
+Every turn may include:
+
+`Speech-to-Text → Retrieval → LLM → Text-to-Speech → Playback`
+
+Even if each component is fast individually, the combined delay can make a phone conversation feel unnatural.
+
+Streaming transcription, efficient retrieval, fast model responses, and streaming TTS are therefore architectural requirements — not optional optimizations.
+
+## Business actions need controlled tool execution
+
+A useful sales agent should be able to do more than answer questions.
+
+It may need to:
+
+- Qualify and update leads
+- Schedule appointments
+- Trigger SMS or email follow-ups
+- Save call outcomes
+- Check availability
+- Transfer the call
+
+The model can determine the intended action, but the backend should validate parameters and permissions before anything is executed.
+
+## Human handoff is part of the design
+
+Automation should have clear boundaries.
+
+A live transfer may be triggered when the customer asks for a person, a high-value lead is identified, the request is outside the agent's scope, or the conversation requires negotiation.
+
+The human representative should receive the call summary, lead context, and important conversation details so the customer does not have to start again.
+
+## Pros and cons
+
+**What works**
+
+- Natural 24/7 inbound and outbound conversations
+- RAG-grounded answers using approved company knowledge
+- Direct CRM and follow-up automation
+- Consistent qualification and sales workflows
+
+**What is hard**
+
+- Keeping end-to-end voice latency low
+- Handling interruptions and transcription errors
+- Preventing incorrect tool actions
+- Designing reliable escalation rules
+
+## Final thoughts
+
+A strong AI voice agent is not simply a chatbot with speech.
+
+It is a **real-time AI orchestration system** connecting telephony, LLM reasoning, RAG, live business data, CRM workflows, and human sales teams.
+
+The quality of the architecture determines whether the system behaves like a demo or a dependable production sales channel.
