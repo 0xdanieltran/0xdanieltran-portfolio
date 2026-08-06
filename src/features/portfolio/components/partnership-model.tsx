@@ -17,6 +17,11 @@ const CARDS = [
       "Designing backend systems, APIs, and distributed architectures built for reliability and long-term scalability.",
   },
   {
+    title: "Database Schema Design",
+    description:
+      "Scalable, maintainable schemas designed for data integrity and performance.",
+  },
+  {
     title: "Startup Engineering Partner",
     description:
       "Helping founders ship MVPs, scale products, and strengthen technical foundations from MVP to scale.",
@@ -25,10 +30,6 @@ const CARDS = [
     title: "Technical Consulting",
     description:
       "Architecture reviews, scaling guidance, and implementation strategy for growing startups.",
-  },
-  {
-    title: "Ownership Focused Delivery",
-    description: "End-to-end ownership from idea to production deployment.",
   },
 ]
 
