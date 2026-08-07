@@ -23,6 +23,18 @@ export function SiteFooter() {
             <Separator />
 
             <a
+              className="flex items-center text-[#1185fe] transition-[color] hover:text-[#0874dd]"
+              href="https://bsky.app/profile/0xdanieltran.bsky.social"
+              target="_blank"
+              rel="noopener"
+            >
+              <Icons.bluesky className="size-4" />
+              <span className="sr-only">Bluesky</span>
+            </a>
+
+            <Separator />
+
+            <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
               href={SOURCE_CODE_GITHUB_URL}
               target="_blank"
