@@ -32,6 +32,33 @@ Treat the **queue** and the **resource pool** as separate state machines.
 
 The queue absorbs spikes. The pool enforces the concurrency ceiling.
 
+```mermaid
+flowchart TB
+    Client["Multi-Tenant Clients"] --> API["Async API"]
+    API --> Queue["FIFO Job Queue"]
+
+    Queue --> Worker1["Worker"]
+    Queue --> Worker2["Worker"]
+    Queue --> Worker3["Worker"]
+
+    Worker1 --> Pool["Resource Pool"]
+    Worker2 --> Pool
+    Worker3 --> Pool
+
+    Pool --> R1["Resource 1"]
+    Pool --> R2["Resource 2"]
+    Pool --> RN["Resource N"]
+
+    R1 --> Upstream["Upstream Provider"]
+    R2 --> Upstream
+    RN --> Upstream
+
+    Upstream --> Result["Job Result"]
+    Result --> Queue
+```
+
+The important boundary is the resource pool. Workers can scale horizontally, while the pool ensures that active upstream usage never exceeds the provider's real concurrency limit.
+
 ## Atomic worker flow
 
 When a worker picks up a job:
