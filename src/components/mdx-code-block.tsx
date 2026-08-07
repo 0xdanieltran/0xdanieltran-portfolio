@@ -47,7 +47,6 @@ export const mdxCodeBlockComponents = {
     __rawString__?: string
   } & NpmCommands) {
     const isNpmCommand = __pnpm__ && __yarn__ && __npm__ && __bun__
-
     if (isNpmCommand) {
       return (
         <CodeBlockCommand

@@ -23,6 +23,36 @@ export function rehypeCodeRawString() {
   }
 }
 
+export function rehypeMermaid() {
+  return (tree: UnistTree) => {
+    visit(tree, (node: UnistNode) => {
+      if (node.type !== "element" || node.tagName !== "pre") return
+
+      const code = node.children?.[0]
+      const className = code?.properties?.className
+      const isMermaid =
+        code?.tagName === "code" &&
+        Array.isArray(className) &&
+        className.includes("language-mermaid")
+
+      if (!isMermaid || typeof code.children?.[0]?.value !== "string") return
+
+      node.type = "mdxJsxFlowElement"
+      node.name = "Mermaid"
+      node.attributes = [
+        {
+          type: "mdxJsxAttribute",
+          name: "chart",
+          value: code.children[0].value,
+        },
+      ]
+      delete node.tagName
+      delete node.properties
+      node.children = []
+    })
+  }
+}
+
 export function rehypeHighlightCode() {
   return rehypePrettyCode({
     theme: {
