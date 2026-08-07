@@ -38,6 +38,7 @@ import { Callout } from "./callout"
 import { CodeTabs } from "./code-tabs"
 import { FramedImage, IframeEmbed, YouTubeEmbed } from "./embed"
 import { mdxCodeBlockComponents } from "./mdx-code-block"
+import { Mermaid } from "./mermaid"
 import { Testimonial } from "./testimonial"
 
 const components: MDXRemoteProps["components"] = {
@@ -83,6 +84,7 @@ const components: MDXRemoteProps["components"] = {
   YouTubeEmbed,
   IframeEmbed,
   FramedImage,
+  Mermaid,
   Testimonial,
 }
 

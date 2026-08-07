@@ -15,23 +15,20 @@ The architecture is therefore closer to a real-time orchestration system than a 
 
 ## The core architecture
 
-```mermaid
-flowchart LR
+<Mermaid
+  chart={`flowchart LR
     Customer["Customer"] <--> Twilio["Twilio"]
     Twilio --> STT["Speech-to-Text"]
     STT --> Agent["AI Agent"]
-
     Agent <--> Logic["Sales Logic"]
     Agent <--> RAG["RAG Knowledge Base"]
     Agent <--> Live["Live Business Data"]
-
     Agent --> TTS["ElevenLabs"]
     TTS --> Twilio
-
     Agent --> CRM["CRM / Lead Management"]
     Agent --> FollowUp["Follow-Up Actions"]
-    Twilio --> Human["Human Sales Agent"]
-```
+    Twilio --> Human["Human Sales Agent"]`}
+/>
 
 Twilio handles the call layer, speech-to-text converts customer audio into usable input, and ElevenLabs returns the AI response as natural speech.
 
