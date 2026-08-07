@@ -31,7 +31,7 @@ While working on the [DIFINES AI](https://difines-ai.vercel.app/) consultant, th
 The stack:
 
 - **Knowledge source:** Markdown documentation
-- **Embeddings:** Gemini embedding-001 (switched from text-embedding-004 after Google deprecated the older model)
+- **Embeddings:** Gemini embedding-001
 - **Vector store:** Supabase pgvector in PostgreSQL
 - **Retrieval:** Similarity search over chunked documents
 - **Fallback:** Global search when no relevant knowledge base results are found
@@ -40,78 +40,93 @@ The stack:
 
 The ingestion flow was: chunk markdown files → generate embeddings → store in pgvector → retrieve top matches on each user question → pass context to the LLM.
 
+```mermaid
+flowchart TB
+    Docs["Markdown Docs"] --> Chunk["Chunking"]
+    Chunk --> Embed["Generate Embeddings"]
+    Embed --> Vector["Supabase pgvector"]
+
+    User["User Question"] --> Search["Similarity Search"]
+    Vector --> Search
+
+    Search --> Decision{"Relevant context?"}
+    Decision -->|Yes| LLM["LLM + Retrieved Context"]
+    Decision -->|No| Global["Global Search"]
+    Global --> LLM
+
+    LLM --> Answer["Grounded Answer"]
+```
+
 When vector search returns no useful match, the system falls back to global search so users can still get an answer instead of hitting a dead end.
 
 This worked well for a focused domain assistant where answers should come from verified project documentation first — with a broader fallback when the knowledge base does not cover the question.
 
-## What worked well (pros)
+## What worked well
 
 **Markdown as the knowledge base**
 
-Simple to maintain, version in Git, and easy for non-engineers to update. No proprietary CMS required.
+Simple to maintain, version in Git, and easy for non-engineers to update.
 
 **pgvector inside Supabase**
 
-One database for app data and vector search. Less infrastructure to manage early on.
+One database for application data and vector search means less infrastructure to manage early on.
 
 **Fast inference with Groq**
 
-Low-latency responses matter in chat UX. Users expect near-instant replies, not a 10-second wait.
+Low-latency responses matter in chat UX. Users expect near-instant replies, not long waits.
 
 **Scoped domain**
 
-RAG performs best when the assistant has a clear boundary — "answer questions about DIFINES" — not "answer anything about everything."
+RAG performs best when the assistant has a clear boundary rather than trying to answer everything.
 
 **Grounded answers**
 
-When retrieval works, users get responses tied to actual docs, which builds trust compared to a generic chatbot making things up.
+When retrieval works, responses stay tied to actual documentation instead of relying on generic model knowledge.
 
 **Global search fallback**
 
-Pure RAG breaks down when the knowledge base has no match. Adding global search as a fallback lets users still get useful answers for questions outside the stored documentation, instead of forcing the model to guess from thin context.
+Pure RAG breaks down when the knowledge base has no useful match. A fallback path improves coverage without forcing the model to guess from weak context.
 
 **Testing with real user questions**
 
-From the start, validation was based on actual user questions — not curated demo prompts. That surfaced real retrieval gaps early, especially edge-case phrasing that never shows up in synthetic test sets.
+Real questions surfaced retrieval gaps and edge-case phrasing much earlier than curated demo prompts.
 
-## What was hard (cons)
+## What was hard
 
 **Retrieval quality is the real product**
 
-Bad chunking or weak embeddings mean the model gets irrelevant context — and still sounds confident.
+Bad chunking or weak embeddings can give the model irrelevant context while the final answer still sounds confident.
 
 **Stale knowledge**
 
-If docs update but embeddings are not re-ingested, the assistant quietly becomes wrong.
+If documentation changes but embeddings are not regenerated, the assistant can quietly become outdated.
 
 **Chunk size trade-offs**
 
-Too small → lost context. Too large → noisy retrieval and higher token cost.
+Too small loses context. Too large creates noisy retrieval and increases token usage.
 
-**No retrieval = weak or empty answers**
+**No retrieval means weak answers**
 
-When nothing relevant is found in the knowledge base, a strict RAG-only system either hallucinates or returns nothing useful. That is why the global search fallback mattered — it covers questions the database cannot answer.
+A strict RAG-only system can fail when nothing relevant exists in the knowledge base. This is where fallback design becomes important.
 
 **Evaluation still takes iteration**
 
-Even with real user questions, retrieval quality is hard to measure with similarity scores alone. You still need to review which chunks were retrieved and whether the final answer was actually helpful.
+Similarity scores alone do not tell you whether an answer is actually useful. Retrieved chunks and final responses still need real evaluation.
 
 ## What I would prioritize next time
 
-- Make the fallback path explicit in the UI — show when an answer came from docs vs global search
-- Build a simple re-ingestion pipeline when docs change
-- Log retrieved chunks and fallback triggers per query for debugging
-- Keep refining test cases from real user questions as the product evolves
-- Keep the assistant scope narrow — RAG is not a replacement for a general-purpose AI
+- Show whether an answer came from internal docs or global search
+- Re-ingest automatically when documentation changes
+- Log retrieved chunks and fallback triggers per query
+- Keep expanding evaluation cases from real user questions
+- Keep the assistant scope narrow and explicit
 
 ## Final thoughts
 
-RAG chat systems are not really about picking the best LLM.
+RAG chat systems are not really about choosing the best LLM.
 
 They are about **document structure, retrieval design, and honest UX**.
 
-DIFINES AI proved that a lightweight stack — markdown, pgvector, global search fallback, and a fast inference provider — can deliver real value when the domain is clear and the knowledge base is maintained.
+DIFINES AI showed that a lightweight stack — Markdown, pgvector, fallback search, and fast inference — can deliver real value when the domain is clear and the knowledge base is maintained.
 
-The pros are speed to ship, grounded answers, and coverage beyond the stored docs. The cons are ongoing maintenance and the hidden complexity of making retrieval actually reliable.
-
-If you are building a RAG chatbot today, spend less time on model selection and more time on chunking, ingestion, fallback design, and validating with real user questions.
+If you are building a RAG chatbot today, spend less time obsessing over model selection and more time on chunking, ingestion, retrieval quality, fallback behavior, and testing with real users.
