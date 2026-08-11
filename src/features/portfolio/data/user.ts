@@ -7,12 +7,12 @@ export const USER: User = {
   username: "danieltran",
   gender: "male",
   pronouns: "he/him",
-  bio: "AI Platform Engineer | SaaS Engineering Partner | Platform Architect",
+  bio: "Senior Full Stack Engineer | AI Product Engineering | Scalable SaaS Architecture",
   flipSentences: [
-    "AI & Full-Stack Engineering Partner",
-    "Next.js, Supabase, PostgreSQL, OpenAI",
-    "SaaS Engineering Partner",
-    "Platform Architect for startup teams",
+    "Senior Full Stack Engineer for SaaS and AI Products",
+    "Scalable Backend Systems and Modern Web Architecture",
+    "AI Product Development with RAG and LLM Workflows",
+    "End to End Engineering from Architecture to Production",
   ],
   address: "1129 København K, Denmark",
   phoneNumber: "+45 33 12 98 34", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
@@ -21,25 +21,20 @@ export const USER: User = {
   jobTitle: "AI Platform Engineer",
   jobs: [
     {
-      title: "AI & Full-Stack Engineering Partner",
-      company: "",
+      title: "Senior Full Stack Engineer ",
+      company: "DIFINES",
       website: "https://0xdanieltran.vercel.app",
       experienceId: "0xdanieltran",
     },
   ],
   about: `
-Senior Platform Engineer with **9+ years of experience** building production SaaS, fintech, Web3, and AI systems used by real users.
+ Senior Full Stack Engineer with **9+ years of experience** building production SaaS platforms, backend systems, and user facing applications across fintech, AI, healthcare, iGaming, and digital asset products. I specialize in scalable application architecture, backend engineering, AI powered product development, and reliable cloud based systems.
 
-I specialize in scalable platforms, AI-native applications, and modern cloud infrastructure.
-
-My work focuses on:
-- Platform engineering, distributed systems, and scalable architecture
-- AI agents, RAG pipelines, and LLM-powered product development
-- Backend engineering, APIs, and event-driven microservices
-- High-performance React, Next.js, and modern frontend architecture
-- Cloud infrastructure, CI/CD, observability, and developer productivity
-
-I enjoy working with startups and product teams where I can combine engineering depth with product thinking.
+- Full stack architecture, scalable backend services, and distributed systems
+- AI powered applications, RAG pipelines, LLM integrations, and workflow automation
+- Backend APIs, asynchronous processing, real time systems, and service integrations
+- React, Next.js, TypeScript, and modern frontend architecture
+- Cloud deployment, CI/CD, observability, performance optimization, and developer tooling
 `,
   avatar: "./images/logos/danieltran.png",
   ogImage: "./images/logos/danieltran.png",

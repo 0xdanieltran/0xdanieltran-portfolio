@@ -13,8 +13,7 @@ export function HeroPositioning() {
       <PanelContent className="space-y-4">
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            AI &amp; Full-Stack Engineering Partner for SaaS, AI, and Web3
-            Startups
+            Senior Full Stack Engineer Building Scalable SaaS and AI Products
           </h2>
           <p className="font-mono text-sm text-balance text-muted-foreground">
             Helping startups move from idea → production → scale using Next.js,
@@ -24,26 +23,32 @@ export function HeroPositioning() {
 
         <div className="rounded-lg border border-line p-3">
           <p className="font-mono text-sm text-muted-foreground">
-            Senior Platform Engineer with 9+ years building production SaaS,
-            fintech, Web3, and AI systems used by real users. I specialize in
-            scalable platforms, AI-native applications, and modern cloud
-            infrastructure.
+            Senior Full Stack Engineer with 9+ years of experience building
+            production SaaS platforms, backend systems, and user facing
+            applications across fintech, AI, healthcare, iGaming, and digital
+            asset products. I specialize in scalable application architecture,
+            backend engineering, AI powered product development, and reliable
+            cloud based systems.
           </p>
           <ul className="mt-2 list-disc space-y-1 pl-4 font-mono text-sm text-muted-foreground">
             <li>
-              Platform engineering, distributed systems, and scalable
-              architecture
+              Full stack architecture, scalable backend services, and
+              distributed systems
             </li>
             <li>
-              AI agents, RAG pipelines, and LLM-powered product development
-            </li>
-            <li>Backend engineering, APIs, and event-driven microservices</li>
-            <li>
-              High-performance React, Next.js, and modern frontend architecture
+              AI powered applications, RAG pipelines, LLM integrations, and
+              workflow automation
             </li>
             <li>
-              Cloud infrastructure, CI/CD, observability, and developer
-              productivity
+              Backend APIs, asynchronous processing, real time systems, and
+              service integrations
+            </li>
+            <li>
+              React, Next.js, TypeScript, and modern frontend architecture
+            </li>
+            <li>
+              Cloud deployment, CI/CD, observability, performance optimization,
+              and developer tooling
             </li>
           </ul>
           <ul className="mt-3 flex flex-wrap gap-1.5 font-mono text-xs text-muted-foreground">
@@ -86,9 +91,6 @@ export function HeroPositioning() {
             </Link>
           </Button>
         </div>
-        <p className="font-mono text-xs text-muted-foreground">
-          Available for contract work, consulting, and startup partnerships.
-        </p>
       </PanelContent>
     </Panel>
   )

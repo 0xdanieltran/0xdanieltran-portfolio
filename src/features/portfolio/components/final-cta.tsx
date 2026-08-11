@@ -18,10 +18,6 @@ export function FinalCta() {
     <Panel id="contact-cta">
       <PanelHeader>
         <PanelTitle>Let&apos;s Build Something Great</PanelTitle>
-        <PanelDescription>
-          I work with startups and product teams building AI platforms, SaaS
-          applications, and scalable backend systems.
-        </PanelDescription>
       </PanelHeader>
       <PanelContent className="space-y-3">
         <div className="font-mono text-sm text-muted-foreground">
