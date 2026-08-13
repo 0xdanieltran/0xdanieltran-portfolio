@@ -2,6 +2,44 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "ai-voice-agent",
+    title: "AI Voice Sales Agent",
+    period: { start: "2026" },
+    link: "https://aivoice-agent.vercel.app",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "AI",
+      "LLM",
+      "Voice AI",
+      "Twilio",
+      "ElevenLabs",
+      "Speech-to-Text",
+      "Text-to-Speech",
+      "RAG",
+      "CRM Integration",
+      "Real-Time Communication",
+      "Vercel",
+    ],
+    businessDescription:
+      "AI-powered voice sales platform that conducts natural inbound and outbound calls, follows approved sales scripts, answers customer questions, handles objections, qualifies leads, and coordinates follow-ups or live transfers to human representatives.",
+    role: "Full Stack AI Engineer",
+    highlights: [
+      "Architected an end-to-end voice pipeline connecting Twilio telephony, speech-to-text, LLM reasoning, and ElevenLabs text-to-speech for natural customer conversations",
+      "Designed AI sales conversation logic that follows approved scripts, handles common objections and rebuttals, answers product questions, and determines the next best action",
+      "Implemented RAG-based retrieval across product information, FAQs, policies, sales materials, and authorized live business data such as pricing and availability",
+      "Built inbound and outbound calling workflows with lead qualification, call outcome capture, appointment scheduling, and automated SMS and email follow-ups",
+      "Integrated CRM and lead management workflows to store conversation summaries, customer interest, objections, and actionable next steps",
+      "Implemented warm call transfers for customer requests, high-value leads, and conversations requiring human sales expertise",
+      "Designed the voice agent architecture for configurable AI models based on response quality, latency, reliability, privacy, call volume, and operating cost",
+    ],
+    impact:
+      "Enabled businesses to automate scalable sales conversations while preserving accurate company messaging, structured lead capture, timely follow-ups, and seamless human escalation for qualified or complex opportunities.",
+    logo: "/images/projects/ai-voice-agent.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "sonica-studio",
     title: "Sonica Studio",
     period: { start: "2026" },
@@ -179,7 +217,7 @@ export const PROJECTS: Project[] = [
     id: "difines-ai",
     title: "DIFINES AI",
     period: { start: "2026" },
-    link: "https://difines-ai.vercel.app/",
+    link: "https://difines.org/ai",
     skills: [
       "React",
       "TypeScript",
@@ -361,41 +399,6 @@ export const PROJECTS: Project[] = [
     isExpanded: false,
   },
 
-  // {
-  //   id: "rakuearn",
-  //   title: "Rakuearn Rewards Platform",
-  //   period: { start: "2024" },
-  //   link: "https://rakuearn.com/en",
-  //   skills: [
-  //     "Next.js",
-  //     "TypeScript",
-  //     "Supabase",
-  //     "PostgreSQL",
-  //     "Tailwind",
-  //     "AI Integration",
-  //     "Reward Systems",
-  //     "Points Economy",
-  //   ],
-  //   businessDescription:
-  //     "AI-powered rewards platform where users earn points by completing surveys, tasks, and engagement activities, then redeem rewards through digital payouts and gift cards.",
-
-  //   role: "Full Stack Engineer",
-
-  //   highlights: [
-  //     "Built survey and task participation system for user reward generation",
-  //     "Implemented points wallet and reward exchange functionality",
-  //     "Developed payout integrations for digital rewards and bank transfers",
-  //     "Integrated AI recommendation engine to surface relevant earning opportunities",
-  //     "Created user dashboard for tracking points, tasks, and reward history",
-  //   ],
-
-  //   impact:
-  //     "Improved user engagement and retention by introducing a transparent points economy and streamlined reward redemption system.",
-
-  //   logo: "/images/projects/rakuearn.webp",
-  //   isExpanded: false,
-  // },
-
   {
     id: "verge3d-model",
     title: "Verge3D | Interactive 3D Model Viewer",
@@ -484,7 +487,7 @@ export const PROJECTS: Project[] = [
     id: "poipi",
     title: "POIPI Engagement & Airdrop Platform",
     period: { start: "2022" },
-    link: "https://poipi.com/",
+    link: "https://poipi.vercel.app",
     skills: [
       "Next.js",
       "TypeScript",
@@ -549,7 +552,7 @@ export const PROJECTS: Project[] = [
     id: "ai-video-generator",
     title: "AI Play – Video Generator",
     period: { start: "2024" },
-    link: "https://ai-play.netlify.app",
+    link: "#",
     skills: [
       "React",
       "AI",
@@ -571,34 +574,6 @@ export const PROJECTS: Project[] = [
     logo: "/images/projects/ai-video-generator.webp",
     isExpanded: false,
   },
-
-  // {
-  //   id: "aifx",
-  //   title: "AIFX Platform",
-  //   period: { start: "2024" },
-  //   link: "https://aifx.pepesushi.vip",
-  //   skills: [
-  //     "React",
-  //     "AI",
-  //     "Trading Systems",
-  //     "Web3",
-  //     "Solidity",
-  //     "Crypto Payments",
-  //     "Binance Smart Chain",
-  //   ],
-  //   businessDescription:
-  //     "AI-assisted trading platform with crypto-enabled subscription flows.",
-  //   role: "Full Stack Engineer",
-  //   highlights: [
-  //     "Built real-time signal and trading dashboard interfaces",
-  //     "Integrated crypto payment support for subscriptions",
-  //     "Implemented AI-assisted decision support workflows",
-  //   ],
-  //   impact:
-  //     "Improved product differentiation through faster AI-assisted analysis.",
-  //   logo: "/images/projects/aifx.webp",
-  //   isExpanded: false,
-  // },
 
   {
     id: "fuji-chat",
@@ -870,34 +845,6 @@ export const PROJECTS: Project[] = [
     isExpanded: false,
   },
 
-  // {
-  //   id: "speaking-girl-ai",
-  //   title: "Speaking Girl AI | AI Avatar Interaction Platform",
-  //   period: { start: "2024" },
-  //   link: "https://speakingai.difines.io",
-  //   skills: [
-  //     "React",
-  //     "TypeScript",
-  //     "OpenAI",
-  //     "Azure TTS",
-  //     "AI Integration",
-  //     "Conversational AI",
-  //     "Frontend Architecture",
-  //   ],
-  //   businessDescription:
-  //     "Conversational AI avatar platform with live voice synthesis.",
-  //   role: "AI Frontend Engineer",
-  //   highlights: [
-  //     "Integrated OpenAI conversational response pipelines",
-  //     "Implemented Azure Text-to-Speech output flow",
-  //     "Built scalable UI architecture for interactive sessions",
-  //   ],
-  //   impact:
-  //     "Delivered engaging AI avatar interactions with production-ready UX.",
-  //   logo: "/images/projects/ai-speaking-girl.webp",
-  //   isExpanded: false,
-  // },
-
   {
     id: "dentist-website",
     title: "Dentist Website | Healthcare Business Platform",
@@ -979,144 +926,144 @@ export const PROJECTS: Project[] = [
     isExpanded: false,
   },
 
-  {
-    id: "lucky-wheel-loto",
-    title: "Lucky Spin Blockchain Game",
-    period: { start: "2021" },
-    link: "https://lucky-wheel-lotto.vercel.app/",
-    skills: [
-      "React",
-      "JavaScript",
-      "BSC",
-      "Web3.js",
-      "HTML5",
-      "SCSS",
-      "CSS3",
-      "Crypto UI",
-      "Wallet Integration",
-    ],
-    businessDescription:
-      "Blockchain-based lucky spin game built on BNB Smart Chain allowing users to connect wallets, spin to win token rewards, and participate in gamified DeFi engagement mechanics.",
-    role: "Frontend / Web3 Engineer",
-    highlights: [
-      "Developed Web3 UI for wallet connection and spin interaction",
-      "Built gamified token reward interface connected to smart contract logic",
-      "Implemented responsive crypto gaming dashboard and landing pages",
-      "Designed token utility and reward visualization sections",
-    ],
-    impact:
-      "Increased user engagement through gamified token rewards and interactive blockchain gameplay.",
-    logo: "/images/projects/lucky-wheel.webp",
-    isExpanded: false,
-  },
+  // {
+  //   id: "lucky-wheel-loto",
+  //   title: "Lucky Spin Blockchain Game",
+  //   period: { start: "2021" },
+  //   link: "https://lucky-wheel-lotto.vercel.app/",
+  //   skills: [
+  //     "React",
+  //     "JavaScript",
+  //     "BSC",
+  //     "Web3.js",
+  //     "HTML5",
+  //     "SCSS",
+  //     "CSS3",
+  //     "Crypto UI",
+  //     "Wallet Integration",
+  //   ],
+  //   businessDescription:
+  //     "Blockchain-based lucky spin game built on BNB Smart Chain allowing users to connect wallets, spin to win token rewards, and participate in gamified DeFi engagement mechanics.",
+  //   role: "Frontend / Web3 Engineer",
+  //   highlights: [
+  //     "Developed Web3 UI for wallet connection and spin interaction",
+  //     "Built gamified token reward interface connected to smart contract logic",
+  //     "Implemented responsive crypto gaming dashboard and landing pages",
+  //     "Designed token utility and reward visualization sections",
+  //   ],
+  //   impact:
+  //     "Increased user engagement through gamified token rewards and interactive blockchain gameplay.",
+  //   logo: "/images/projects/lucky-wheel.webp",
+  //   isExpanded: false,
+  // },
 
-  {
-    id: "plinko-lotto",
-    title: "Plinko Blockchain Lottery Game",
-    period: { start: "2022" },
-    link: "https://plinko-lotto.vercel.app/",
-    skills: [
-      "React",
-      "JavaScript",
-      "BSC",
-      "Web3.js",
-      "HTML5",
-      "SCSS",
-      "CSS3",
-      "Crypto UI",
-      "Wallet Integration",
-      "Game Mechanics UI",
-    ],
-    businessDescription:
-      "Blockchain-based Plinko lottery game on BNB Smart Chain where users connect wallets, drop balls into randomized peg boards, and earn token rewards based on multiplier zones.",
+  // {
+  //   id: "plinko-lotto",
+  //   title: "Plinko Blockchain Lottery Game",
+  //   period: { start: "2022" },
+  //   link: "https://plinko-lotto.vercel.app/",
+  //   skills: [
+  //     "React",
+  //     "JavaScript",
+  //     "BSC",
+  //     "Web3.js",
+  //     "HTML5",
+  //     "SCSS",
+  //     "CSS3",
+  //     "Crypto UI",
+  //     "Wallet Integration",
+  //     "Game Mechanics UI",
+  //   ],
+  //   businessDescription:
+  //     "Blockchain-based Plinko lottery game on BNB Smart Chain where users connect wallets, drop balls into randomized peg boards, and earn token rewards based on multiplier zones.",
 
-    role: "Frontend / Web3 Engineer",
+  //   role: "Frontend / Web3 Engineer",
 
-    highlights: [
-      "Developed interactive Plinko board UI connected to blockchain reward logic",
-      "Implemented wallet connection and transaction interaction flows",
-      "Built real-time reward visualization and multiplier mechanics",
-      "Designed responsive crypto gaming interface for DeFi users",
-    ],
+  //   highlights: [
+  //     "Developed interactive Plinko board UI connected to blockchain reward logic",
+  //     "Implemented wallet connection and transaction interaction flows",
+  //     "Built real-time reward visualization and multiplier mechanics",
+  //     "Designed responsive crypto gaming interface for DeFi users",
+  //   ],
 
-    impact:
-      "Boosted platform engagement through gamified blockchain rewards and transparent lottery mechanics.",
+  //   impact:
+  //     "Boosted platform engagement through gamified blockchain rewards and transparent lottery mechanics.",
 
-    logo: "/images/projects/plinko-lotto.webp",
-    isExpanded: false,
-  },
+  //   logo: "/images/projects/plinko-lotto.webp",
+  //   isExpanded: false,
+  // },
 
-  {
-    id: "micro-bitcoin-spin",
-    title: "Micro Bitcoin Spin",
-    period: { start: "2022" },
-    link: "https://micro-spin.vercel.app/",
-    skills: [
-      "React",
-      "TypeScript",
-      "SCSS",
-      "Ethers.js",
-      "WalletConnect",
-      "MetaMask",
-      "Web3 UI",
-      "Crypto UX",
-      "Binance Smart Chain",
-    ],
-    businessDescription:
-      "Crypto gaming interface enabling users to participate in micro-reward spin activities with wallet connectivity and real-time token reward visualization.",
+  // {
+  //   id: "micro-bitcoin-spin",
+  //   title: "Micro Bitcoin Spin",
+  //   period: { start: "2022" },
+  //   link: "https://micro-spin.vercel.app/",
+  //   skills: [
+  //     "React",
+  //     "TypeScript",
+  //     "SCSS",
+  //     "Ethers.js",
+  //     "WalletConnect",
+  //     "MetaMask",
+  //     "Web3 UI",
+  //     "Crypto UX",
+  //     "Binance Smart Chain",
+  //   ],
+  //   businessDescription:
+  //     "Crypto gaming interface enabling users to participate in micro-reward spin activities with wallet connectivity and real-time token reward visualization.",
 
-    role: "Frontend Web3 Engineer",
+  //   role: "Frontend Web3 Engineer",
 
-    highlights: [
-      "Developed responsive crypto gaming UI using React and TypeScript",
-      "Implemented wallet connection flows using MetaMask and WalletConnect",
-      "Built spin interaction interface and reward visualization components",
-      "Integrated frontend transaction flows with blockchain APIs",
-      "Designed user dashboard for tracking rewards and participation history",
-    ],
+  //   highlights: [
+  //     "Developed responsive crypto gaming UI using React and TypeScript",
+  //     "Implemented wallet connection flows using MetaMask and WalletConnect",
+  //     "Built spin interaction interface and reward visualization components",
+  //     "Integrated frontend transaction flows with blockchain APIs",
+  //     "Designed user dashboard for tracking rewards and participation history",
+  //   ],
 
-    impact:
-      "Improved user experience and engagement through intuitive Web3 interaction design and responsive crypto gaming interfaces.",
+  //   impact:
+  //     "Improved user experience and engagement through intuitive Web3 interaction design and responsive crypto gaming interfaces.",
 
-    logo: "/images/projects/wbtc-spin.webp",
-    isExpanded: false,
-  },
+  //   logo: "/images/projects/wbtc-spin.webp",
+  //   isExpanded: false,
+  // },
 
-  {
-    id: "micro-bitcoin",
-    title: "Micro Bitcoin Platform",
-    period: { start: "2025" },
-    link: "https://ubtc-frontend.vercel.app",
-    skills: [
-      "React",
-      "TypeScript",
-      "SCSS",
-      "Ethers.js",
-      "WalletConnect",
-      "MetaMask",
-      "Web3 UI",
-      "Crypto UX",
-      "Binance Smart Chain",
-    ],
-    businessDescription:
-      "Crypto product website and Web3 interface for a micro-Bitcoin token ecosystem, enabling users to understand token utility, connect wallets, and interact with blockchain-based reward mechanics.",
+  // {
+  //   id: "micro-bitcoin",
+  //   title: "Micro Bitcoin Platform",
+  //   period: { start: "2025" },
+  //   link: "https://ubtc-frontend.vercel.app",
+  //   skills: [
+  //     "React",
+  //     "TypeScript",
+  //     "SCSS",
+  //     "Ethers.js",
+  //     "WalletConnect",
+  //     "MetaMask",
+  //     "Web3 UI",
+  //     "Crypto UX",
+  //     "Binance Smart Chain",
+  //   ],
+  //   businessDescription:
+  //     "Crypto product website and Web3 interface for a micro-Bitcoin token ecosystem, enabling users to understand token utility, connect wallets, and interact with blockchain-based reward mechanics.",
 
-    role: "Frontend Web3 Developer",
+  //   role: "Frontend Web3 Developer",
 
-    highlights: [
-      "Developed responsive landing pages for Micro Bitcoin token ecosystem",
-      "Built wallet connection UI using MetaMask and WalletConnect",
-      "Implemented token information and utility presentation sections",
-      "Designed crypto-focused UI components for token engagement",
-      "Created user-friendly interfaces for Web3 onboarding experience",
-    ],
+  //   highlights: [
+  //     "Developed responsive landing pages for Micro Bitcoin token ecosystem",
+  //     "Built wallet connection UI using MetaMask and WalletConnect",
+  //     "Implemented token information and utility presentation sections",
+  //     "Designed crypto-focused UI components for token engagement",
+  //     "Created user-friendly interfaces for Web3 onboarding experience",
+  //   ],
 
-    impact:
-      "Enhanced product adoption by improving token presentation, usability, and Web3 onboarding experience through modern frontend design.",
+  //   impact:
+  //     "Enhanced product adoption by improving token presentation, usability, and Web3 onboarding experience through modern frontend design.",
 
-    logo: "/images/projects/wbtc-lp.webp",
-    isExpanded: false,
-  },
+  //   logo: "/images/projects/wbtc-lp.webp",
+  //   isExpanded: false,
+  // },
 ]
 
 export function getAllProjects() {
