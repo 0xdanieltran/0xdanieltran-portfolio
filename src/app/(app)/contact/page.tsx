@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 
 import { SITE_INFO } from "@/config/site"
+import { USER } from "@/features/portfolio/data/user"
 
 import { ContactForm } from "./contact-form"
 
@@ -38,7 +39,15 @@ export default function Page() {
       <div className="p-4">
         <p className="font-mono text-sm text-muted-foreground">
           Tell me about your product, current challenge, and timeline. I reply
-          to qualified inquiries as quickly as possible.
+          to qualified inquiries as quickly as possible. You can also email me
+          directly at{" "}
+          <a
+            href={`mailto:${USER.email}`}
+            className="text-foreground underline decoration-line underline-offset-4 transition-colors hover:decoration-foreground"
+          >
+            {USER.email}
+          </a>
+          .
         </p>
       </div>
 

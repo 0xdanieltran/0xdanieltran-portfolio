@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 
+import { USER } from "@/features/portfolio/data/user"
+
 type FormState = "idle" | "loading" | "success" | "error"
 
 export function ContactForm() {
@@ -15,10 +17,16 @@ export function ContactForm() {
     const formData = new FormData(form)
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      })
+      const response = await fetch(
+        form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"),
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      )
 
       if (!response.ok) {
         setState("error")
@@ -51,10 +59,17 @@ export function ContactForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="screen-line-top space-y-3 p-4">
+      <form
+        action={`https://formsubmit.co/${USER.email}`}
+        method="POST"
+        onSubmit={handleSubmit}
+        className="screen-line-top space-y-3 p-4"
+      >
+        <input type="hidden" name="_subject" value="New portfolio inquiry" />
+        <input type="hidden" name="_template" value="table" />
         <input
           type="text"
-          name="website"
+          name="_honey"
           tabIndex={-1}
           autoComplete="off"
           className="hidden"
