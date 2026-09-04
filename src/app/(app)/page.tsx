@@ -4,17 +4,14 @@ import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 import { Blog } from "@/features/portfolio/components/blog"
 import { Experiences } from "@/features/portfolio/components/experiences"
 import { FinalCta } from "@/features/portfolio/components/final-cta"
-import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { HeroPositioning } from "@/features/portfolio/components/hero-positioning"
 import { Overview } from "@/features/portfolio/components/overview"
 import { PartnershipModel } from "@/features/portfolio/components/partnership-model"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
-import { SelectedWork } from "@/features/portfolio/components/selected-work"
 import { SocialLinks } from "@/features/portfolio/components/social-links-v2"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
 import { TestimonialsMarquee } from "@/features/portfolio/components/testimonials-marquee"
-import { WhoIWorkWith } from "@/features/portfolio/components/who-i-work-with"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
@@ -50,20 +47,11 @@ export default function Page() {
         <PartnershipModel />
         <Separator />
 
-        {/* <WhoIWorkWith />
-        <Separator /> */}
-
         <TestimonialsMarquee />
         <Separator />
 
-        {/* <GitHubContributions />
-        <Separator /> */}
-
         <TechStack />
         <Separator />
-
-        {/* <SelectedWork />
-        <Separator /> */}
 
         <Experiences />
         <Separator />
@@ -76,9 +64,6 @@ export default function Page() {
 
         <FinalCta />
         <Separator />
-
-        {/* <Bookmarks />
-        <Separator /> */}
       </div>
     </>
   )
