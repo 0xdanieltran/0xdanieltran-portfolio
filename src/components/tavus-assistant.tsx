@@ -6,15 +6,19 @@ import { useState } from "react"
 
 import { Button } from "@/components/base/ui/button"
 import { useIsClient } from "@/hooks/use-is-client"
+import { useIsMobile } from "@/hooks/use-is-mobile"
 import { cn } from "@/lib/utils"
 
 const TAVUS_DEPLOYMENT_ID = "562b4b08-c9c9-4577-8694-62cab6249b15"
 
 export function TavusAssistant({ className }: { className?: string }) {
   const isClient = useIsClient()
-  const [isOpen, setIsOpen] = useState(false)
+  const isMobile = useIsMobile()
+  const [isOpen, setIsOpen] = useState<boolean | undefined>(undefined)
 
   if (!isClient) return null
+
+  const isPanelVisible = isOpen ?? !isMobile
 
   return (
     <>
@@ -26,9 +30,11 @@ export function TavusAssistant({ className }: { className?: string }) {
 
       <Button
         aria-controls="tavus-assistant-panel"
-        aria-expanded={isOpen}
+        aria-expanded={isPanelVisible}
         aria-label={
-          isOpen ? "Close AI video assistant" : "Open AI video assistant"
+          isPanelVisible
+            ? "Close AI video assistant"
+            : "Open AI video assistant"
         }
         className={cn(
           "fixed z-50 shadow-xl",
@@ -37,7 +43,7 @@ export function TavusAssistant({ className }: { className?: string }) {
           "ring-2 ring-primary/20",
           "[&_svg:not([class*='size-'])]:size-6",
           "transition-[opacity,transform] duration-300",
-          isOpen && "pointer-events-none scale-90 opacity-0"
+          isPanelVisible && "pointer-events-none scale-90 opacity-0"
         )}
         size="icon-lg"
         variant="secondary"
@@ -48,7 +54,7 @@ export function TavusAssistant({ className }: { className?: string }) {
 
       <div
         id="tavus-assistant-panel"
-        aria-hidden={!isOpen}
+        aria-hidden={!isPanelVisible}
         aria-label="AI video assistant"
         className={cn(
           "fixed z-40 overflow-hidden rounded-2xl shadow-2xl",
@@ -58,11 +64,11 @@ export function TavusAssistant({ className }: { className?: string }) {
           "max-md:left-1/2 max-md:right-auto max-md:w-[80%] max-md:-translate-x-1/2 max-md:-translate-y-1/2",
           "max-md:h-[min(380px,calc(100dvh-8rem))]",
           "transition-[opacity,transform] duration-300",
-          !isOpen && "pointer-events-none scale-95 opacity-0",
+          !isPanelVisible && "pointer-events-none scale-95 opacity-0",
           className
         )}
       >
-        {isOpen && (
+        {isPanelVisible && (
           <Button
             aria-label="Close AI video assistant"
             className="absolute top-2 right-2 z-50 shadow-sm"
