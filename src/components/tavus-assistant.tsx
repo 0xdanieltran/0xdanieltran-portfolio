@@ -6,7 +6,7 @@ import { useState } from "react"
 
 import { Button } from "@/components/base/ui/button"
 import { useIsClient } from "@/hooks/use-is-client"
-import { useIsMobile } from "@/hooks/use-is-mobile"
+import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 
 const TAVUS_DEPLOYMENT_ID = "562b4b08-c9c9-4577-8694-62cab6249b15"
