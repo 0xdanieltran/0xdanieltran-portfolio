@@ -2,6 +2,46 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "lovarank",
+    title: "LovaRank",
+    period: { start: "2026" },
+    link: "https://lovable-ranking.lovable.app",
+    skills: [
+      "TanStack Start",
+      "TanStack Router",
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Row Level Security",
+      "Supabase Edge Functions",
+      "Paystack",
+      "Payments",
+      "Server Functions",
+      "Zod",
+      "SEO",
+      "Lovable",
+    ],
+    businessDescription:
+      "Sponsored discovery directory for Lovable-built websites where builders pay to claim and climb ranks, browse by category and today’s listings, and get discovered through paid placement instead of votes or waitlists.",
+    role: "Full Stack Product Engineer",
+    highlights: [
+      "Built an end-to-end sponsored ranking product on TanStack Start, React 19, and Tailwind with public directory surfaces for all-time ranks, category boards, today’s joiners, featured placements, and website detail pages",
+      "Designed a balance-based ranking model in PostgreSQL where higher paid balances rise higher, with tie-break timing, category partitions, and a $2 listing floor aligned to Paystack USD minimums",
+      "Implemented a public claim-and-pay flow: URL and category intake, Open Graph metadata enrichment, bid preview, Paystack checkout, payment verification, then secure listing credit",
+      "Modeled the data layer with websites, ranking accounts, ranking payments, featured bookings, categories, and RLS policies for anonymous public reads with privileged writes through security-definer RPCs",
+      "Optimized directory and profile performance with count-based rank queries, shared directory chrome, searchable category comboboxes, lazy logo loading, and reduced overfetching on category and detail routes",
+      "Shipped discovery UX for mobile and desktop: claim UI, podium list cards, category filters with search, sidebar today’s rank, and SEO metadata for home, category, today, and detail pages",
+    ],
+    impact:
+      "Gave Lovable builders a paid discovery channel to get listed, rise by investment, and be found by category — with real checkout, secure server-side payments, and a production-ready ranking board ready for community marketing.",
+    logo: "/images/projects/lovarank.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "ai-voice-agent",
     title: "AI Voice Sales Agent",
     period: { start: "2026" },
