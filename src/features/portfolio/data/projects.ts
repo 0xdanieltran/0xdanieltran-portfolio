@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
     id: "lovarank",
     title: "LovaRank",
     period: { start: "2026" },
-    link: "https://lovable-ranking.lovable.app",
+    link: "https://lovarank.lol",
     skills: [
       "TanStack Start",
       "TanStack Router",
