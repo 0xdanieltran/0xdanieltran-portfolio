@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 
 import { SITE_INFO } from "@/config/site"
 import { getAllDocs, getDocsByCategory } from "@/features/doc/data/documents"
+import { getAllProjects } from "@/features/portfolio/data/projects"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllDocs().map((post) => ({
@@ -14,10 +15,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.metadata.updatedAt).toISOString(),
   }))
 
+  const projects = getAllProjects().map((project) => ({
+    url: `${SITE_INFO.url}/project/${project.id}`,
+    lastModified: new Date().toISOString(),
+  }))
+
   const routes = [
     "",
     "/insights",
     "/components",
+    "/project",
     "/llms.txt",
     "/llms-full.txt",
   ].map((route) => ({
@@ -25,5 +32,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString(),
   }))
 
-  return [...routes, ...posts, ...components]
+  return [...routes, ...posts, ...components, ...projects]
 }

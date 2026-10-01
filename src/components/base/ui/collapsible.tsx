@@ -2,7 +2,10 @@
 
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible"
 
-import type { Project } from "@/features/portfolio/types/projects"
+import {
+  getProjectPrimaryLink,
+  type Project,
+} from "@/features/portfolio/types/projects"
 import { trackEvent } from "@/lib/events"
 
 function Collapsible({ ...props }: CollapsiblePrimitive.Root.Props) {
@@ -29,7 +32,7 @@ function CollapsibleTrigger({
             name: "view_project",
             properties: {
               project: project?.title || "project_item",
-              link: project?.link || "unknown",
+              link: (project && getProjectPrimaryLink(project)) || "unknown",
             },
           })
         } else if (source === "view_experience") {

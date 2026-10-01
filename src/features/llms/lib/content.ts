@@ -8,6 +8,10 @@ import { PROJECTS } from "@/features/portfolio/data/projects"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
+import {
+  getProjectPrimaryLink,
+  isValidProjectUrl,
+} from "@/features/portfolio/types/projects"
 
 const SUMMARY = `${USER.bio}. Senior Platform Engineer with 9+ years building production SaaS, fintech, Web3, and AI systems used by real users. Specializes in scalable platforms, AI-native applications, and modern cloud infrastructure. Based in ${USER.address}.`
 
@@ -91,6 +95,21 @@ ${position.description?.trim()}`
 ).join("\n\n")}`
 }
 
+function getProjectUrlsText(item: (typeof PROJECTS)[number]) {
+  if (item.type === "app") {
+    const lines = [
+      isValidProjectUrl(item.iosLink) ? `App Store: ${item.iosLink}` : null,
+      isValidProjectUrl(item.androidLink)
+        ? `Google Play: ${item.androidLink}`
+        : null,
+    ].filter(Boolean)
+
+    return lines.length > 0 ? lines.join("\n") : "Project URL: N/A"
+  }
+
+  return `Project URL: ${getProjectPrimaryLink(item) ?? "N/A"}`
+}
+
 function getProjectsText() {
   return `## Projects
 
@@ -108,7 +127,7 @@ ${PROJECTS.map((item) => {
 
   return `### ${item.title}
 
-Project URL: ${item.link}
+${getProjectUrlsText(item)}
 ${[role, business, skills, highlights, impact, description].filter(Boolean).join("\n\n")}`
 }).join("\n\n")}`
 }

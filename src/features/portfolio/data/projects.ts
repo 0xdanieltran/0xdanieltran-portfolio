@@ -375,6 +375,51 @@ export const PROJECTS: Project[] = [
   },
 
   {
+    id: "zunvra",
+    title: "Zunvra",
+    period: { start: "2025" },
+    type: "app",
+    androidLink:
+      "https://play.google.com/store/apps/details?id=com.zunvra.app",
+    iosLink: "https://apps.apple.com/app/zunvra/id6755365763",
+    skills: [
+      "Android",
+      "iOS",
+      "React Native",
+      "TypeScript",
+      "Social Networking",
+      "Real-Time Messaging",
+      "Private Chat",
+      "Notifications",
+      "Solana",
+      "Crypto",
+      "Token Analytics",
+      "AI",
+      "AI Image Generation",
+      "Real-Time Updates",
+      "Content Moderation",
+      "Privacy & Security",
+    ],
+    businessDescription:
+      "Decentralized social network combining community communication, real-time messaging, crypto-native Solana token analytics, and AI-powered tools for users interested in Web3 and emerging technologies.",
+    role: "Full Stack & Mobile Engineer",
+    highlights: [
+      "Built a mobile-first social networking experience supporting text and image posts, likes, reposts, replies, bookmarks, follows, and rich media interactions",
+      "Implemented real-time communication features including private one-to-one chats, notifications, live updates, and community interactions",
+      "Integrated Solana-focused token discovery and analytics with real-time token information and AI-powered risk insights",
+      "Implemented AI-powered functionality through SOFIA AI, including conversational assistance, image generation, and content insights",
+      "Developed customizable user profiles with themes and backgrounds while supporting a personalized social experience",
+      "Implemented community engagement features including badges, trending topics, user discovery, and content exploration",
+      "Built communication experiences supporting voice and video calls as well as public and moderated audio rooms",
+      "Focused on privacy and secure data handling with self-hosted infrastructure and encrypted data transmission",
+    ],
+    impact:
+      "Delivered a decentralized social platform combining real-time community communication, crypto-native Solana analytics, and AI-powered experiences in a mobile-first product.",
+    logo: "/images/projects/zunvra.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "kin-home",
     title:
       "KIN HOME | Solar Financial Performance & Cost Intelligence Platform",
@@ -969,4 +1014,21 @@ export const PROJECTS: Project[] = [
 
 export function getAllProjects() {
   return PROJECTS
+}
+
+export function getProjectById(id: string) {
+  return PROJECTS.find((project) => project.id === id)
+}
+
+export function findProjectNeighbour(id: string) {
+  const index = PROJECTS.findIndex((project) => project.id === id)
+
+  if (index === -1) {
+    return { previous: undefined, next: undefined }
+  }
+
+  return {
+    previous: index > 0 ? PROJECTS[index - 1] : undefined,
+    next: index < PROJECTS.length - 1 ? PROJECTS[index + 1] : undefined,
+  }
 }
