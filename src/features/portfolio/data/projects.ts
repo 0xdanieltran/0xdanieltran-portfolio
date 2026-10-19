@@ -240,15 +240,19 @@ export const PROJECTS: Project[] = [
       "Token Economy",
     ],
     businessDescription:
-      "Blockchain infrastructure platform supporting DeFi applications and token ecosystems.",
+      "Web2.5 blockchain infrastructure ecosystem designed to bring tokenization, digital asset management, transaction tracking, and Web3-style functionality into familiar Web2 application environments.",
     role: "Lead Full Stack Engineer",
     highlights: [
-      "Built blockchain explorer and wallet-adjacent infrastructure",
-      "Designed token launch, staking, and ecosystem service architecture",
-      "Created integration APIs for partner teams and developers",
+      "Engineered core full-stack infrastructure for blockchain-enabled applications, integrating token, transaction, account, and digital asset workflows across the DFS Chain ecosystem",
+      "Developed blockchain explorer and transaction-tracking functionality for monitoring asset activity, transaction records, hashes, and ecosystem operations",
+      "Built wallet and account-adjacent infrastructure enabling users and applications to manage digital assets through a simplified Web2-oriented experience",
+      "Designed token lifecycle and ecosystem service architecture supporting token creation, transfers, application-level utility, and interconnected digital asset workflows",
+      "Developed and integrated APIs connecting frontend applications with blockchain and ecosystem services, enabling consistent data access and transaction processing across multiple products",
+      "Contributed to ecosystem applications spanning token launches, exchanges, asset management, transaction visualization, and interconnected Web2/Web3 experiences",
+      "Designed reusable full-stack components and service integrations to support the expansion of multiple applications operating within the DFS Chain ecosystem",
     ],
     impact:
-      "Enabled scalable ecosystem infrastructure and faster developer integrations.",
+      "Contributed to the development of a scalable Web2.5 infrastructure ecosystem that simplified blockchain-style functionality for applications and users while enabling tokenization, transaction tracking, digital asset management, and cross-application connectivity.",
     logo: "/images/projects/dfs-simuchain.webp",
     isExpanded: true,
   },
@@ -660,15 +664,18 @@ export const PROJECTS: Project[] = [
       "Animation",
     ],
     businessDescription:
-      "AI media platform for generating videos from images and voice inputs.",
-    role: "AI Frontend Engineer",
+      "AI media generation platform that transforms static images and voice inputs into engaging avatar-based video content through automated AI-powered media processing.",
+    role: "AI Full Stack Engineer",
     highlights: [
-      "Integrated D-ID video generation APIs",
-      "Built media processing and rendering workflows",
-      "Implemented voice, animation, and output controls",
+      "Integrated D-ID video generation APIs to transform user-provided images and voice inputs into AI-generated presenter and avatar videos",
+      "Engineered end-to-end media processing workflows covering asset upload, voice configuration, video generation, processing states, and final output rendering",
+      "Developed interactive controls for configuring voice characteristics, avatar animation, video generation parameters, and output preferences",
+      "Implemented asynchronous generation workflows with real-time processing states, progress feedback, error handling, and reliable result delivery",
+      "Built responsive media creation interfaces that simplified complex AI generation workflows for creators and marketing teams",
+      "Integrated frontend components with AI and media-processing services while maintaining reusable architecture and consistent application state",
     ],
     impact:
-      "Reduced content production effort for creators and marketing teams.",
+      "Streamlined AI-assisted video production by transforming static visual and voice assets into ready-to-use animated content, reducing manual production effort and enabling creators and marketing teams to generate media more efficiently.",
     logo: "/images/projects/ai-video-generator.webp",
     isExpanded: false,
   },
@@ -687,15 +694,16 @@ export const PROJECTS: Project[] = [
       "Token Transfer",
     ],
     businessDescription:
-      "Wallet-native messaging platform for Web3 communities.",
-    role: "Frontend + Realtime Engineer",
+      "Wallet-native messaging platform designed for Web3 communities, combining decentralized identity, real-time communication, and integrated digital asset interactions.",
+    role: "Web3 Full Stack Engineer",
     highlights: [
-      "Built wallet-based login and chat infrastructure",
-      "Implemented token transfer flows inside messaging",
-      "Added group communication and community features",
+      "Architected and developed wallet-based authentication and real-time messaging infrastructure to enable seamless identity and communication within Web3 communities",
+      "Implemented integrated token transfer workflows directly within conversations, allowing users to initiate and manage digital asset transactions without leaving the messaging experience",
+      "Developed scalable group communication features, including community creation, group management, real-time message synchronization, and interactive member experiences",
+      "Built responsive, data-driven interfaces for wallet connectivity, conversations, community management, and transaction interactions",
     ],
     impact:
-      "Enabled community engagement with native Web3 identity and payments.",
+      "Delivered an integrated Web3 communication experience that combined wallet-based identity, real-time community engagement, and native digital asset transfers within a unified messaging platform.",
     logo: "/images/projects/chatfi.webp",
     isExpanded: false,
   },
@@ -736,29 +744,25 @@ export const PROJECTS: Project[] = [
       "TypeScript",
       "Next.js",
       "Web3.js",
-      "Ethers.js",
       "WalletConnect",
       "MetaMask",
       "BSC",
       "DFS Chain",
-      "Crypto UI",
     ],
     businessDescription:
-      "Hybrid crypto exchange platform similar to SimpleSwap supporting Web3 and Web2 asset conversions across BNB Smart Chain and DFS Chain, enabling cross-environment token swaps and digital asset trading.",
-
+      "Hybrid crypto exchange platform inspired by SimpleSwap, enabling Web3 and Web2 asset conversions across BNB Smart Chain and DFS Chain through a unified digital asset exchange experience.",
     role: "Web3 Full Stack Engineer",
-
     highlights: [
-      "Developed swap interface supporting Web3 to Web3 token exchanges",
-      "Built hybrid swap flows between Web2 DFS assets and Web3 tokens",
-      "Implemented wallet connection and transaction interaction UI",
-      "Designed token selection, rate display, and swap confirmation interfaces",
-      "Created responsive trading dashboard and exchange workflows",
+      "Engineered a multi-network swap interface supporting Web3-to-Web3 token exchanges across supported blockchain ecosystems",
+      "Implemented hybrid exchange workflows connecting Web2-based DFS assets with Web3 tokens, enabling seamless cross-environment asset conversions",
+      "Integrated Web3 wallet connectivity and blockchain transaction interactions, including wallet state management, transaction initiation, and confirmation handling",
+      "Developed token selection, exchange-rate presentation, balance validation, transaction estimation, and swap confirmation workflows",
+      "Built reusable exchange components and responsive trading interfaces for managing token pairs, network selection, transaction parameters, and swap states",
+      "Implemented transaction status and error-handling flows to provide users with clear feedback throughout the asset conversion lifecycle",
+      "Integrated frontend exchange workflows with backend and blockchain services to coordinate swap requests, asset information, and transaction processing across supported networks",
     ],
-
     impact:
-      "Simplified cross-platform asset exchange by providing a unified swap interface for both blockchain and platform-based assets.",
-
+      "Delivered a unified Web3/Web2 exchange experience that simplified cross-network and cross-environment asset conversion while providing a scalable foundation for digital asset trading and swap operations.",
     logo: "/images/projects/quickido.webp",
     isExpanded: false,
   },
@@ -784,21 +788,22 @@ export const PROJECTS: Project[] = [
     ],
 
     businessDescription:
-      "Web3 token utility platform that enables users to burn selected tokens to gain access to higher value assets and participate in deflationary tokenomics mechanisms across supported meme coins and blockchain ecosystems.",
+      "Web3 token utility platform that enables users to burn supported tokens in exchange for platform rewards, combining token utility with deflationary mechanics across meme-coin ecosystems and the BNB Smart Chain.",
 
     role: "Web3 Full Stack Engineer",
 
     highlights: [
-      "Developed burn to earn mechanism allowing users to destroy tokens in exchange for platform rewards",
-      "Implemented smart contracts for token burn validation and reward distribution",
-      "Built wallet integration supporting MetaMask and WalletConnect",
-      "Created transaction confirmation flows and burn history tracking UI",
-      "Designed responsive token burn dashboard with real time blockchain interaction",
-      "Integrated support for multiple meme tokens on BNB Smart Chain",
+      "Architected and implemented a burn-to-earn mechanism that enables users to permanently burn eligible tokens in exchange for predefined platform rewards",
+      "Developed and integrated smart contracts for secure token-burn validation, eligibility verification, transaction execution, and reward distribution",
+      "Implemented seamless Web3 wallet connectivity with MetaMask and WalletConnect, including wallet state management and blockchain network handling",
+      "Built comprehensive transaction workflows covering burn initiation, wallet signing, on-chain confirmation, error handling, and persistent burn-history tracking",
+      "Developed a responsive token management dashboard with real-time blockchain data, transaction status updates, token balances, and user participation metrics",
+      "Integrated support for multiple meme-token contracts on BNB Smart Chain, with reusable abstractions for token configuration and blockchain interactions",
+      "Implemented frontend-to-contract interaction layers using modern Web3 libraries to provide reliable and user-friendly on-chain transaction experiences",
     ],
 
     impact:
-      "Enabled token value optimization through deflationary mechanics while providing users with an intuitive interface to participate in token burn reward strategies.",
+      "Delivered an end-to-end Web3 token utility experience that streamlined participation in deflationary burn mechanisms, automated reward workflows, and provided users with transparent visibility into their on-chain activity.",
 
     logo: "/images/projects/b2e-home.webp",
     isExpanded: false,
@@ -808,7 +813,7 @@ export const PROJECTS: Project[] = [
     id: "genogram",
     title: "Genogram",
     period: { start: "2021" },
-    link: "https://genogram-gojs.netlify.app",
+    link: "",
     skills: [
       "React",
       "GoJS",
@@ -817,14 +822,16 @@ export const PROJECTS: Project[] = [
       "UI Engineering",
     ],
     businessDescription:
-      "Interactive family relationship modeling and visualization tool.",
+      "Interactive family relationship modeling and visualization platform designed to transform complex relational data into clear, intuitive visual diagrams.",
     role: "Frontend Engineer",
     highlights: [
-      "Developed dynamic diagram rendering with GoJS",
-      "Implemented drag-and-edit relationship management",
-      "Built structured data visualization workflows",
+      "Architected and implemented dynamic, data-driven diagram rendering with GoJS to visualize complex multi-level family relationships and associated information",
+      "Developed intuitive drag-and-edit interactions that enabled users to create, modify, and maintain relationships directly within the interactive diagram",
+      "Designed structured data visualization workflows for transforming relationship data into consistent, interactive, and easily interpretable visual representations",
+      "Implemented responsive frontend interactions and state management to keep diagram updates synchronized with underlying relationship data",
     ],
-    impact: "Simplified complex relationship mapping for end users.",
+    impact:
+      "Simplified the visualization and management of complex family relationship data by providing an intuitive interactive interface, enabling users to efficiently explore, update, and understand large relationship structures.",
     logo: "/images/projects/genogram.webp",
     isExpanded: false,
   },
@@ -884,15 +891,15 @@ export const PROJECTS: Project[] = [
       "CMS Integration",
     ],
     businessDescription:
-      "Immersive 3D commerce experience for virtual product discovery.",
-    role: "Frontend 3D Engineer",
+      "Immersive 3D commerce platform designed to deliver interactive and engaging virtual product discovery experiences.",
+    role: "Three.js Full Stack Engineer",
     highlights: [
-      "Engineered modular 3D scene architecture for dynamic assets",
-      "Built content workflows for managing models and metadata",
-      "Integrated product navigation with commerce-ready interactions",
+      "Architected and developed a modular 3D scene framework capable of dynamically loading, rendering, and managing interactive product assets",
+      "Implemented structured content management workflows for efficiently managing 3D models, product metadata, and associated interactive elements",
+      "Integrated intuitive product navigation and interactive commerce features to connect immersive 3D experiences with core shopping workflows",
     ],
     impact:
-      "Improved product engagement through immersive shopping experiences.",
+      "Enhanced product discovery and customer engagement by delivering an immersive, interactive shopping experience that seamlessly combines 3D visualization with commerce functionality.",
     logo: "/images/projects/dior.webp",
     isExpanded: false,
   },
@@ -918,11 +925,15 @@ export const PROJECTS: Project[] = [
       "Meme token DEX with bonding-curve mechanics and referral incentives.",
     role: "Web3 Product Engineer",
     highlights: [
-      "Built wallet connection and token swap interaction flows",
-      "Implemented bonding-curve pricing and referral logic",
-      "Integrated smart contracts for token lifecycle management",
+      "Engineered secure wallet connection and transaction flows, enabling users to seamlessly connect their Web3 wallets, interact with token contracts, and execute token swaps directly through the platform",
+      "Designed and implemented bonding-curve pricing mechanics with dynamic token pricing, supply-based calculations, and automated referral logic to support transparent token distribution and community-driven growth",
+      "Integrated and orchestrated smart contracts across the token lifecycle, including token creation, trading, liquidity management, and on-chain transaction handling, with reliable frontend-to-contract interactions",
+      "Developed responsive, data-driven interfaces for token discovery, launch management, trading activity, liquidity metrics, and portfolio interactions using modern React/Next.js architecture",
+      "Implemented blockchain data synchronization and transaction-state handling to provide users with accurate on-chain status, balances, pricing information, and transaction feedback",
     ],
-    impact: "Enabled faster token launches and higher community participation.",
+
+    impact:
+      "Delivered a production-oriented Web3 token launch and trading experience that streamlined token creation and participation, reduced friction across wallet and transaction workflows, and provided a scalable foundation for community-driven token launches and liquidity growth.",
     logo: "/images/projects/sato-pump.webp",
     isExpanded: false,
   },
@@ -931,7 +942,7 @@ export const PROJECTS: Project[] = [
     id: "roppongi-ai",
     title: "Roppongi AI | AI Business Website",
     period: { start: "2022" },
-    link: "https://roppongi-ai.netlify.app/",
+    link: "",
     skills: [
       "WordPress",
       "Elementor",
