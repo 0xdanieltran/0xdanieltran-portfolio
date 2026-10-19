@@ -37,7 +37,7 @@ export const USER: User = {
 - Cloud deployment, CI/CD, observability, performance optimization, and developer tooling
 `,
   avatar: "./images/logos/danieltran.png",
-  ogImage: "./images/logos/danieltran.png",
+  ogImage: "./images/logos/preview.png",
   namePronunciationUrl: "#",
   timeZone: "Europe/Copenhagen",
   keywords: [
