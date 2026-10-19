@@ -970,7 +970,7 @@ export const PROJECTS: Project[] = [
     id: "dentist-website",
     title: "Dentist Website | Healthcare Business Platform",
     period: { start: "2021" },
-    link: "#",
+    link: "",
     skills: [
       "React",
       "JavaScript",
@@ -997,7 +997,7 @@ export const PROJECTS: Project[] = [
     id: "fashion-website",
     title: "Fashion Website | E-commerce UI Platform",
     period: { start: "2021" },
-    link: "https://aura-fashion-theme.netlify.app/",
+    link: "",
     skills: [
       "React",
       "JavaScript",
@@ -1024,7 +1024,7 @@ export const PROJECTS: Project[] = [
     id: "crypto-website",
     title: "Crypto Website | Digital Asset Platform UI",
     period: { start: "2021" },
-    link: "https://crypto-aura-theme.netlify.app/",
+    link: "",
     skills: [
       "React",
       "JavaScript",
