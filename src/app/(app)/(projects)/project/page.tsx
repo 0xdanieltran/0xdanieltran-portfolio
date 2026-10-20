@@ -3,9 +3,8 @@ import { Suspense } from "react"
 
 import { CollapsibleList } from "@/components/collapsible-list"
 import { SITE_INFO, X_USERNAME } from "@/config/site"
-import { PostList } from "@/features/blog/components/post-list"
-import { getAllDocs } from "@/features/doc/data/documents"
 import { ProjectItem } from "@/features/portfolio/components/projects/project-item"
+import { ProjectListWithFilter } from "@/features/portfolio/components/projects/project-list-with-filter"
 import { getAllProjects } from "@/features/portfolio/data/projects"
 
 export const metadata: Metadata = {
@@ -34,7 +33,6 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  const allPosts = getAllDocs()
   const allProjects = getAllProjects()
 
   return (
@@ -51,14 +49,22 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="screen-line-top" />
-
-      <Suspense fallback={<PostList posts={allPosts} />}>
-        <CollapsibleList
-          items={allProjects}
-          max={allProjects.length}
-          renderItem={(item) => <ProjectItem project={item} />}
-        />
+      <Suspense
+        fallback={
+          <>
+            <div className="screen-line-top screen-line-bottom p-4">
+              <div className="h-6 w-full rounded-lg border border-input dark:bg-input/30" />
+            </div>
+            <CollapsibleList
+              items={allProjects}
+              max={allProjects.length}
+              keyExtractor={(item) => item.id}
+              renderItem={(item) => <ProjectItem project={item} />}
+            />
+          </>
+        }
+      >
+        <ProjectListWithFilter projects={allProjects} />
       </Suspense>
 
       <div className="h-4" />
