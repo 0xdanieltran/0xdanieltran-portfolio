@@ -24,7 +24,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-[#1185fe] transition-[color] hover:text-[#0874dd]"
-              href="https://bsky.app/profile/0xdanieltran.bsky.social"
+              href="https://bsky.app/profile/0xdanieltran.bsky.social?utm_source=0xdanieltran.vercel.app"
               target="_blank"
               rel="noopener"
             >
