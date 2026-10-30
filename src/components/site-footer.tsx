@@ -48,13 +48,13 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://t.me/oxdanieltran106"
+              href="mailto:danillppiont106@gmail.com"
               target="_blank"
               rel="noopener"
             >
               <Image
-                src="/images/logos/telegram.svg"
-                alt="Telegram"
+                src="/images/logos/gmail.png"
+                alt="Gmail"
                 width={16}
                 height={16}
               />
