@@ -1,7 +1,9 @@
 import { PROJECTS } from "@/features/portfolio/data/projects"
 import {
+  PROJECT_CATEGORY_LABELS,
   getProjectPrimaryLink,
   isValidProjectUrl,
+  sortProjectCategories,
 } from "@/features/portfolio/types/projects"
 
 function getProjectUrlsMarkdown(item: (typeof PROJECTS)[number]) {
@@ -23,9 +25,14 @@ function getProjectUrlsMarkdown(item: (typeof PROJECTS)[number]) {
 const content = `# Projects
 
 ${PROJECTS.map((item) => {
+  const categories = item.categories.length
+    ? `\n\nCategories: ${sortProjectCategories(item.categories)
+        .map((category) => PROJECT_CATEGORY_LABELS[category])
+        .join(", ")}`
+    : ""
   const skills = `\n\nSkills: ${item.skills.join(", ")}`
   const description = item.description ? `\n\n${item.description.trim()}` : ""
-  return `## ${item.title}\n\n${getProjectUrlsMarkdown(item)}${skills}${description}`
+  return `## ${item.title}\n\n${getProjectUrlsMarkdown(item)}${categories}${skills}${description}`
 }).join("\n\n")}
 `
 

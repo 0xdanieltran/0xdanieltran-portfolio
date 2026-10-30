@@ -10,17 +10,20 @@ import {
 } from "@/components/base/ui/collapsible"
 
 import type { Project } from "../../types/projects"
+import { ProjectCategoryTags } from "./project-category-tags"
 import { ProjectContent } from "./project-content"
 
 export function ProjectItem({
   className,
   project,
+  defaultOpen = project.isExpanded,
 }: {
   className?: string
   project: Project
+  defaultOpen?: boolean
 }) {
   return (
-    <Collapsible className={className} defaultOpen={project.isExpanded}>
+    <Collapsible className={className} defaultOpen={defaultOpen}>
       <div className="flex items-center hover:bg-accent-muted">
         <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background select-none">
           <BoxIcon className="size-4" />
@@ -35,6 +38,7 @@ export function ProjectItem({
               <h3 className="mb-1 leading-snug font-medium text-balance">
                 {project.title}
               </h3>
+              <ProjectCategoryTags categories={project.categories} />
             </div>
 
             <div className="shrink-0 text-muted-foreground [&_svg]:size-4">

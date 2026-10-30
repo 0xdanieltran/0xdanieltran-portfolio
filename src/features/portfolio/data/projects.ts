@@ -2,10 +2,44 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "paint-the-escape",
+    title: "Paint the Escape",
+    period: { start: "2026" },
+    type: "game",
+    link: "https://0xdanieltran.itch.io/paint-the-escape",
+    categories: ["game", "web", "mobile", "desktop"],
+    skills: [
+      "HTML5",
+      "JavaScript",
+      "2D Game Development",
+      "Game Design",
+      "Platformer",
+      "Endless Runner",
+      "Mobile",
+      "Desktop",
+    ],
+    businessDescription:
+      "Paint the Escape is a 2D browser game where every jump brings a dark city to life. Players leap across rooftops, leaving bursts of color, glowing windows, and blooming flowers while escaping a wave of darkness.",
+    role: "Independent Game Developer",
+    highlights: [
+      "Designed hold-and-release jump controls with charge-based distance so longer holds travel farther across rooftops",
+      "Implemented precise landing detection with combo scoring, including Perfect landings that create larger paint splashes",
+      "Built a visual transformation system that wakes a charcoal city into coral, cyan, violet, and gold as players land",
+      "Tuned increasingly challenging jumps while keeping runs short, readable, and playable on both desktop and mobile",
+      "Added a postcard save so players can keep a snapshot of the city they painted after each run",
+    ],
+    impact:
+      "The game combines simple hold-and-release controls with precise landings, combo scoring, and increasingly challenging jumps. Designed for desktop and mobile, it pairs fast-paced gameplay with a vibrant visual transformation that makes every run feel rewarding.",
+    logo: "/images/projects/paint-escape.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "lovarank",
     title: "LovaRank",
     period: { start: "2026" },
     link: "https://lovarank.lol",
+    categories: ["web", "saas"],
     skills: [
       "TanStack Start",
       "TanStack Router",
@@ -46,6 +80,7 @@ export const PROJECTS: Project[] = [
     title: "AI Voice Sales Agent",
     period: { start: "2026" },
     link: "https://opeban-service.vercel.app",
+    categories: ["ai", "agent", "saas", "web"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -84,6 +119,7 @@ export const PROJECTS: Project[] = [
     title: "Sonica Studio",
     period: { start: "2026" },
     link: "https://sonicastudio.vercel.app",
+    categories: ["ai", "saas", "web"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -126,6 +162,7 @@ export const PROJECTS: Project[] = [
     title: "Skypost AI",
     period: { start: "2026" },
     link: "https://skypost-ai.vercel.app",
+    categories: ["ai", "saas", "web"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -163,6 +200,7 @@ export const PROJECTS: Project[] = [
     title: "o1 Exchange",
     period: { start: "2024" },
     link: "https://o1.exchange",
+    categories: ["web3", "web", "saas"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -195,6 +233,7 @@ export const PROJECTS: Project[] = [
     title: "Predictefy",
     period: { start: "2024" },
     link: "https://predictefy.com",
+    categories: ["web3", "web", "saas"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -227,6 +266,7 @@ export const PROJECTS: Project[] = [
     title: "DFS Chain",
     period: { start: "2024" },
     link: "https://difines.org",
+    categories: ["web3", "web"],
     skills: [
       "Supabase",
       "PostgreSQL",
@@ -262,6 +302,7 @@ export const PROJECTS: Project[] = [
     title: "DIFINES AI",
     period: { start: "2026" },
     link: "https://difines.org/ai",
+    categories: ["ai", "agent", "web"],
     skills: [
       "React",
       "TypeScript",
@@ -297,6 +338,7 @@ export const PROJECTS: Project[] = [
     title: "DFS Scan",
     period: { start: "2024" },
     link: "https://dfsscan.com",
+    categories: ["web3", "web"],
     skills: [
       "Supabase",
       "PostgreSQL",
@@ -326,6 +368,7 @@ export const PROJECTS: Project[] = [
     title: "MetaFace – DFS Wallet",
     period: { start: "2024" },
     link: "http://metaface.dfsscan.com",
+    categories: ["web3", "web"],
     skills: [
       "Supabase",
       "PostgreSQL",
@@ -355,6 +398,7 @@ export const PROJECTS: Project[] = [
     title: "WEX Swap",
     period: { start: "2024" },
     link: "https://wexswap.com",
+    categories: ["web3", "web"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -385,6 +429,7 @@ export const PROJECTS: Project[] = [
     type: "app",
     androidLink: "https://play.google.com/store/apps/details?id=com.zunvra.app",
     iosLink: "https://apps.apple.com/app/zunvra/id6755365763",
+    categories: ["mobile", "web3", "ai"],
     skills: [
       "Android",
       "iOS",
@@ -428,6 +473,7 @@ export const PROJECTS: Project[] = [
       "KIN HOME | Solar Financial Performance & Cost Intelligence Platform",
     period: { start: "2025" },
     link: "",
+    categories: ["saas", "web"],
     skills: [
       "Svelte",
       "SvelteKit",
@@ -463,6 +509,7 @@ export const PROJECTS: Project[] = [
     period: { start: "2023" },
     type: "app",
     link: "https://xmr.gg",
+    categories: ["web", "igaming"],
     skills: [
       "Node.js",
       "TypeScript",
@@ -497,6 +544,7 @@ export const PROJECTS: Project[] = [
     title: "Verge3D | Interactive 3D Model Viewer",
     period: { start: "2023" },
     link: "https://interactive-model-verge3d.vercel.app",
+    categories: ["web"],
     skills: [
       "React",
       "Three.js",
@@ -526,6 +574,7 @@ export const PROJECTS: Project[] = [
     period: { start: "2022" },
     type: "app",
     link: "#",
+    categories: ["saas", "web"],
     skills: [
       "React",
       "Node.js",
@@ -561,6 +610,7 @@ export const PROJECTS: Project[] = [
     title: "EdTech | MyHomework App",
     period: { start: "2022" },
     link: "https://info.myhomeworkapp.com",
+    categories: ["saas", "web"],
     skills: [
       "PostgreSQL",
       "Next.js",
@@ -590,6 +640,7 @@ export const PROJECTS: Project[] = [
     title: "POIPI Engagement & Airdrop Platform",
     period: { start: "2022" },
     link: "https://poipi.vercel.app",
+    categories: ["web", "web3"],
     skills: [
       "Next.js",
       "TypeScript",
@@ -626,6 +677,7 @@ export const PROJECTS: Project[] = [
     title: "Decent Reviews",
     period: { start: "2021" },
     link: "https://linkedin.com/company/decentreviews",
+    categories: ["web", "web3"],
     skills: [
       "Node.js",
       "Solidity",
@@ -655,6 +707,7 @@ export const PROJECTS: Project[] = [
     title: "AI Play – Video Generator",
     period: { start: "2024" },
     link: "#",
+    categories: ["ai", "web"],
     skills: [
       "React",
       "AI",
@@ -685,6 +738,7 @@ export const PROJECTS: Project[] = [
     title: "Web3 Chat Platform – Fuji Chat",
     period: { start: "2023" },
     link: "https://fujichat.vercel.app",
+    categories: ["web", "web3"],
     skills: [
       "React",
       "Web3",
@@ -713,6 +767,7 @@ export const PROJECTS: Project[] = [
     title: "PEPE Sushi",
     period: { start: "2023" },
     link: "https://pepe-sushi.vercel.app",
+    categories: ["web", "web3"],
     skills: [
       "React",
       "Solidity",
@@ -739,6 +794,7 @@ export const PROJECTS: Project[] = [
     title: "Quick IDO Exchange Platform",
     period: { start: "2023" },
     link: "https://www.quickido.com/",
+    categories: ["web", "web3"],
     skills: [
       "React",
       "TypeScript",
@@ -772,6 +828,7 @@ export const PROJECTS: Project[] = [
     title: "Burn To Earn Token Platform",
     period: { start: "2023" },
     link: "https://burn-to-earn.vercel.app/", // change if different project URL
+    categories: ["web", "web3"],
     skills: [
       "React",
       "TypeScript",
@@ -814,6 +871,7 @@ export const PROJECTS: Project[] = [
     title: "Genogram",
     period: { start: "2021" },
     link: "",
+    categories: ["web"],
     skills: [
       "React",
       "GoJS",
@@ -842,6 +900,7 @@ export const PROJECTS: Project[] = [
     period: { start: "2020" },
     type: "app",
     link: "#",
+    categories: ["mobile"],
     skills: [
       "iOS",
       "Android",
@@ -879,6 +938,7 @@ export const PROJECTS: Project[] = [
     title: "DIOR Virtual Shop | Immersive 3D Commerce Experience",
     period: { start: "2023" },
     link: "https://dior-vrshop.vercel.app",
+    categories: ["web"],
     skills: [
       "Three.js",
       "WebGL",
@@ -909,6 +969,7 @@ export const PROJECTS: Project[] = [
     title: "Sato Pump | Meme Token DEX Platform",
     period: { start: "2023" },
     link: "https://satopump.vercel.app",
+    categories: ["web", "web3"],
     skills: [
       "React",
       "TypeScript",
@@ -943,6 +1004,7 @@ export const PROJECTS: Project[] = [
     title: "Roppongi AI | AI Business Website",
     period: { start: "2022" },
     link: "",
+    categories: ["web", "ai"],
     skills: [
       "WordPress",
       "Elementor",
@@ -971,6 +1033,7 @@ export const PROJECTS: Project[] = [
     title: "Dentist Website | Healthcare Business Platform",
     period: { start: "2021" },
     link: "",
+    categories: ["web"],
     skills: [
       "React",
       "JavaScript",
@@ -998,6 +1061,7 @@ export const PROJECTS: Project[] = [
     title: "Fashion Website | E-commerce UI Platform",
     period: { start: "2021" },
     link: "",
+    categories: ["web"],
     skills: [
       "React",
       "JavaScript",
@@ -1025,6 +1089,7 @@ export const PROJECTS: Project[] = [
     title: "Crypto Website | Digital Asset Platform UI",
     period: { start: "2021" },
     link: "",
+    categories: ["web", "web3"],
     skills: [
       "React",
       "JavaScript",

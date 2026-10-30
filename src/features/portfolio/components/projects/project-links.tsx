@@ -1,4 +1,9 @@
-import { AppleIcon, ArrowUpRightIcon, GlobeIcon } from "lucide-react"
+import {
+  AppleIcon,
+  ArrowUpRightIcon,
+  Gamepad2Icon,
+  GlobeIcon,
+} from "lucide-react"
 import Link from "next/link"
 
 import { UTM_PARAMS } from "@/config/site"
@@ -60,6 +65,7 @@ export function ProjectLinks({
   showDetailLink?: boolean
 }) {
   const isApp = project.type === "app"
+  const isGame = project.type === "game"
   const links: React.ReactNode[] = []
 
   if (isApp) {
@@ -82,6 +88,12 @@ export function ProjectLinks({
         </ProjectLinkChip>
       )
     }
+  } else if (isGame && isValidProjectUrl(project.link)) {
+    links.push(
+      <ProjectLinkChip key="game" href={project.link} label="Play game">
+        <Gamepad2Icon />
+      </ProjectLinkChip>
+    )
   } else if (isValidProjectUrl(project.link)) {
     links.push(
       <ProjectLinkChip key="website" href={project.link} label="Visit website">

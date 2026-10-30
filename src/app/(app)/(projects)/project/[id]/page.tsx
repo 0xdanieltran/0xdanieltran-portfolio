@@ -11,6 +11,7 @@ import {
 } from "@/components/base/ui/tooltip"
 import { Button } from "@/components/ui/button"
 import { SITE_INFO, X_USERNAME } from "@/config/site"
+import { ProjectCategoryTags } from "@/features/portfolio/components/projects/project-category-tags"
 import { ProjectContent } from "@/features/portfolio/components/projects/project-content"
 import {
   findProjectNeighbour,
@@ -201,6 +202,8 @@ export default async function Page({
         <h1 className="text-3xl leading-tight font-semibold tracking-tight text-balance">
           {project.title}
         </h1>
+
+        <ProjectCategoryTags categories={project.categories} linked />
 
         <ProjectContent project={project} />
       </div>

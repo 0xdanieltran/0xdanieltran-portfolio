@@ -9,8 +9,10 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 import {
+  PROJECT_CATEGORY_LABELS,
   getProjectPrimaryLink,
   isValidProjectUrl,
+  sortProjectCategories,
 } from "@/features/portfolio/types/projects"
 
 const SUMMARY = `${USER.bio}. Senior Platform Engineer with 9+ years building production SaaS, fintech, Web3, and AI systems used by real users. Specializes in scalable platforms, AI-native applications, and modern cloud infrastructure. Based in ${USER.address}.`
@@ -114,6 +116,11 @@ function getProjectsText() {
   return `## Projects
 
 ${PROJECTS.map((item) => {
+  const categories = item.categories.length
+    ? `Categories: ${sortProjectCategories(item.categories)
+        .map((category) => PROJECT_CATEGORY_LABELS[category])
+        .join(", ")}`
+    : ""
   const skills = `Skills: ${item.skills.join(", ")}`
   const role = item.role ? `Role: ${item.role}` : ""
   const business = item.businessDescription
@@ -128,7 +135,7 @@ ${PROJECTS.map((item) => {
   return `### ${item.title}
 
 ${getProjectUrlsText(item)}
-${[role, business, skills, highlights, impact, description].filter(Boolean).join("\n\n")}`
+${[role, business, categories, skills, highlights, impact, description].filter(Boolean).join("\n\n")}`
 }).join("\n\n")}`
 }
 

@@ -6,7 +6,6 @@ import { SITE_INFO } from "@/config/site"
 import {
   Panel,
   PanelContent,
-  PanelDescription,
   PanelHeader,
   PanelTitle,
 } from "./panel"
@@ -24,12 +23,10 @@ export function FinalCta() {
           <p>Available for:</p>
           <ul className="mt-1 list-disc space-y-1 pl-4">
             <li>
-              Full-stack SaaS platform development (Next.js, Supabase,
-              PostgreSQL)
+              Full-stack SaaS platform development
             </li>
             <li>AI feature development and integration</li>
             <li>System architecture and scalable platform engineering</li>
-            <li>Blockchain infrastructure and Web3 platform engineering</li>
             <li>Technical architecture and senior engineering consulting</li>
           </ul>
         </div>
