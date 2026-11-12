@@ -29,6 +29,8 @@ export function AssistantDock() {
   const isClient = useIsClient()
   const [active, setActive] = useState<Assistant | null>(null)
   const [openedByUser, setOpenedByUser] = useState(false)
+  /** Chat shown as a large centered modal instead of the docked panel. */
+  const [expanded, setExpanded] = useState(false)
   const activeRef = useRef(active)
   useEffect(() => {
     activeRef.current = active
@@ -62,15 +64,28 @@ export function AssistantDock() {
       }
       trackEvent({
         name: "assistant_close",
-        properties: { assistant: active, via },
+        properties: { assistant: active, via, expanded },
       })
+      setExpanded(false)
       setActive(null)
     },
-    [active]
+    [active, expanded]
+  )
+
+  const setChatExpanded = useCallback(
+    (next: boolean, via: "button" | "escape" | "backdrop") => {
+      trackEvent({
+        name: "assistant_expand",
+        properties: { assistant: "chat", expanded: next, via },
+      })
+      setExpanded(next)
+    },
+    []
   )
 
   const toggle = (assistant: Assistant) => {
     setOpenedByUser(true)
+    setExpanded(false)
     if (active === assistant) {
       close("dock")
       return
@@ -86,12 +101,28 @@ export function AssistantDock() {
     setActive(assistant)
   }
 
+  // Esc first leaves full screen, then closes the panel.
   useEffect(() => {
     if (!active) return
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close("escape")
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return
+      if (expanded) setChatExpanded(false, "escape")
+      else close("escape")
+    }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
-  }, [active, close])
+  }, [active, expanded, close, setChatExpanded])
+
+  // Lock page scroll behind the full-screen chat.
+  useEffect(() => {
+    if (!expanded) return
+    const root = document.documentElement
+    const previous = root.style.overflow
+    root.style.overflow = "hidden"
+    return () => {
+      root.style.overflow = previous
+    }
+  }, [expanded])
 
   if (!isClient) return null
 
@@ -105,7 +136,8 @@ export function AssistantDock() {
           "bg-background/80 shadow-lg shadow-black/5 backdrop-blur-md dark:shadow-black/30",
           "transition-opacity duration-300",
           // On mobile the panel is a bottom sheet with its own close button.
-          active && "max-md:pointer-events-none max-md:opacity-0"
+          active && "max-md:pointer-events-none max-md:opacity-0",
+          expanded && "pointer-events-none opacity-0"
         )}
       >
         <DockButton
@@ -130,10 +162,27 @@ export function AssistantDock() {
         </DockButton>
       </nav>
 
+      {/* Backdrop for the full-screen chat; click to shrink back. */}
+      <div
+        aria-hidden
+        onClick={() => setChatExpanded(false, "backdrop")}
+        className={cn(
+          "fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm transition-opacity duration-300 dark:bg-black/60",
+          expanded && active === "chat"
+            ? "opacity-100"
+            : "pointer-events-none opacity-0"
+        )}
+      />
+
       <ChatPanel
         open={active === "chat"}
+        expanded={expanded && active === "chat"}
         focusOnOpen={openedByUser}
         onClose={() => close("close_button")}
+        onToggleExpand={() => {
+          setOpenedByUser(true)
+          setChatExpanded(!expanded, "button")
+        }}
       />
       <TavusPanel
         open={active === "video"}

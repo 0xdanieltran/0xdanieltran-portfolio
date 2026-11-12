@@ -3,6 +3,8 @@
 import {
   ArrowUpIcon,
   CornerDownRightIcon,
+  Maximize2Icon,
+  Minimize2Icon,
   RotateCcwIcon,
   SquareIcon,
   XIcon,
@@ -23,27 +25,44 @@ import {
 
 const AVATAR_SRC = "/images/logos/danieltran.png"
 
-export const ASSISTANT_PANEL_POSITION = cn(
+const PANEL_BASE = cn(
   "fixed z-50 flex flex-col overflow-hidden",
-  "rounded-2xl border border-border bg-background shadow-2xl shadow-black/10 dark:shadow-black/40",
-  // Mobile: bottom sheet.
-  "inset-x-2 bottom-2",
-  // Desktop: vertically centered, docked to the left of the assistant rail.
-  "md:inset-x-auto md:top-1/2 md:right-[4.5rem] md:bottom-auto md:-translate-y-1/2 lg:right-[5.25rem]",
-  "origin-right transition-[opacity,translate,scale] duration-300 ease-out"
+  "border border-border bg-background shadow-2xl shadow-black/10 dark:shadow-black/40",
+  "transition-[opacity,translate,scale] duration-300 ease-out"
 )
+
+/** Docked next to the assistant rail (desktop) / bottom sheet (mobile). */
+const PANEL_DOCKED = cn(
+  "origin-right rounded-2xl",
+  "inset-x-2 bottom-2",
+  "md:inset-x-auto md:top-1/2 md:right-[4.5rem] md:bottom-auto md:-translate-y-1/2 lg:right-[5.25rem]"
+)
+
+/** Large centered modal (desktop, 90% of the viewport) / full screen (mobile). */
+const PANEL_EXPANDED = cn(
+  // Above the sticky site header (z-50) and the backdrop (z-60).
+  "inset-0 z-[70] origin-center rounded-none",
+  "md:inset-auto md:top-1/2 md:left-1/2 md:h-[90dvh] md:w-[90vw] md:max-w-6xl md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-2xl",
+  "animate-in duration-200 fade-in-0 zoom-in-95"
+)
+
+export const ASSISTANT_PANEL_POSITION = cn(PANEL_BASE, PANEL_DOCKED)
 
 export const ASSISTANT_PANEL_HIDDEN =
   "pointer-events-none translate-y-3 scale-[0.98] opacity-0 md:translate-x-3"
 
 export function ChatPanel({
   open,
+  expanded,
   focusOnOpen,
   onClose,
+  onToggleExpand,
 }: {
   open: boolean
+  expanded: boolean
   focusOnOpen?: boolean
   onClose: () => void
+  onToggleExpand: () => void
 }) {
   const { messages, isLoading, send, stop, reset } = usePortfolioChat()
   const [input, setInput] = useState("")
@@ -76,16 +95,25 @@ export function ChatPanel({
     setInput("")
   }
 
+  // In the wide modal, keep text in a comfortable reading column.
+  const column = expanded ? "mx-auto w-full max-w-3xl" : ""
+
   return (
     <section
       id="ai-chat-panel"
       role="dialog"
+      aria-modal={expanded || undefined}
       aria-label="Chat with Daniel's AI assistant"
       aria-hidden={!open}
       inert={!open}
       className={cn(
-        ASSISTANT_PANEL_POSITION,
-        "h-[min(36rem,calc(100dvh-5rem))] md:h-[min(40rem,calc(100dvh-7rem))] md:w-[23.5rem]",
+        PANEL_BASE,
+        expanded
+          ? PANEL_EXPANDED
+          : cn(
+              PANEL_DOCKED,
+              "h-[min(36rem,calc(100dvh-5rem))] md:h-[min(40rem,calc(100dvh-7rem))] md:w-[23.5rem]"
+            ),
         !open && ASSISTANT_PANEL_HIDDEN
       )}
     >
@@ -104,7 +132,7 @@ export function ChatPanel({
             Ask Daniel&apos;s AI
           </p>
           <p className="truncate text-xs text-muted-foreground">
-            Answers from his portfolio · instant
+            Answers from his portfolio
           </p>
         </div>
         {messages.length > 0 && (
@@ -112,6 +140,13 @@ export function ChatPanel({
             <RotateCcwIcon />
           </HeaderButton>
         )}
+        <HeaderButton
+          label={expanded ? "Exit full screen" : "Full screen"}
+          onClick={onToggleExpand}
+          pressed={expanded}
+        >
+          {expanded ? <Minimize2Icon /> : <Maximize2Icon />}
+        </HeaderButton>
         <HeaderButton label="Close chat" onClick={onClose}>
           <XIcon />
         </HeaderButton>
@@ -120,33 +155,42 @@ export function ChatPanel({
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 space-y-5 overflow-y-auto overscroll-contain px-4 py-4"
+        className={cn(
+          "flex-1 overflow-y-auto overscroll-contain px-4 py-4",
+          expanded && "md:px-8 md:py-8"
+        )}
         aria-live="polite"
       >
-        <Welcome
-          showStarters={messages.length === 0}
-          onPick={(q) => submit(q, "starter")}
-          disabled={isLoading}
-        />
+        <div className={cn("space-y-5", column)}>
+          <Welcome
+            showStarters={messages.length === 0}
+            onPick={(q) => submit(q, "starter")}
+            disabled={isLoading}
+          />
 
-        {messages.map((m, i) =>
-          m.role === "user" ? (
-            <UserBubble key={m.id} content={m.content} />
-          ) : (
-            <AssistantMessage
-              key={m.id}
-              message={m}
-              isLatest={i === messages.length - 1}
-              disabled={isLoading}
-              onPick={(q) => submit(q, "follow_up")}
-            />
-          )
-        )}
+          {messages.map((m, i) =>
+            m.role === "user" ? (
+              <UserBubble key={m.id} content={m.content} />
+            ) : (
+              <AssistantMessage
+                key={m.id}
+                message={m}
+                isLatest={i === messages.length - 1}
+                disabled={isLoading}
+                onPick={(q) => submit(q, "follow_up")}
+              />
+            )
+          )}
+        </div>
       </div>
 
       {/* Composer */}
       <form
-        className="border-t border-border p-3"
+        className={cn(
+          "border-t border-border p-3",
+          expanded && "md:px-8 md:pb-5",
+          expanded && "[&>*]:mx-auto [&>*]:max-w-3xl"
+        )}
         onSubmit={(e) => {
           e.preventDefault()
           submit(input)
@@ -206,16 +250,19 @@ export function ChatPanel({
 function HeaderButton({
   label,
   onClick,
+  pressed,
   children,
 }: {
   label: string
   onClick: () => void
+  pressed?: boolean
   children: React.ReactNode
 }) {
   return (
     <button
       type="button"
       aria-label={label}
+      aria-pressed={pressed}
       title={label}
       onClick={onClick}
       className="flex size-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground [&_svg]:size-4"
