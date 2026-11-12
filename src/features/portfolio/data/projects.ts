@@ -10,17 +10,13 @@ export const PROJECTS: Project[] = [
     skills: [
       "AI",
       "LLM",
-      "Prompt Engineering",
       "Code Generation",
       "JavaScript",
       "Canvas 2D",
       "Three.js",
-      "HTML5",
       "MP4 Export",
       "Sandboxed iframes",
-      "Credits & Billing",
       "NOWPayments",
-      "Crypto Payments",
     ],
     businessDescription:
       "AI animation studio where users describe a scene in plain language, a language model writes it as Canvas 2D JavaScript, and the browser plays the code like a film, ready to export as MP4 with no cameras, editing, or video model.",
