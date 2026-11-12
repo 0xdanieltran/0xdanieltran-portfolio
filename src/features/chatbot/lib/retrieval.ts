@@ -124,13 +124,76 @@ async function llmSelect(
   }
 }
 
+/** Letters outside ASCII: Japanese, Chinese, Korean, Cyrillic, accented Latin… */
+const NON_ASCII_LETTER = /(?![\x00-\x7F])\p{L}/u
+
+/**
+ * The JSON index is English, so non-English questions get translated for the
+ * search step only (the answer is still written in the visitor's language).
+ * Latin-script languages without accents are caught by low vocabulary overlap.
+ */
+function looksNonEnglish(text: string) {
+  if (NON_ASCII_LETTER.test(text)) return true
+  const tokens = tokenize(text)
+  if (tokens.length < 3) return false
+  const known = tokens.filter((t) => VOCAB_INDEX.has(t)).length
+  return known / tokens.length < 0.4
+}
+
+type TranslateResult = { question?: unknown; previous?: unknown }
+
+async function translateForSearch(question: string, previous?: string) {
+  if (
+    !process.env.GROQ_API_KEY ||
+    !(looksNonEnglish(question) || (previous && looksNonEnglish(previous)))
+  ) {
+    return { question, previous }
+  }
+
+  try {
+    const result = await groqJson<TranslateResult>(
+      {
+        model: GROQ_ROUTER_MODEL,
+        temperature: 0,
+        max_tokens: 400,
+        messages: [
+          {
+            role: "system",
+            content:
+              'Translate the visitor\'s question(s) into concise English for a search index about a software engineer\'s portfolio. Keep names of people, companies, projects and technologies exactly as written. If text is already English, return it unchanged. Respond as JSON: {"question": "...", "previous": "..."}.',
+          },
+          {
+            role: "user",
+            content: JSON.stringify({ question, previous: previous ?? "" }),
+          },
+        ],
+      },
+      AbortSignal.timeout(3000)
+    )
+    return {
+      question:
+        typeof result.question === "string" && result.question.trim()
+          ? result.question
+          : question,
+      previous:
+        typeof result.previous === "string" && result.previous.trim()
+          ? result.previous
+          : previous,
+    }
+  } catch (error) {
+    console.warn("[chat] translate fallback:", (error as Error).message)
+    return { question, previous }
+  }
+}
+
 export async function retrieveContext(
-  question: string,
+  originalQuestion: string,
   history: { role: string; content: string }[]
 ) {
-  const previousQuestion = [...history]
-    .reverse()
-    .find((m) => m.role === "user")?.content
+  const { question, previous: previousQuestion } = await translateForSearch(
+    originalQuestion,
+    [...history].reverse().find((m) => m.role === "user")?.content
+  )
 
   const candidates = vectorSearch(question, previousQuestion).slice(
     0,
@@ -142,8 +205,13 @@ export async function retrieveContext(
     .map((m) => `${m.role}: ${m.content.slice(0, 200)}`)
     .join("\n")
 
+  const routerQuestion =
+    question === originalQuestion
+      ? question
+      : `${originalQuestion} (English: ${question})`
+
   const selected =
-    (await llmSelect(question, historyText, candidates)) ??
+    (await llmSelect(routerQuestion, historyText, candidates)) ??
     candidates.slice(0, FINAL_COUNT).map((c) => c.doc)
 
   // If the router picked nothing, keep the top vector hits as a safety net.
