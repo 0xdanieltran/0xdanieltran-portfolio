@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import { SITE_INFO, X_USERNAME } from "@/config/site"
 import { ProjectCategoryTags } from "@/features/portfolio/components/projects/project-category-tags"
 import { ProjectContent } from "@/features/portfolio/components/projects/project-content"
+import { TrackProjectView } from "@/features/portfolio/components/projects/track-project-view"
 import {
   findProjectNeighbour,
   getAllProjects,
@@ -205,6 +206,7 @@ export default async function Page({
 
         <ProjectCategoryTags categories={project.categories} linked />
 
+        <TrackProjectView id={project.id} title={project.title} />
         <ProjectContent project={project} />
       </div>
 

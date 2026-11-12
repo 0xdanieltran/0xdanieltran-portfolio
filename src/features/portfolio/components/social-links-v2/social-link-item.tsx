@@ -9,6 +9,8 @@ import { addQueryParams } from "@/utils/url"
 export function SocialLinkItem({ icon, title, href }: SocialLink) {
   return (
     <a
+      data-track="social_link_click"
+      data-track-network={title}
       className={cn(
         "group flex cursor-pointer items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
         "max-md:nth-[2n+1]:screen-line-top max-md:nth-[2n+1]:screen-line-bottom",

@@ -1,5 +1,10 @@
 import posthog from "posthog-js"
 
+import { initVemetric } from "@/lib/vemetric"
+
+// Vemetric: cookieless page views + custom events (no-op without a token).
+initVemetric()
+
 // Initialize PostHog only in production environment with valid API key
 if (
   process.env.NODE_ENV === "production" &&

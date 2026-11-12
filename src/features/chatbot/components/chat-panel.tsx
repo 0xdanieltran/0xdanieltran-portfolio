@@ -15,7 +15,11 @@ import remarkGfm from "remark-gfm"
 import { cn } from "@/lib/utils"
 
 import { MAX_QUESTION_LENGTH, STARTER_QUESTIONS } from "../constants"
-import { type ChatMessage, usePortfolioChat } from "../hooks/use-portfolio-chat"
+import {
+  type ChatMessage,
+  type QuestionSource,
+  usePortfolioChat,
+} from "../hooks/use-portfolio-chat"
 
 const AVATAR_SRC = "/images/logos/danieltran.png"
 
@@ -66,9 +70,9 @@ export function ChatPanel({
     el.style.height = `${Math.min(el.scrollHeight, 128)}px`
   }, [input])
 
-  const submit = (text: string) => {
+  const submit = (text: string, source: QuestionSource = "typed") => {
     if (!text.trim() || isLoading) return
-    send(text)
+    send(text, source)
     setInput("")
   }
 
@@ -121,7 +125,7 @@ export function ChatPanel({
       >
         <Welcome
           showStarters={messages.length === 0}
-          onPick={submit}
+          onPick={(q) => submit(q, "starter")}
           disabled={isLoading}
         />
 
@@ -134,7 +138,7 @@ export function ChatPanel({
               message={m}
               isLatest={i === messages.length - 1}
               disabled={isLoading}
-              onPick={submit}
+              onPick={(q) => submit(q, "follow_up")}
             />
           )
         )}
@@ -274,12 +278,31 @@ function UserBubble({ content }: { content: string }) {
   )
 }
 
+/** Models sometimes end with a stray `---` before the follow-up block. */
+function stripTrailingRule(text: string) {
+  return text.replace(/\s*(?:-{3,}|\*{3,}|_{3,})\s*$/, "")
+}
+
 const markdownComponents: Components = {
   a: ({ href = "", children }) =>
     href.startsWith("/") || href.startsWith("#") ? (
-      <Link href={href}>{children}</Link>
+      <Link
+        href={href}
+        data-track="cta_click"
+        data-track-label={String(children)}
+        data-track-location="chat_answer"
+      >
+        {children}
+      </Link>
     ) : (
-      <a href={href} target="_blank" rel="noopener noreferrer nofollow">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        data-track="open_project_link"
+        data-track-project={String(children)}
+        data-track-source="chat_answer"
+      >
         {children}
       </a>
     ),
@@ -328,7 +351,7 @@ function AssistantMessage({
         )}
       >
         <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-          {content}
+          {stripTrailingRule(content)}
         </Markdown>
         {status === "streaming" && (
           <span className="ml-0.5 inline-block h-3.5 w-1.5 translate-y-0.5 animate-pulse rounded-sm bg-foreground/60" />

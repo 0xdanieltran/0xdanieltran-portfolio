@@ -72,14 +72,31 @@ export function HeroPositioning() {
 
         <div className="flex flex-wrap gap-2">
           <Button asChild>
-            <Link href="/contact">Work With Me</Link>
+            <Link
+              href="/contact"
+              data-track="cta_click"
+              data-track-label="Work With Me"
+              data-track-location="hero"
+            >
+              Work With Me
+            </Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="#projects">View Projects</Link>
+            <Link
+              href="#projects"
+              data-track="cta_click"
+              data-track-label="View Projects"
+              data-track-location="hero"
+            >
+              View Projects
+            </Link>
           </Button>
           <Button variant="ghost" asChild>
             <Link
               href={scheduleUrl}
+              data-track="cta_click"
+              data-track-label="Book a Call"
+              data-track-location="hero"
               target={scheduleUrl.startsWith("http") ? "_blank" : undefined}
               rel={
                 scheduleUrl.startsWith("http")

@@ -1,7 +1,7 @@
 "use client"
 
 import { BotMessageSquareIcon, VideoIcon } from "lucide-react"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 import {
   Tooltip,
@@ -11,6 +11,7 @@ import {
 import { TavusPanel } from "@/components/tavus-assistant"
 import { ChatPanel } from "@/features/chatbot/components/chat-panel"
 import { useIsClient } from "@/hooks/use-is-client"
+import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
 
 type Assistant = "chat" | "video"
@@ -28,6 +29,10 @@ export function AssistantDock() {
   const isClient = useIsClient()
   const [active, setActive] = useState<Assistant | null>(null)
   const [openedByUser, setOpenedByUser] = useState(false)
+  const activeRef = useRef(active)
+  useEffect(() => {
+    activeRef.current = active
+  }, [active])
 
   useEffect(() => {
     let dismissed = false
@@ -36,33 +41,54 @@ export function AssistantDock() {
     } catch {}
     if (dismissed || !window.matchMedia("(min-width: 768px)").matches) return
 
-    const timer = setTimeout(
-      () => setActive((current) => current ?? "chat"),
-      AUTO_OPEN_DELAY_MS
-    )
+    const timer = setTimeout(() => {
+      if (activeRef.current) return // visitor already opened something
+      setActive("chat")
+      trackEvent({
+        name: "assistant_open",
+        properties: { assistant: "chat", trigger: "auto" },
+      })
+    }, AUTO_OPEN_DELAY_MS)
     return () => clearTimeout(timer)
   }, [])
 
-  const close = useCallback(() => {
-    setActive((current) => {
-      if (current === "chat") {
+  const close = useCallback(
+    (via: "close_button" | "dock" | "escape") => {
+      if (!active) return
+      if (active === "chat") {
         try {
           sessionStorage.setItem(DISMISSED_KEY, "1")
         } catch {}
       }
-      return null
-    })
-  }, [])
+      trackEvent({
+        name: "assistant_close",
+        properties: { assistant: active, via },
+      })
+      setActive(null)
+    },
+    [active]
+  )
 
   const toggle = (assistant: Assistant) => {
     setOpenedByUser(true)
-    if (active === assistant) close()
-    else setActive(assistant)
+    if (active === assistant) {
+      close("dock")
+      return
+    }
+    trackEvent({
+      name: "assistant_open",
+      properties: {
+        assistant,
+        trigger: "click",
+        switched_from: active,
+      },
+    })
+    setActive(assistant)
   }
 
   useEffect(() => {
     if (!active) return
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close()
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close("escape")
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   }, [active, close])
@@ -107,9 +133,12 @@ export function AssistantDock() {
       <ChatPanel
         open={active === "chat"}
         focusOnOpen={openedByUser}
-        onClose={close}
+        onClose={() => close("close_button")}
       />
-      <TavusPanel open={active === "video"} onClose={close} />
+      <TavusPanel
+        open={active === "video"}
+        onClose={() => close("close_button")}
+      />
     </>
   )
 }

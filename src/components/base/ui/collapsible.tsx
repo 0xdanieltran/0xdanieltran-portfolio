@@ -26,12 +26,16 @@ function CollapsibleTrigger({
     <CollapsiblePrimitive.Trigger
       data-slot="collapsible-trigger"
       {...props}
-      onClick={() => {
+      onClick={(e) => {
+        // Only track expanding, not collapsing.
+        if (e.currentTarget.getAttribute("aria-expanded") === "true") return
         if (source === "view_project") {
           trackEvent({
             name: "view_project",
             properties: {
               project: project?.title || "project_item",
+              project_id: project?.id ?? null,
+              source: "project_list",
               link: (project && getProjectPrimaryLink(project)) || "unknown",
             },
           })

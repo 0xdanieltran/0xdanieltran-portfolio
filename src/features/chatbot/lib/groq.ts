@@ -2,10 +2,10 @@ import "server-only"
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-export const GROQ_ANSWER_MODEL =
-  process.env.GROQ_MODEL || "llama-3.3-70b-versatile"
+// Free-tier Groq models. See https://console.groq.com/docs/models
+export const GROQ_ANSWER_MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b"
 export const GROQ_ROUTER_MODEL =
-  process.env.GROQ_ROUTER_MODEL || "llama-3.1-8b-instant"
+  process.env.GROQ_ROUTER_MODEL || "openai/gpt-oss-20b"
 
 export type GroqMessage = {
   role: "system" | "user" | "assistant"
@@ -19,6 +19,18 @@ type GroqRequest = {
   max_tokens?: number
   stream?: boolean
   response_format?: { type: "json_object" }
+  reasoning_effort?: "low" | "medium" | "high"
+}
+
+/**
+ * Reasoning models (gpt-oss) spend tokens thinking before they answer; keep
+ * that short so replies stay fast and within `max_tokens`.
+ */
+function withModelDefaults(body: GroqRequest): GroqRequest {
+  if (body.model.startsWith("openai/gpt-oss")) {
+    return { reasoning_effort: "low", ...body }
+  }
+  return body
 }
 
 type GroqCompletion = {
@@ -48,7 +60,7 @@ export async function groqFetch(body: GroqRequest, signal?: AbortSignal) {
       Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(withModelDefaults(body)),
     signal,
   })
 

@@ -33,17 +33,26 @@ const chipClassName = cn(
 )
 
 function ProjectLinkChip({
+  project,
   href,
   label,
+  linkType,
   children,
 }: {
+  project: Project
   href: string
   label: string
+  linkType: "website" | "game" | "app_store" | "google_play"
   children: React.ReactNode
 }) {
   return (
     <a
       href={addQueryParams(href, UTM_PARAMS)}
+      data-track="open_project_link"
+      data-track-project={project.title}
+      data-track-project-id={project.id}
+      data-track-link-type={linkType}
+      data-track-href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={chipClassName}
@@ -71,7 +80,13 @@ export function ProjectLinks({
   if (isApp) {
     if (isValidProjectUrl(project.iosLink)) {
       links.push(
-        <ProjectLinkChip key="ios" href={project.iosLink} label="App Store">
+        <ProjectLinkChip
+          key="ios"
+          project={project}
+          linkType="app_store"
+          href={project.iosLink}
+          label="App Store"
+        >
           <AppleIcon />
         </ProjectLinkChip>
       )
@@ -81,6 +96,8 @@ export function ProjectLinks({
       links.push(
         <ProjectLinkChip
           key="android"
+          project={project}
+          linkType="google_play"
           href={project.androidLink}
           label="Google Play"
         >
@@ -90,13 +107,25 @@ export function ProjectLinks({
     }
   } else if (isGame && isValidProjectUrl(project.link)) {
     links.push(
-      <ProjectLinkChip key="game" href={project.link} label="Play game">
+      <ProjectLinkChip
+        key="game"
+        project={project}
+        linkType="game"
+        href={project.link}
+        label="Play game"
+      >
         <Gamepad2Icon />
       </ProjectLinkChip>
     )
   } else if (isValidProjectUrl(project.link)) {
     links.push(
-      <ProjectLinkChip key="website" href={project.link} label="Visit website">
+      <ProjectLinkChip
+        key="website"
+        project={project}
+        linkType="website"
+        href={project.link}
+        label="Visit website"
+      >
         <GlobeIcon />
       </ProjectLinkChip>
     )
@@ -107,6 +136,10 @@ export function ProjectLinks({
       <Link
         key="details"
         href={`/project/${project.id}`}
+        data-track="view_project"
+        data-track-project={project.title}
+        data-track-project-id={project.id}
+        data-track-source="details_link"
         className={chipClassName}
         aria-label={`View ${project.title} details`}
       >

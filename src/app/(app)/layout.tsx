@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/next"
 import dynamic from "next/dynamic"
 
+import { AnalyticsClickTracker } from "@/components/analytics-click-tracker"
 import { AssistantDock } from "@/components/assistant-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -13,6 +14,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="group/layout">
       <Analytics />
+      <AnalyticsClickTracker />
       <SiteHeader />
       <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
       <SiteFooter />

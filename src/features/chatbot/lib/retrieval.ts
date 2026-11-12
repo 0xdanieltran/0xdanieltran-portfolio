@@ -13,6 +13,10 @@ const DOC_BY_ID = new Map(KB.documents.map((d) => [d.id, d]))
 /** Always given to the model so basic identity questions never miss. */
 const ALWAYS_INCLUDE = ["profile:overview"]
 
+const LIVE_LINKS_ID = "project:live-links"
+const LINK_INTENT =
+  /\b(demos?|live|websites?|sites?|urls?|links?|try|visit|play|app ?store|google play|see (it|them|one|some))\b/i
+
 const CANDIDATE_COUNT = 14
 const FINAL_COUNT = 5
 const MAX_CONTEXT_CHARS = 9000
@@ -92,12 +96,12 @@ async function llmSelect(
       {
         model: GROQ_ROUTER_MODEL,
         temperature: 0,
-        max_tokens: 200,
+        max_tokens: 600,
         messages: [
           {
             role: "system",
             content:
-              'You select knowledge chunks for a portfolio Q&A assistant. Given a visitor question and a catalog of chunks (id | title | summary), return the ids (max 5, most relevant first) whose content is needed to answer. Prefer specific chunks over overviews unless the question is broad (e.g. "list all projects"). Respond as JSON: {"ids": ["..."]}. Return {"ids": []} if nothing is relevant.',
+              'You select knowledge chunks for a portfolio Q&A assistant. Given a visitor question and a catalog of chunks (id | title | summary), return the ids (max 5, most relevant first) whose content is needed to answer. Prefer specific chunks over overviews unless the question is broad (e.g. "list all projects"). For follow-ups ("it", "that", "these", "a demo"), resolve them using the recent conversation and pick the chunks about what was just discussed. When the visitor asks for demos, links, websites or something to try, include "project:live-links" plus the specific projects marked [has live demo link]. Respond as JSON: {"ids": ["..."]}. Return {"ids": []} if nothing is relevant.',
           },
           {
             role: "user",
@@ -152,6 +156,8 @@ export async function retrieveContext(
   let size = 0
   for (const doc of [
     ...ALWAYS_INCLUDE.map((id) => DOC_BY_ID.get(id)!),
+    // Link / demo requests always get the full list of public URLs.
+    ...(LINK_INTENT.test(question) ? [DOC_BY_ID.get(LIVE_LINKS_ID)!] : []),
     ...chosen,
   ]) {
     if (!doc || seen.has(doc.id)) continue

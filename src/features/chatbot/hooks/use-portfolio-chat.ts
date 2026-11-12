@@ -2,8 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 
+import { trackEvent } from "@/lib/events"
+
 import { MAX_HISTORY_MESSAGES } from "../constants"
 import type { ChatSource, ChatStreamEvent } from "../types"
+
+/** How the visitor asked: typed it, or clicked a suggestion. */
+export type QuestionSource = "typed" | "starter" | "follow_up"
 
 export type ChatMessage = {
   id: string
@@ -61,9 +66,19 @@ export function usePortfolioChat() {
   )
 
   const send = useCallback(
-    async (text: string) => {
+    async (text: string, source: QuestionSource = "typed") => {
       const question = text.trim()
       if (!question || isLoading) return
+
+      trackEvent({
+        name: "chat_question",
+        properties: {
+          question,
+          source,
+          turn: messages.filter((m) => m.role === "user").length + 1,
+          path: window.location.pathname,
+        },
+      })
 
       const history = messages
         .filter((m) => m.status !== "error" && m.content)
@@ -144,6 +159,10 @@ export function usePortfolioChat() {
             content: m.content || "_Stopped._",
           }))
         } else {
+          trackEvent({
+            name: "chat_answer_failed",
+            properties: { question, error: (error as Error).message },
+          })
           patch(assistantId, (m) => ({
             status: "error",
             content: m.content

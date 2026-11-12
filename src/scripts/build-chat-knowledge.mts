@@ -232,12 +232,50 @@ ${PROJECTS.map((p) => `- ${p.title} (${period(p.period)}; ${p.categories.join(",
   }
 )
 
+const isUrl = (url?: string) => !!url && url.trim() !== "" && url.trim() !== "#"
+
+function projectLinks(p: (typeof PROJECTS)[number]) {
+  return [
+    isUrl(p.link)
+      ? `${p.type === "game" ? "Play the game" : "Live demo / website"}: ${p.link}`
+      : null,
+    isUrl(p.iosLink) ? `App Store: ${p.iosLink}` : null,
+    isUrl(p.androidLink) ? `Google Play: ${p.androidLink}` : null,
+  ].filter((l): l is string => l !== null)
+}
+
+const projectsWithLinks = PROJECTS.filter((p) => projectLinks(p).length > 0)
+
+add(
+  "project",
+  "live-links",
+  "Live demos & project links",
+  `Projects you can open or try right now (${projectsWithLinks.length}), newest first:
+${projectsWithLinks.map((p) => `- ${p.title} (${p.categories.join(", ")}) — ${projectLinks(p).join(" · ")} — details: /project/${p.id}`).join("\n")}
+
+Projects not listed here are private/internal and have no public demo; their details are on /project.`,
+  {
+    url: "/project",
+    summary:
+      "Every public live demo, website, game and app-store URL, one per project.",
+    keywords: [
+      "demo",
+      "live",
+      "website",
+      "link",
+      "url",
+      "site",
+      "try",
+      "visit",
+      "open",
+      "app",
+      "example",
+    ],
+  }
+)
+
 for (const p of PROJECTS) {
-  const links = [
-    p.link && p.link !== "#" ? `Live: ${p.link}` : null,
-    p.iosLink ? `App Store: ${p.iosLink}` : null,
-    p.androidLink ? `Google Play: ${p.androidLink}` : null,
-  ].filter(Boolean)
+  const links = projectLinks(p)
 
   add(
     "project",
@@ -254,8 +292,14 @@ ${p.highlights?.length ? `\nHighlights:\n${p.highlights.map((h) => `- ${h}`).joi
     ),
     {
       url: `/project/${p.id}`,
-      summary: `${p.title} — ${(p.businessDescription ?? p.description ?? "").replace(/\s+/g, " ")}`,
-      keywords: [p.title, p.title, ...p.categories, ...p.skills],
+      summary: `${p.title}${links.length ? " [has live demo link]" : ""} — ${(p.businessDescription ?? p.description ?? "").replace(/\s+/g, " ")}`,
+      keywords: [
+        p.title,
+        p.title,
+        ...p.categories,
+        ...p.skills,
+        ...(links.length ? ["demo", "live", "website", "link"] : []),
+      ],
     }
   )
 }
