@@ -1,87 +1,71 @@
 "use client"
 
-import { VideoIcon, XIcon } from "lucide-react"
+import { XIcon } from "lucide-react"
 import Script from "next/script"
 import { useState } from "react"
 
-import { Button } from "@/components/base/ui/button"
-import { useIsClient } from "@/hooks/use-is-client"
-import { useIsMobile } from "@/hooks/use-mobile"
+import {
+  ASSISTANT_PANEL_HIDDEN,
+  ASSISTANT_PANEL_POSITION,
+} from "@/features/chatbot/components/chat-panel"
 import { cn } from "@/lib/utils"
 
 const TAVUS_DEPLOYMENT_ID = "562b4b08-c9c9-4577-8694-62cab6249b15"
 
-export function TavusAssistant({ className }: { className?: string }) {
-  const isClient = useIsClient()
-  const isMobile = useIsMobile()
-  const [isOpen, setIsOpen] = useState<boolean | undefined>(undefined)
-
-  if (!isClient) return null
-
-  const isPanelVisible = isOpen ?? !isMobile
+/**
+ * AI video interviewer. Controlled by `AssistantDock`; the Tavus embed is only
+ * loaded after the visitor opens it the first time, and is unmounted on close
+ * so the camera/microphone session ends.
+ */
+export function TavusPanel({
+  open,
+  onClose,
+}: {
+  open: boolean
+  onClose: () => void
+}) {
+  const [hasOpened, setHasOpened] = useState(false)
+  if (open && !hasOpened) setHasOpened(true)
 
   return (
     <>
-      <Script
-        id="tavus-embed"
-        src="https://unpkg.com/@tavus/embed@latest"
-        strategy="lazyOnload"
-      />
+      {hasOpened && (
+        <Script
+          id="tavus-embed"
+          src="https://unpkg.com/@tavus/embed@latest"
+          strategy="afterInteractive"
+        />
+      )}
 
-      <Button
-        aria-controls="tavus-assistant-panel"
-        aria-expanded={isPanelVisible}
-        aria-label={
-          isPanelVisible
-            ? "Close AI video assistant"
-            : "Open AI video assistant"
-        }
-        className={cn(
-          "fixed z-50 shadow-xl",
-          "top-[38%] -translate-y-1/2",
-          "right-2 md:right-4 lg:right-8",
-          "ring-2 ring-primary/20",
-          "[&_svg:not([class*='size-'])]:size-6",
-          "transition-[opacity,transform] duration-300",
-          isPanelVisible && "pointer-events-none scale-90 opacity-0"
-        )}
-        size="icon-lg"
-        variant="secondary"
-        onClick={() => setIsOpen(true)}
-      >
-        <VideoIcon />
-      </Button>
-
-      <div
+      <section
         id="tavus-assistant-panel"
-        aria-hidden={!isPanelVisible}
+        role="dialog"
         aria-label="AI video assistant"
+        aria-hidden={!open}
+        inert={!open}
         className={cn(
-          "fixed z-40 overflow-hidden rounded-2xl shadow-2xl",
-          "ring-1 ring-black/10 dark:ring-white/10",
-          "top-[38%] right-4 -translate-y-1/2 lg:right-8",
-          "h-[min(420px,calc(100dvh-6rem))] w-[min(320px,calc(100vw-2rem))]",
-          "max-md:left-1/2 max-md:right-auto max-md:w-[80%] max-md:-translate-x-1/2 max-md:-translate-y-1/2",
-          "max-md:h-[min(380px,calc(100dvh-8rem))]",
-          "transition-[opacity,transform] duration-300",
-          !isPanelVisible && "pointer-events-none scale-95 opacity-0",
-          className
+          ASSISTANT_PANEL_POSITION,
+          "h-[min(30rem,calc(100dvh-5rem))] md:h-[min(30rem,calc(100dvh-7rem))] md:w-[21rem]",
+          !open && ASSISTANT_PANEL_HIDDEN
         )}
       >
-        {isPanelVisible && (
-          <Button
-            aria-label="Close AI video assistant"
-            className="absolute top-2 right-2 z-50 shadow-sm"
-            size="icon-xs"
-            variant="secondary"
-            onClick={() => setIsOpen(false)}
-          >
-            <XIcon />
-          </Button>
-        )}
+        <button
+          type="button"
+          aria-label="Close AI video assistant"
+          title="Close"
+          onClick={onClose}
+          className="absolute top-2 right-2 z-10 flex size-7 items-center justify-center rounded-lg bg-background/80 text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-foreground"
+        >
+          <XIcon className="size-4" />
+        </button>
 
-        <tavus-embed deployment-id={TAVUS_DEPLOYMENT_ID} />
-      </div>
+        {open && (
+          <tavus-embed
+            deployment-id={TAVUS_DEPLOYMENT_ID}
+            className="block size-full"
+          />
+        )}
+      </section>
     </>
   )
 }
