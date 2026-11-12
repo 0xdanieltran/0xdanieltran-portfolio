@@ -2,6 +2,44 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "animcoder-ai",
+    title: "AnimCoder AI",
+    period: { start: "2026" },
+    link: "https://animcoder.vercel.app",
+    categories: ["web", "saas", "ai"],
+    skills: [
+      "AI",
+      "LLM",
+      "Prompt Engineering",
+      "Code Generation",
+      "JavaScript",
+      "Canvas 2D",
+      "Three.js",
+      "HTML5",
+      "MP4 Export",
+      "Sandboxed iframes",
+      "Credits & Billing",
+      "NOWPayments",
+      "Crypto Payments",
+    ],
+    businessDescription:
+      "AI animation studio where users describe a scene in plain language, a language model writes it as Canvas 2D JavaScript, and the browser plays the code like a film, ready to export as MP4 with no cameras, editing, or video model.",
+    role: "Full Stack AI Product Engineer",
+    highlights: [
+      "Built a prompt-to-animation pipeline where users direct subject, mood, lighting, and camera in plain language and an LLM generates complete Canvas 2D JavaScript scenes",
+      "Implemented in-browser frame rendering with one-click MP4 recording, plus downloadable standalone HTML files containing the generated animation code",
+      "Ran generated code safely in an isolated, network-blocked preview frame, with private storage so only the creating account can open its animations",
+      "Designed a pay-as-you-go credit model with prepaid packs, upfront pricing for lengths from 5 seconds to 5 minutes, automatic refunds for failed generations, and free credits on email verification",
+      "Integrated cryptocurrency checkout through NOWPayments for credit purchases without a subscription",
+      "Laid the groundwork for an upcoming Three.js mode that extends the same prompt-to-code workflow to 3D animation",
+    ],
+    impact:
+      "Lets creators and storytellers produce video-like animations by writing like a director instead of learning a video editor or coding, turning a single sentence into a shareable MP4 through code.",
+    logo: "/images/projects/animcoder.webp",
+    isExpanded: true,
+  },
+
+  {
     id: "paint-the-escape",
     title: "Paint the Escape",
     period: { start: "2026" },
