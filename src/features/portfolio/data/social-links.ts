@@ -5,7 +5,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
     icon: "https://assets.chanhdai.com/images/link-icons/x.webp?v=2",
     title: "X",
     subtitle: "0xdanieltran106",
-    href: "https://x.com/0xdanieltran106",
+    href: "https://x.com/0xdanieltran106?utm_source=0xdanieltran.vercel.app",
+  },
+  {
+    icon: "/images/logos/bsky.webp",
+    title: "Bluesky",
+    subtitle: "0xdanieltran",
+    href: "https://bsky.app/profile/0xdanieltran.bsky.social?utm_source=0xdanieltran.vercel.app",
   },
   {
     icon: "https://assets.chanhdai.com/images/link-icons/github.webp?v=2",
@@ -13,12 +19,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
     subtitle: "0xAI",
     href: "https://github.com/0xdanieltran",
   },
-  // {
-  //   icon: "https://assets.chanhdai.com/images/link-icons/linkedin.webp?v=2",
-  //   title: "LinkedIn",
-  //   subtitle: "0xdanieltran",
-  //   href: "https://linkedin.com/in/0xdanieltran",
-  // },
+  {
+    icon: "/images/logos/gmail.png",
+    title: "Gmail",
+    subtitle: "danillppiont106@gmail.com",
+    href: "mailto:danillppiont106@gmail.com",
+  },
   {
     icon: "https://assets.chanhdai.com/images/link-icons/dailydotdev.webp?v=2",
     title: "daily.dev",
@@ -30,17 +36,5 @@ export const SOCIAL_LINKS: SocialLink[] = [
     title: "Telegram",
     subtitle: "@oxdanieltran106",
     href: "https://t.me/oxdanieltran106",
-  },
-  {
-    icon: "/images/logos/gmail.png",
-    title: "Gmail",
-    subtitle: "danillppiont106@gmail.com",
-    href: "mailto:danillppiont106@gmail.com",
-  },
-  {
-    icon: "/images/logos/web3.jpg",
-    title: "Web3 Career",
-    subtitle: "0xdanieltran",
-    href: "https://web3.career/@0xdanieltran",
   },
 ]
