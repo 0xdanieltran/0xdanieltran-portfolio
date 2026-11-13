@@ -34,7 +34,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "/images/logos/telegram.svg",
     title: "Telegram",
-    subtitle: "@oxdanieltran106",
-    href: "https://t.me/oxdanieltran106",
+    subtitle: "@evw77",
+    href: "https://t.me/evw77",
   },
 ]
