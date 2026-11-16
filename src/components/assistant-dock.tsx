@@ -46,31 +46,20 @@ export function AssistantDock() {
     const timer = setTimeout(() => {
       if (activeRef.current) return // visitor already opened something
       setActive("chat")
-      trackEvent({
-        name: "assistant_open",
-        properties: { assistant: "chat", trigger: "auto" },
-      })
     }, AUTO_OPEN_DELAY_MS)
     return () => clearTimeout(timer)
   }, [])
 
-  const close = useCallback(
-    (via: "close_button" | "dock" | "escape") => {
-      if (!active) return
-      if (active === "chat") {
-        try {
-          sessionStorage.setItem(DISMISSED_KEY, "1")
-        } catch {}
-      }
-      trackEvent({
-        name: "assistant_close",
-        properties: { assistant: active, via, expanded },
-      })
-      setExpanded(false)
-      setActive(null)
-    },
-    [active, expanded]
-  )
+  const close = useCallback(() => {
+    if (!active) return
+    if (active === "chat") {
+      try {
+        sessionStorage.setItem(DISMISSED_KEY, "1")
+      } catch {}
+    }
+    setExpanded(false)
+    setActive(null)
+  }, [active])
 
   const setChatExpanded = useCallback(
     (next: boolean, via: "button" | "escape" | "backdrop") => {
@@ -87,17 +76,9 @@ export function AssistantDock() {
     setOpenedByUser(true)
     setExpanded(false)
     if (active === assistant) {
-      close("dock")
+      close()
       return
     }
-    trackEvent({
-      name: "assistant_open",
-      properties: {
-        assistant,
-        trigger: "click",
-        switched_from: active,
-      },
-    })
     setActive(assistant)
   }
 
@@ -107,7 +88,7 @@ export function AssistantDock() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return
       if (expanded) setChatExpanded(false, "escape")
-      else close("escape")
+      else close()
     }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
@@ -178,16 +159,13 @@ export function AssistantDock() {
         open={active === "chat"}
         expanded={expanded && active === "chat"}
         focusOnOpen={openedByUser}
-        onClose={() => close("close_button")}
+        onClose={close}
         onToggleExpand={() => {
           setOpenedByUser(true)
           setChatExpanded(!expanded, "button")
         }}
       />
-      <TavusPanel
-        open={active === "video"}
-        onClose={() => close("close_button")}
-      />
+      <TavusPanel open={active === "video"} onClose={close} />
     </>
   )
 }
