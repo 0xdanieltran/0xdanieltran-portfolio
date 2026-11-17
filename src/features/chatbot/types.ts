@@ -50,7 +50,10 @@ export type ChatProjectPreview = {
   id: string
   title: string
   image: string
+  /** Portfolio project page. */
   url: string
+  /** Public live demo / website / store URL, when one exists. */
+  liveUrl?: string
 }
 
 export type ChatRole = "user" | "assistant"

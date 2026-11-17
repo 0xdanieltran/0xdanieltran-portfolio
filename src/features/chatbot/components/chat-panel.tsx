@@ -2,6 +2,7 @@
 
 import {
   ArrowUpIcon,
+  ArrowUpRightIcon,
   CornerDownRightIcon,
   EllipsisIcon,
   Maximize2Icon,
@@ -12,7 +13,6 @@ import {
   XIcon,
 } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import Markdown, { type Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -26,6 +26,7 @@ import {
   type QuestionSource,
   usePortfolioChat,
 } from "../hooks/use-portfolio-chat"
+import { linkifyAnswer } from "../lib/linkify-answer"
 import { mentionedProjects } from "../lib/mentioned-projects"
 import type { ChatProjectPreview } from "../types"
 
@@ -102,7 +103,7 @@ export function ChatPanel({
   }
 
   // In the wide modal, keep text in a comfortable reading column.
-  const column = expanded ? "mx-auto w-full max-w-3xl" : ""
+  const column = expanded ? "mx-auto w-full max-w-5xl" : ""
 
   return (
     <section
@@ -169,6 +170,7 @@ export function ChatPanel({
       >
         <div className={cn("space-y-5", column)}>
           <Welcome
+            expanded={expanded}
             showStarters={messages.length === 0}
             onPick={(q) => submit(q, "starter")}
             disabled={isLoading}
@@ -196,7 +198,7 @@ export function ChatPanel({
         className={cn(
           "border-t border-border p-3",
           expanded && "md:px-8 md:pb-5",
-          expanded && "[&>*]:mx-auto [&>*]:max-w-3xl"
+          expanded && "[&>*]:mx-auto [&>*]:max-w-5xl"
         )}
         onSubmit={(e) => {
           e.preventDefault()
@@ -280,10 +282,12 @@ function HeaderButton({
 }
 
 function Welcome({
+  expanded,
   showStarters,
   onPick,
   disabled,
 }: {
+  expanded: boolean
   showStarters: boolean
   onPick: (q: string) => void
   disabled: boolean
@@ -303,14 +307,22 @@ function Welcome({
           <p className="text-[11px] font-medium tracking-wider text-muted-foreground uppercase">
             Suggested questions
           </p>
-          <div className="flex flex-wrap gap-1.5">
+          <div
+            className={cn(
+              "flex gap-1.5",
+              expanded ? "flex-row flex-wrap" : "flex-wrap"
+            )}
+          >
             {STARTER_QUESTIONS.map((q) => (
               <button
                 key={q}
                 type="button"
                 disabled={disabled}
                 onClick={() => onPick(q)}
-                className="rounded-full border border-border px-3 py-1.5 text-left text-xs transition-colors hover:border-foreground/20 hover:bg-muted disabled:opacity-50"
+                className={cn(
+                  "rounded-full border border-border px-3 py-1.5 text-left text-xs transition-colors hover:border-foreground/20 hover:bg-muted disabled:opacity-50",
+                  expanded && "shrink-0 whitespace-nowrap"
+                )}
               >
                 {q}
               </button>
@@ -337,29 +349,26 @@ function stripTrailingRule(text: string) {
   return text.replace(/\s*(?:-{3,}|\*{3,}|_{3,})\s*$/, "")
 }
 
+function chatHrefProps(href: string) {
+  if (href.startsWith("#") || href.startsWith("mailto:")) return {}
+  return {
+    target: "_blank" as const,
+    rel: "noopener noreferrer",
+  }
+}
+
 const markdownComponents: Components = {
-  a: ({ href = "", children }) =>
-    href.startsWith("/") || href.startsWith("#") ? (
-      <Link
-        href={href}
-        data-track="cta_click"
-        data-track-label={String(children)}
-        data-track-location="chat_answer"
-      >
-        {children}
-      </Link>
-    ) : (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-        data-track="open_project_link"
-        data-track-project={String(children)}
-        data-track-source="chat_answer"
-      >
-        {children}
-      </a>
-    ),
+  a: ({ href = "", children }) => (
+    <a
+      href={href}
+      {...chatHrefProps(href)}
+      data-track="cta_click"
+      data-track-label={String(children)}
+      data-track-location="chat_answer"
+    >
+      {children}
+    </a>
+  ),
 }
 
 function AssistantMessage({
@@ -376,8 +385,9 @@ function AssistantMessage({
   onPick: (q: string) => void
 }) {
   const { status, content, sources, projects, suggestions } = message
-  const answer = stripTrailingRule(content)
-  const projectImages = mentionedProjects(answer, sources, projects)
+  const rawAnswer = stripTrailingRule(content)
+  const answer = linkifyAnswer(rawAnswer, projects)
+  const projectImages = mentionedProjects(rawAnswer, sources, projects)
 
   if (status === "pending") {
     return (
@@ -426,13 +436,14 @@ function AssistantMessage({
             Sources
           </span>
           {linkedSources.slice(0, 4).map((s) => (
-            <Link
+            <a
               key={s.id}
               href={s.url!}
+              {...chatHrefProps(s.url!)}
               className="max-w-40 truncate rounded-md bg-muted px-1.5 py-0.5 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
             >
               {s.title}
-            </Link>
+            </a>
           ))}
         </div>
       )}
@@ -462,14 +473,22 @@ function AssistantMessage({
       )}
 
       {isLatest && status === "done" && !!suggestions?.length && (
-        <div className="flex flex-col items-start gap-1.5">
+        <div
+          className={cn(
+            "flex items-start gap-1.5",
+            expanded ? "flex-row flex-wrap" : "flex-col"
+          )}
+        >
           {suggestions.map((q) => (
             <button
               key={q}
               type="button"
               disabled={disabled}
               onClick={() => onPick(q)}
-              className="group flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-left text-xs transition-colors hover:border-foreground/20 hover:bg-muted disabled:opacity-50"
+              className={cn(
+                "group flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-left text-xs transition-colors hover:border-foreground/20 hover:bg-muted disabled:opacity-50",
+                expanded && "shrink-0 whitespace-nowrap"
+              )}
             >
               <CornerDownRightIcon className="size-3 shrink-0 text-muted-foreground group-hover:text-foreground" />
               {q}
@@ -479,6 +498,17 @@ function AssistantMessage({
       )}
     </div>
   )
+}
+
+function liveDemoLabel(url: string) {
+  try {
+    const parsed = new URL(url)
+    const host = parsed.hostname.replace(/^www\./, "")
+    const path = parsed.pathname.replace(/\/$/, "")
+    return path && path !== "/" ? `${host}${path}` : host
+  } catch {
+    return url.replace(/^https?:\/\//, "")
+  }
 }
 
 function ProjectImageGallery({
@@ -495,29 +525,55 @@ function ProjectImageGallery({
         expanded && projects.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"
       )}
     >
-      {projects.map((project) => (
-        <li key={project.id}>
-          <Link
-            href={project.url}
-            className="group block overflow-hidden rounded-xl border border-border bg-muted/30 transition-colors hover:border-foreground/20"
-            data-track="view_project"
-            data-track-project={project.title}
-            data-track-source="chat_answer_image"
+      {projects.map((project) => {
+        const href = project.liveUrl ?? project.url
+
+        return (
+          <li
+            key={project.id}
+            className="overflow-hidden rounded-xl border border-border bg-muted/30"
           >
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={640}
-              height={360}
-              className="h-auto w-full object-cover"
-              unoptimized
-            />
-            <span className="block truncate px-2.5 py-1.5 text-[11px] text-muted-foreground group-hover:text-foreground">
-              {project.title}
-            </span>
-          </Link>
-        </li>
-      ))}
+            <a
+              href={href}
+              className="group block overflow-hidden transition-colors hover:bg-muted/50"
+              data-track="open_project_link"
+              data-track-project={project.title}
+              data-track-source="chat_answer_image"
+              {...chatHrefProps(href)}
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={640}
+                height={360}
+                className="h-auto w-full object-cover"
+                unoptimized
+              />
+            </a>
+            <div className="flex min-w-0 items-baseline justify-between gap-2 px-2.5 py-1.5">
+              <span className="min-w-0 truncate text-[11px] text-muted-foreground">
+                {project.title}
+              </span>
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex max-w-[55%] min-w-0 shrink-0 items-center gap-0.5 text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                  data-track="open_project_link"
+                  data-track-project={project.title}
+                  data-track-source="chat_answer_live_url"
+                >
+                  <span className="truncate">
+                    {liveDemoLabel(project.liveUrl)}
+                  </span>
+                  <ArrowUpRightIcon className="size-3 shrink-0" />
+                </a>
+              ) : null}
+            </div>
+          </li>
+        )
+      })}
     </ul>
   )
 }

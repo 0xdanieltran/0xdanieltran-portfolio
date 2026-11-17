@@ -11,11 +11,32 @@ const VOCAB_INDEX = new Map(KB.vocabulary.map((t, i) => [t, i]))
 const DOC_BY_ID = new Map(KB.documents.map((d) => [d.id, d]))
 
 /** Always given to the model so basic identity questions never miss. */
-const ALWAYS_INCLUDE = ["profile:overview"]
+const ALWAYS_INCLUDE = ["profile:overview", "contact:channels"]
 
 const LIVE_LINKS_ID = "project:live-links"
+const PROJECT_INDEX_ID = "project:index"
+const META_PROJECT_IDS = new Set([PROJECT_INDEX_ID, LIVE_LINKS_ID])
 const LINK_INTENT =
   /\b(demos?|live|websites?|sites?|urls?|links?|try|visit|play|app ?store|google play|see (it|them|one|some))\b/i
+const AI_PROJECT_INTENT =
+  /\b(ai|llm|rag|agent)s?\b|\bbest\b.{0,24}\bprojects?\b|\brecent\b.{0,24}\bprojects?\b|\btop\b.{0,24}\bprojects?\b/i
+const HIRE_INTENT =
+  /\b(hire|hiring|contact|email|freelance|available|availability|rates?|pricing|book a call|reach out|work with)\b/i
+const PROJECT_LIST_INTENT = /\bprojects?\b/i
+
+/** Newest first — knowledge chunks are written in portfolio order. */
+const PROJECT_DOC_IDS = KB.documents
+  .filter((d) => d.type === "project" && !META_PROJECT_IDS.has(d.id))
+  .map((d) => d.id)
+const PROJECT_RECENCY = new Map(PROJECT_DOC_IDS.map((id, i) => [id, i]))
+const RECENT_AI_PROJECT_IDS = KB.documents
+  .filter(
+    (d) =>
+      d.type === "project" &&
+      !META_PROJECT_IDS.has(d.id) &&
+      /\bcategories:[^\n]*\bai\b/i.test(d.content)
+  )
+  .map((d) => d.id)
 
 const CANDIDATE_COUNT = 14
 const FINAL_COUNT = 5
@@ -38,6 +59,10 @@ export function vectorSearch(question: string, previousQuestion?: string) {
   const wantsArticles =
     /\b(blog|article|post|insight|write|wrote|written)/.test(lower)
 
+  const wantsAiProjects = AI_PROJECT_INTENT.test(lower)
+  const wantsHire = HIRE_INTENT.test(lower)
+  const wantsProjectList = PROJECT_LIST_INTENT.test(lower) || wantsAiProjects
+
   const ranked = KB.documents
     .map<ScoredDoc>((doc) => {
       let score = cosine(q, doc.embedding)
@@ -49,6 +74,14 @@ export function vectorSearch(question: string, previousQuestion?: string) {
       // Exact name mention (project / company) is a strong signal.
       if (titleNames(doc).some((n) => n.length > 3 && lower.includes(n)))
         score += 0.5
+      const recency = PROJECT_RECENCY.get(doc.id)
+      if (recency != null && wantsProjectList) {
+        score += 0.12 * Math.max(0, 1 - recency / 12)
+        if (wantsAiProjects && RECENT_AI_PROJECT_IDS.includes(doc.id)) {
+          score += recency < 6 ? 0.45 : 0.2
+        }
+      }
+      if (wantsHire && doc.type === "project") score *= 0.35
       return { doc, score }
     })
     .filter((r) => r.score > 0.02)
@@ -101,7 +134,7 @@ async function llmSelect(
           {
             role: "system",
             content:
-              'You select knowledge chunks for a portfolio Q&A assistant. Given a visitor question and a catalog of chunks (id | title | summary), return the ids (max 5, most relevant first) whose content is needed to answer. Prefer specific chunks over overviews unless the question is broad (e.g. "list all projects"). For follow-ups ("it", "that", "these", "a demo"), resolve them using the recent conversation and pick the chunks about what was just discussed. When the visitor asks for demos, links, websites or something to try, include "project:live-links" plus the specific projects marked [has live demo link]. Respond as JSON: {"ids": ["..."]}. Return {"ids": []} if nothing is relevant.',
+              'You select knowledge chunks for a portfolio Q&A assistant. Given a visitor question and a catalog of chunks (id | title | summary), return the ids (max 5, most relevant first) whose content is needed to answer. Prefer specific chunks over overviews unless the question is broad (e.g. "list all projects"). For follow-ups ("it", "that", "these", "a demo"), resolve them using the recent conversation and pick the chunks about what was just discussed. When the visitor asks for demos, links, websites or something to try, include "project:live-links" plus the specific projects marked [has live demo link]. For hire, contact, availability, rates, or booking questions, pick contact/profile chunks only — do not include individual project chunks unless the visitor named a project. Respond as JSON: {"ids": ["..."]}. Return {"ids": []} if nothing is relevant.',
           },
           {
             role: "user",
@@ -214,10 +247,23 @@ export async function retrieveContext(
     (await llmSelect(routerQuestion, historyText, candidates)) ??
     candidates.slice(0, FINAL_COUNT).map((c) => c.doc)
 
-  // If the router picked nothing, keep the top vector hits as a safety net.
-  const chosen = selected.length
-    ? selected
-    : candidates.slice(0, 3).map((c) => c.doc)
+  const namedProject = PROJECT_DOC_IDS.some((id) => {
+    const doc = DOC_BY_ID.get(id)
+    return (
+      !!doc &&
+      titleNames(doc).some(
+        (n) => n.length > 3 && question.toLowerCase().includes(n)
+      )
+    )
+  })
+  const hireOnly =
+    HIRE_INTENT.test(question) &&
+    !namedProject &&
+    !AI_PROJECT_INTENT.test(question)
+
+  const chosen = (
+    selected.length ? selected : candidates.slice(0, 3).map((c) => c.doc)
+  ).filter((doc) => !(hireOnly && doc.type === "project"))
 
   const docs: KnowledgeDoc[] = []
   const seen = new Set<string>()
@@ -225,7 +271,16 @@ export async function retrieveContext(
   for (const doc of [
     ...ALWAYS_INCLUDE.map((id) => DOC_BY_ID.get(id)!),
     // Link / demo requests always get the full list of public URLs.
-    ...(LINK_INTENT.test(question) ? [DOC_BY_ID.get(LIVE_LINKS_ID)!] : []),
+    ...(LINK_INTENT.test(question) && !hireOnly
+      ? [DOC_BY_ID.get(LIVE_LINKS_ID)!]
+      : []),
+    // "Best / recent / AI projects" always include the newest AI work.
+    ...(AI_PROJECT_INTENT.test(question) && !hireOnly
+      ? [
+          DOC_BY_ID.get(PROJECT_INDEX_ID),
+          ...RECENT_AI_PROJECT_IDS.slice(0, 4).map((id) => DOC_BY_ID.get(id)),
+        ]
+      : []),
     ...chosen,
   ]) {
     if (!doc || seen.has(doc.id)) continue
