@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-11-13T15:25:07.714Z",
+ "generatedAt": "2026-11-17T21:01:30.579Z",
  "embedding": {
   "model": "tfidf-sparse-v1",
   "dimensions": 1858
