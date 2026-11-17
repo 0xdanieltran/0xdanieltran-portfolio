@@ -11,7 +11,6 @@ import {
 import { TavusPanel } from "@/components/tavus-assistant"
 import { ChatPanel } from "@/features/chatbot/components/chat-panel"
 import { useIsClient } from "@/hooks/use-is-client"
-import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
 
 type Assistant = "chat" | "video"
@@ -61,17 +60,6 @@ export function AssistantDock() {
     setActive(null)
   }, [active])
 
-  const setChatExpanded = useCallback(
-    (next: boolean, via: "button" | "escape" | "backdrop") => {
-      trackEvent({
-        name: "assistant_expand",
-        properties: { assistant: "chat", expanded: next, via },
-      })
-      setExpanded(next)
-    },
-    []
-  )
-
   const toggle = (assistant: Assistant) => {
     setOpenedByUser(true)
     setExpanded(false)
@@ -87,12 +75,12 @@ export function AssistantDock() {
     if (!active) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return
-      if (expanded) setChatExpanded(false, "escape")
+      if (expanded) setExpanded(false)
       else close()
     }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
-  }, [active, expanded, close, setChatExpanded])
+  }, [active, expanded, close])
 
   // Lock page scroll behind the full-screen chat.
   useEffect(() => {
@@ -146,7 +134,7 @@ export function AssistantDock() {
       {/* Backdrop for the full-screen chat; click to shrink back. */}
       <div
         aria-hidden
-        onClick={() => setChatExpanded(false, "backdrop")}
+        onClick={() => setExpanded(false)}
         className={cn(
           "fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm transition-opacity duration-300 dark:bg-black/60",
           expanded && active === "chat"
@@ -162,7 +150,7 @@ export function AssistantDock() {
         onClose={close}
         onToggleExpand={() => {
           setOpenedByUser(true)
-          setChatExpanded(!expanded, "button")
+          setExpanded(!expanded)
         }}
       />
       <TavusPanel open={active === "video"} onClose={close} />

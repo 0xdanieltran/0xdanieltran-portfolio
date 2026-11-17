@@ -3,17 +3,21 @@
 import {
   ArrowUpIcon,
   CornerDownRightIcon,
+  EllipsisIcon,
   Maximize2Icon,
   Minimize2Icon,
   RotateCcwIcon,
+  Share2Icon,
   SquareIcon,
   XIcon,
 } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import Markdown, { type Components } from "react-markdown"
 import remarkGfm from "remark-gfm"
 
+import { CopyButton } from "@/components/copy-button"
 import { cn } from "@/lib/utils"
 
 import { MAX_QUESTION_LENGTH, STARTER_QUESTIONS } from "../constants"
@@ -22,6 +26,8 @@ import {
   type QuestionSource,
   usePortfolioChat,
 } from "../hooks/use-portfolio-chat"
+import { mentionedProjects } from "../lib/mentioned-projects"
+import type { ChatProjectPreview } from "../types"
 
 const AVATAR_SRC = "/images/logos/danieltran.png"
 
@@ -176,6 +182,7 @@ export function ChatPanel({
                 key={m.id}
                 message={m}
                 isLatest={i === messages.length - 1}
+                expanded={expanded}
                 disabled={isLoading}
                 onPick={(q) => submit(q, "follow_up")}
               />
@@ -358,15 +365,19 @@ const markdownComponents: Components = {
 function AssistantMessage({
   message,
   isLatest,
+  expanded,
   disabled,
   onPick,
 }: {
   message: ChatMessage
   isLatest: boolean
+  expanded: boolean
   disabled: boolean
   onPick: (q: string) => void
 }) {
-  const { status, content, sources, suggestions } = message
+  const { status, content, sources, projects, suggestions } = message
+  const answer = stripTrailingRule(content)
+  const projectImages = mentionedProjects(answer, sources, projects)
 
   if (status === "pending") {
     return (
@@ -398,12 +409,16 @@ function AssistantMessage({
         )}
       >
         <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-          {stripTrailingRule(content)}
+          {answer}
         </Markdown>
         {status === "streaming" && (
           <span className="ml-0.5 inline-block h-3.5 w-1.5 translate-y-0.5 animate-pulse rounded-sm bg-foreground/60" />
         )}
       </div>
+
+      {projectImages.length > 0 && (
+        <ProjectImageGallery projects={projectImages} expanded={expanded} />
+      )}
 
       {status === "done" && linkedSources.length > 0 && (
         <div className="flex flex-wrap items-center gap-1">
@@ -419,6 +434,30 @@ function AssistantMessage({
               {s.title}
             </Link>
           ))}
+        </div>
+      )}
+
+      {(status === "done" || status === "error") && answer.trim() && (
+        <div className="-ml-1.5 flex items-center">
+          <CopyButton
+            variant="ghost"
+            size="icon-xs"
+            className="rounded-md border-none text-muted-foreground hover:text-foreground [&_svg:not([class*='size-'])]:size-3.5"
+            text={answer.trim()}
+            aria-label="Copy answer"
+          />
+          <span
+            className="flex size-6 items-center justify-center text-muted-foreground [&_svg]:size-3.5"
+            aria-hidden
+          >
+            <Share2Icon />
+          </span>
+          <span
+            className="flex size-6 items-center justify-center text-muted-foreground [&_svg]:size-3.5"
+            aria-hidden
+          >
+            <EllipsisIcon />
+          </span>
         </div>
       )}
 
@@ -439,5 +478,46 @@ function AssistantMessage({
         </div>
       )}
     </div>
+  )
+}
+
+function ProjectImageGallery({
+  projects,
+  expanded,
+}: {
+  projects: ChatProjectPreview[]
+  expanded: boolean
+}) {
+  return (
+    <ul
+      className={cn(
+        "grid gap-2",
+        expanded && projects.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"
+      )}
+    >
+      {projects.map((project) => (
+        <li key={project.id}>
+          <Link
+            href={project.url}
+            className="group block overflow-hidden rounded-xl border border-border bg-muted/30 transition-colors hover:border-foreground/20"
+            data-track="view_project"
+            data-track-project={project.title}
+            data-track-source="chat_answer_image"
+          >
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={640}
+              height={360}
+              className="h-auto w-full object-cover"
+              unoptimized
+            />
+            <span className="block truncate px-2.5 py-1.5 text-[11px] text-muted-foreground group-hover:text-foreground">
+              {project.title}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
   )
 }

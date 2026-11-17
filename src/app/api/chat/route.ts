@@ -12,6 +12,7 @@ import {
   groqStream,
   hasGroqKey,
 } from "@/features/chatbot/lib/groq"
+import { projectPreviewsForDocs } from "@/features/chatbot/lib/project-previews"
 import {
   formatContext,
   retrieveContext,
@@ -144,7 +145,11 @@ export async function POST(req: Request) {
       const send = (event: ChatStreamEvent) =>
         controller.enqueue(encoder.encode(JSON.stringify(event) + "\n"))
 
-      send({ type: "sources", sources })
+      send({
+        type: "sources",
+        sources,
+        projects: projectPreviewsForDocs(docs),
+      })
 
       let pending = ""
       let tail = ""

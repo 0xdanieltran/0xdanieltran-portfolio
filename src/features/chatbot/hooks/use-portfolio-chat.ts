@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { trackEvent } from "@/lib/events"
 
 import { MAX_HISTORY_MESSAGES } from "../constants"
-import type { ChatSource, ChatStreamEvent } from "../types"
+import type { ChatProjectPreview, ChatSource, ChatStreamEvent } from "../types"
 
 /** How the visitor asked: typed it, or clicked a suggestion. */
 export type QuestionSource = "typed" | "starter" | "follow_up"
@@ -15,6 +15,7 @@ export type ChatMessage = {
   role: "user" | "assistant"
   content: string
   sources?: ChatSource[]
+  projects?: ChatProjectPreview[]
   suggestions?: string[]
   status?: "pending" | "streaming" | "done" | "error"
 }
@@ -128,7 +129,10 @@ export function usePortfolioChat() {
             const event = JSON.parse(line) as ChatStreamEvent
             switch (event.type) {
               case "sources":
-                patch(assistantId, () => ({ sources: event.sources }))
+                patch(assistantId, () => ({
+                  sources: event.sources,
+                  projects: event.projects,
+                }))
                 break
               case "delta":
                 patch(assistantId, (m) => ({

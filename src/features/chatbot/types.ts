@@ -46,13 +46,20 @@ export type ChatSource = {
   url?: string
 }
 
+export type ChatProjectPreview = {
+  id: string
+  title: string
+  image: string
+  url: string
+}
+
 export type ChatRole = "user" | "assistant"
 
 export type ChatHistoryMessage = { role: ChatRole; content: string }
 
 /** NDJSON events streamed from `/api/chat`. */
 export type ChatStreamEvent =
-  | { type: "sources"; sources: ChatSource[] }
+  | { type: "sources"; sources: ChatSource[]; projects?: ChatProjectPreview[] }
   | { type: "delta"; text: string }
   | { type: "suggestions"; suggestions: string[] }
   | { type: "error"; message: string }

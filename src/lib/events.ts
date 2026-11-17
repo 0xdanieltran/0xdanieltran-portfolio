@@ -22,7 +22,6 @@ export const EVENT_NAMES = [
   "cta_click",
   "social_link_click",
   // AI assistants
-  "assistant_expand",
   "chat_question",
   "chat_answer_failed",
 ] as const
