@@ -1,36 +1,48 @@
 import type { MetadataRoute } from "next"
 
 import { SITE_INFO } from "@/config/site"
-import { getAllDocs, getDocsByCategory } from "@/features/doc/data/documents"
+import { getAllDocs } from "@/features/doc/data/documents"
 import { getAllProjects } from "@/features/portfolio/data/projects"
 
+/**
+ * Only real dates are used for `lastModified`. Pages without a reliable
+ * date omit it: a value that changes on every build ("now") teaches search
+ * engines to ignore the sitemap's dates entirely.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllDocs().map((post) => ({
-    url: `${SITE_INFO.url}/insights/${post.slug}`,
-    lastModified: new Date(post.metadata.updatedAt).toISOString(),
-  }))
+  const docs = getAllDocs()
+  const isComponent = (doc: (typeof docs)[number]) =>
+    doc.metadata.category === "components"
 
-  const components = getDocsByCategory("components").map((post) => ({
-    url: `${SITE_INFO.url}/components/${post.slug}`,
-    lastModified: new Date(post.metadata.updatedAt).toISOString(),
-  }))
+  const toEntry = (path: string, updatedAt?: string) => ({
+    url: `${SITE_INFO.url}${path}`,
+    ...(updatedAt && { lastModified: new Date(updatedAt).toISOString() }),
+  })
 
-  const projects = getAllProjects().map((project) => ({
-    url: `${SITE_INFO.url}/project/${project.id}`,
-    lastModified: new Date().toISOString(),
-  }))
+  const insights = docs.filter((doc) => !isComponent(doc))
+  const components = docs.filter(isComponent)
 
-  const routes = [
-    "",
-    "/insights",
-    "/components",
-    "/project",
-    "/llms.txt",
-    "/llms-full.txt",
-  ].map((route) => ({
-    url: `${SITE_INFO.url}${route}`,
-    lastModified: new Date().toISOString(),
-  }))
+  const latest = (items: typeof docs) =>
+    items
+      .map((doc) => doc.metadata.updatedAt)
+      .sort()
+      .at(-1)
 
-  return [...routes, ...posts, ...components, ...projects]
+  return [
+    toEntry(""),
+    toEntry("/project"),
+    toEntry("/insights", latest(insights)),
+    ...(components.length ? [toEntry("/components", latest(components))] : []),
+    toEntry("/testimonials"),
+    toEntry("/contact"),
+    toEntry("/llms.txt"),
+    toEntry("/llms-full.txt"),
+    ...getAllProjects().map((project) => toEntry(`/project/${project.id}`)),
+    ...insights.map((doc) =>
+      toEntry(`/insights/${doc.slug}`, doc.metadata.updatedAt)
+    ),
+    ...components.map((doc) =>
+      toEntry(`/components/${doc.slug}`, doc.metadata.updatedAt)
+    ),
+  ]
 }
