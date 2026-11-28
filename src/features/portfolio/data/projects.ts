@@ -542,7 +542,7 @@ export const PROJECTS: Project[] = [
     title: "XMR.gg | Crypto Casino",
     period: { start: "2023" },
     type: "app",
-    link: "https://xmrplay.vercel.app",
+    link: "https://btcplay.vercel.app",
     categories: ["web", "igaming"],
     skills: [
       "Node.js",
