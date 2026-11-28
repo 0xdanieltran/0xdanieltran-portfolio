@@ -2,6 +2,7 @@ import { SITE_INFO } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 
 import type { ChatProjectPreview } from "../types"
+import { correctProjectUrls } from "./correct-project-urls"
 
 const CONTACT_HREF = "/contact"
 const CALL_HREF = SITE_INFO.calendarUrl
@@ -56,7 +57,7 @@ function repairPlaceholderLinks(text: string) {
 
 /** Turn plain mentions of contact, calls, email, and project names into Markdown links. */
 export function linkifyAnswer(text: string, projects?: ChatProjectPreview[]) {
-  let next = repairPlaceholderLinks(text)
+  let next = correctProjectUrls(repairPlaceholderLinks(text), projects)
 
   const titles = [...(projects ?? [])]
     .map((project) => ({

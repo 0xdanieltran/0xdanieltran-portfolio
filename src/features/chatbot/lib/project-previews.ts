@@ -1,9 +1,12 @@
 import "server-only"
 
 import { PROJECTS } from "@/features/portfolio/data/projects"
-import { getProjectPrimaryLink } from "@/features/portfolio/types/projects"
+import {
+  getProjectPrimaryLink,
+  isValidProjectUrl,
+} from "@/features/portfolio/types/projects"
 
-import type { ChatProjectPreview, KnowledgeDoc } from "../types"
+import type { ChatProjectPreview } from "../types"
 
 export const PROJECT_PREVIEWS: ChatProjectPreview[] = PROJECTS.filter(
   (project) => project.logo
@@ -13,9 +16,7 @@ export const PROJECT_PREVIEWS: ChatProjectPreview[] = PROJECTS.filter(
   image: project.logo!,
   url: `/project/${project.id}`,
   liveUrl: getProjectPrimaryLink(project),
+  links: [project.link, project.iosLink, project.androidLink].filter(
+    isValidProjectUrl
+  ),
 }))
-
-export function projectPreviewsForDocs(docs: KnowledgeDoc[]) {
-  if (!docs.some((doc) => doc.type === "project")) return undefined
-  return PROJECT_PREVIEWS
-}

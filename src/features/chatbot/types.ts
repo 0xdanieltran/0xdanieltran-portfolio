@@ -54,6 +54,8 @@ export type ChatProjectPreview = {
   url: string
   /** Public live demo / website / store URL, when one exists. */
   liveUrl?: string
+  /** Every public URL of the project (site, App Store, Google Play). */
+  links?: string[]
 }
 
 export type ChatRole = "user" | "assistant"
