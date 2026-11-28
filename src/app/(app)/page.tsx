@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 
+import { SITE_INFO } from "@/config/site"
 import { Blog } from "@/features/portfolio/components/blog"
 import { Experiences } from "@/features/portfolio/components/experiences"
 import { FinalCta } from "@/features/portfolio/components/final-cta"
@@ -12,6 +13,8 @@ import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links-v2"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
 import { TestimonialsMarquee } from "@/features/portfolio/components/testimonials-marquee"
+import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
+import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
@@ -77,11 +80,38 @@ function getPageJsonLd(): WithContext<PageSchema> {
     dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "Person",
+      "@id": `${SITE_INFO.url}/#person`,
       name: USER.displayName,
+      givenName: USER.firstName,
+      familyName: USER.lastName,
+      alternateName: ["0xdanieltran", USER.username],
       identifier: USER.username,
-      image: USER.avatar,
+      url: SITE_INFO.url,
+      image: new URL(USER.avatar, SITE_INFO.url).toString(),
+      jobTitle: USER.jobTitle,
+      description: USER.bio,
+      email: `mailto:${USER.email}`,
+      homeLocation: { "@type": "Place", name: USER.address },
+      // Profiles elsewhere that are the same person — key for disambiguation.
+      sameAs: profileUrls(),
+      knowsAbout: TECH_STACK.map((tech) => tech.title),
+      worksFor: USER.jobs.map((job) => ({
+        "@type": "Organization",
+        name: job.company.trim(),
+      })),
     },
   }
+}
+
+/** Public profile URLs (no mailto, no tracking params). */
+function profileUrls() {
+  return SOCIAL_LINKS.map((link) => link.href)
+    .filter((href) => /^https?:\/\//.test(href))
+    .map((href) => {
+      const url = new URL(href)
+      url.searchParams.delete("utm_source")
+      return url.toString()
+    })
 }
 
 function Separator({ className }: { className?: string }) {

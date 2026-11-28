@@ -18,12 +18,12 @@ export const USER: User = {
   phoneNumber: "+45 33 12 98 34", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "danillppiont106@gmail.com", // base64 encoded
   website: "https://0xdanieltran.vercel.app",
-  jobTitle: "AI Platform Engineer",
+  jobTitle: "Senior Full Stack & AI Engineer",
   jobs: [
     {
-      title: "Senior Full Stack Engineer ",
+      title: "Senior Full Stack Engineer",
       company: "DIFINES",
-      website: "https://0xdanieltran.vercel.app",
+      website: "https://difines.org",
       experienceId: "0xdanieltran",
     },
   ],

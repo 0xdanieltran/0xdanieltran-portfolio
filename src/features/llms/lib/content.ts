@@ -9,9 +9,9 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 import {
-  PROJECT_CATEGORY_LABELS,
   getProjectPrimaryLink,
   isValidProjectUrl,
+  PROJECT_CATEGORY_LABELS,
   sortProjectCategories,
 } from "@/features/portfolio/types/projects"
 
@@ -153,7 +153,7 @@ async function getBlogContent() {
 }
 
 export async function getLlmsFullTxtContent() {
-  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and engineering insights. It includes personal details, work experience, ${PROJECTS.length}+ projects, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as an ${USER.jobTitle}.</SYSTEM>
+  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and engineering insights. It includes personal details, work experience, ${PROJECTS.length}+ projects, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as a ${USER.jobTitle}.</SYSTEM>
 
 # ${USER.displayName}
 
