@@ -2,7 +2,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import type { CreativeWork as PageSchema, WithContext } from "schema-dts"
+import type { SoftwareApplication, WithContext } from "schema-dts"
 
 import {
   Tooltip,
@@ -20,7 +20,11 @@ import {
   getProjectById,
 } from "@/features/portfolio/data/projects"
 import { USER } from "@/features/portfolio/data/user"
-import type { Project } from "@/features/portfolio/types/projects"
+import {
+  getProjectPrimaryLink,
+  isValidProjectUrl,
+  type Project,
+} from "@/features/portfolio/types/projects"
 import { cn } from "@/lib/utils"
 
 export const revalidate = false
@@ -82,21 +86,69 @@ function getProjectDescription(project: Project) {
   )
 }
 
-function getPageJsonLd(project: Project): WithContext<PageSchema> {
+function getSchemaType(project: Project) {
+  if (project.type === "game") return "VideoGame" as const
+  if (project.type === "app") return "MobileApplication" as const
+  return "WebApplication" as const
+}
+
+function getApplicationCategory(project: Project) {
+  const has = (c: Project["categories"][number]) =>
+    project.categories.includes(c)
+  if (project.type === "game" || has("game") || has("igaming"))
+    return "GameApplication"
+  if (has("web3")) return "FinanceApplication"
+  return "BusinessApplication"
+}
+
+function getOperatingSystems(project: Project) {
+  if (project.type === "app") {
+    return [project.iosLink && "iOS", project.androidLink && "Android"].filter(
+      Boolean
+    ) as string[]
+  }
+  const os = ["Web"]
+  if (project.categories.includes("desktop")) os.push("Windows", "macOS")
+  if (project.categories.includes("mobile")) os.push("iOS", "Android")
+  return os
+}
+
+/** "MM.YYYY" → "YYYY-MM", "YYYY" → "YYYY" (ISO 8601). */
+function toIsoDate(period: string) {
+  const [first, second] = period.trim().split(".")
+  if (second && /^\d{4}$/.test(second))
+    return `${second}-${first.padStart(2, "0")}`
+  return /^\d{4}$/.test(first) ? first : undefined
+}
+
+function getPageJsonLd(project: Project): WithContext<SoftwareApplication> {
+  const pageUrl = `${SITE_INFO.url}/project/${project.id}`
+  // Exact public links from projects.ts — never derived from the title or id.
+  const liveUrl = getProjectPrimaryLink(project)
+  const links = [project.link, project.iosLink, project.androidLink].filter(
+    isValidProjectUrl
+  )
+
   return {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": getSchemaType(project),
     name: project.title,
     description: getProjectDescription(project),
-    url: `${SITE_INFO.url}/project/${project.id}`,
-    image: project.logo
-      ? `${SITE_INFO.url}${project.logo}`
-      : `${SITE_INFO.url}${SITE_INFO.ogImage}`,
+    url: liveUrl ?? pageUrl,
+    ...(links.length > 1 && { sameAs: links }),
+    ...(project.type === "app" && links.length && { installUrl: links }),
+    mainEntityOfPage: pageUrl,
+    image: new URL(project.logo || SITE_INFO.ogImage, SITE_INFO.url).toString(),
+    applicationCategory: getApplicationCategory(project),
+    operatingSystem: getOperatingSystems(project).join(", "),
+    keywords: project.skills.join(", "),
+    dateCreated: toIsoDate(project.period.start),
     author: {
       "@type": "Person",
+      // Same entity as the Person on the home page.
+      "@id": `${SITE_INFO.url}/#person`,
       name: USER.displayName,
-      identifier: USER.username,
-      image: USER.avatar,
+      url: SITE_INFO.url,
     },
   }
 }
