@@ -52,6 +52,15 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Daniel Tran",
+  // Search engine ownership verification (these tokens are public by design).
+  verification: {
+    google:
+      process.env.GOOGLE_SITE_VERIFICATION ||
+      "qVk9WKuWkeMBKB0N47ZQ1MXYagvlLmQIWOqB_wkD2i4",
+    ...(process.env.BING_SITE_VERIFICATION && {
+      other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION },
+    }),
+  },
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
