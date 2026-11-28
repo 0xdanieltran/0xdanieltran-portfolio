@@ -538,10 +538,9 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    id: "xmr-casino",
-    title: "XMR.gg | Crypto Casino",
+    id: "crypto-casino",
+    title: "Crypto Casino | iGaming",
     period: { start: "2023" },
-    type: "app",
     link: "https://btcplay.vercel.app",
     categories: ["web", "igaming"],
     skills: [
